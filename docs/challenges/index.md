@@ -3,6 +3,7 @@ layout: default
 title: Challenges
 nav_order: 3
 has_children: true
+has_toc: false
 description: "8 challenges taking you from requirements to partner showcase"
 ---
 

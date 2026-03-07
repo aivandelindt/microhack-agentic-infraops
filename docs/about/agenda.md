@@ -1,3 +1,11 @@
+---
+layout: default
+title: Agenda
+parent: About
+nav_order: 1
+description: "Detailed 6-hour workshop agenda with timing, activities, and facilitator notes"
+---
+
 # Microhack Agenda
 
 > **Agentic InfraOps Microhack** — 6 hours (10:00 - 16:00)
@@ -48,9 +56,9 @@
 
 **Total Points**: 105 base + 25 bonus
 
-> [!NOTE]
-> **Coaches**: See [facilitator-guide.md](facilitator/facilitator-guide.md) for Challenge 4 details.
+> **Coaches**: See [facilitator-guide.md](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/facilitator/facilitator-guide.md) for Challenge 4 details.
 > Challenge 8 focuses on professional communication and presentation skills.
+{: .note }
 
 ---
 
@@ -148,7 +156,7 @@ Teams prepare their Partner Showcase presentations (4-min pitch + 2-min Q&A form
 
 ## Quick Reference
 
-- **Repo**: [github.com/jonathan-vella/azure-agentic-infraops-workshop](https://github.com/jonathan-vella/azure-agentic-infraops-workshop)
-- **Challenges**: [microhack/challenges/](challenges/)
-- **Facilitator Guide**: [microhack/facilitator/facilitator-guide.md](facilitator/facilitator-guide.md)
-- **Pre-Work**: [docs/getting-started.md](../docs/getting-started.md)
+- **Repo**: [github.com/jonathan-vella/microhack-agentic-infraops](https://github.com/jonathan-vella/microhack-agentic-infraops)
+- **Challenges**: [microhack/challenges/](../challenges/)
+- **Facilitator Guide**: [facilitator/facilitator-guide.md](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/facilitator/facilitator-guide.md)
+- **Pre-Work**: [docs/getting-started.md](../getting-started/setup.md)

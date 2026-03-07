@@ -1,0 +1,12 @@
+{
+  // Host-side extensions (install these before opening the Dev Container)
+  "recommendations": [
+    // Required on host to open the Dev Container at all
+    "ms-vscode-remote.remote-containers",
+    // Required on host for Copilot licensing and sign-in
+    "github.copilot-chat"
+  ],
+  // Extensions below are already declared in .devcontainer/devcontainer.json
+  // and install automatically inside the container — no manual action needed.
+  "unwantedRecommendations": []
+}

@@ -37,18 +37,18 @@ You need **Owner** or **Resource Policy Contributor** role on the subscription t
 
 ## Running the Scripts
 
-Scripts are located in [`import/microhack/scripts/`](https://github.com/jonathan-vella/microhack-agentic-infraops/tree/main/import/microhack/scripts) in the repository.
+Scripts are located in [`scripts/`](https://github.com/jonathan-vella/microhack-agentic-infraops/tree/main/scripts) in the repository.
 
 Run from the **repository root**:
 
 ```bash
-pwsh -File import/microhack/scripts/<script-name>.ps1 -Subscription "<subscription-name-or-id>"
+pwsh -File scripts/<script-name>.ps1 -Subscription "<subscription-name-or-id>"
 ```
 
 Or navigate to the folder first:
 
 ```bash
-cd import/microhack/scripts
+cd scripts
 pwsh -File ./Setup-GovernancePolicies.ps1 -Subscription "<subscription-name-or-id>"
 ```
 
@@ -58,7 +58,7 @@ pwsh -File ./Setup-GovernancePolicies.ps1 -Subscription "<subscription-name-or-i
 
 ### 1. Setup-GovernancePolicies.ps1
 
-[View source on GitHub](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/import/microhack/scripts/Setup-GovernancePolicies.ps1)
+[View source on GitHub](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/scripts/Setup-GovernancePolicies.ps1)
 
 **When to use:** Before the event starts, to deploy governance constraints that teams must work around.
 
@@ -77,16 +77,16 @@ and are idempotent — existing assignments are skipped automatically.
 
 ```bash
 # Preview first (always recommended)
-pwsh -File import/microhack/scripts/Setup-GovernancePolicies.ps1 \
+pwsh -File scripts/Setup-GovernancePolicies.ps1 \
   -Subscription "<subscription-name-or-id>" \
   -WhatIf
 
 # Deploy policies
-pwsh -File import/microhack/scripts/Setup-GovernancePolicies.ps1 \
+pwsh -File scripts/Setup-GovernancePolicies.ps1 \
   -Subscription "<subscription-name-or-id>"
 
 # Deploy with verbose output
-pwsh -File import/microhack/scripts/Setup-GovernancePolicies.ps1 \
+pwsh -File scripts/Setup-GovernancePolicies.ps1 \
   -Subscription "<subscription-name-or-id>" \
   -Verbose
 ```
@@ -122,7 +122,7 @@ TotalPolicies  : 8
 
 ### 2. Get-GovernanceStatus.ps1
 
-[View source on GitHub](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/import/microhack/scripts/Get-GovernanceStatus.ps1)
+[View source on GitHub](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/scripts/Get-GovernanceStatus.ps1)
 
 **When to use:** Anytime — before, during, or after the event — to verify which policies are active
 and their compliance state.
@@ -141,11 +141,11 @@ Lists policy assignments on the subscription and reports compliance counts from 
 
 ```bash
 # Check all policy assignments on the subscription
-pwsh -File import/microhack/scripts/Get-GovernanceStatus.ps1 \
+pwsh -File scripts/Get-GovernanceStatus.ps1 \
   -Subscription "<subscription-name-or-id>"
 
 # Check only microhack policies
-pwsh -File import/microhack/scripts/Get-GovernanceStatus.ps1 \
+pwsh -File scripts/Get-GovernanceStatus.ps1 \
   -Subscription "<subscription-name-or-id>" \
   -MicrohackOnly
 ```
@@ -167,7 +167,7 @@ microhack-re... Microhack: Require Environment tag Default         NonCompliant 
 
 ### 3. Remove-GovernancePolicies.ps1
 
-[View source on GitHub](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/import/microhack/scripts/Remove-GovernancePolicies.ps1)
+[View source on GitHub](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/scripts/Remove-GovernancePolicies.ps1)
 
 **When to use:** After the event ends, to restore the subscription to its pre-event state.
 
@@ -185,12 +185,12 @@ Finds and deletes all policy assignments with the `microhack-` prefix. Supports 
 
 ```bash
 # Preview what will be removed
-pwsh -File import/microhack/scripts/Remove-GovernancePolicies.ps1 \
+pwsh -File scripts/Remove-GovernancePolicies.ps1 \
   -Subscription "<subscription-name-or-id>" \
   -WhatIf
 
 # Remove all microhack policies
-pwsh -File import/microhack/scripts/Remove-GovernancePolicies.ps1 \
+pwsh -File scripts/Remove-GovernancePolicies.ps1 \
   -Subscription "<subscription-name-or-id>"
 ```
 
@@ -212,15 +212,15 @@ TotalFound     : 8
 SUB="<your-subscription-name-or-id>"
 
 # 1. Before the event — deploy governance
-pwsh -File import/microhack/scripts/Setup-GovernancePolicies.ps1 -Subscription $SUB -WhatIf
-pwsh -File import/microhack/scripts/Setup-GovernancePolicies.ps1 -Subscription $SUB
+pwsh -File scripts/Setup-GovernancePolicies.ps1 -Subscription $SUB -WhatIf
+pwsh -File scripts/Setup-GovernancePolicies.ps1 -Subscription $SUB
 
 # 2. Verify policies are active (run after 5–15 min)
-pwsh -File import/microhack/scripts/Get-GovernanceStatus.ps1 -Subscription $SUB -MicrohackOnly
+pwsh -File scripts/Get-GovernanceStatus.ps1 -Subscription $SUB -MicrohackOnly
 
 # 3. After the event — remove governance
-pwsh -File import/microhack/scripts/Remove-GovernancePolicies.ps1 -Subscription $SUB -WhatIf
-pwsh -File import/microhack/scripts/Remove-GovernancePolicies.ps1 -Subscription $SUB
+pwsh -File scripts/Remove-GovernancePolicies.ps1 -Subscription $SUB -WhatIf
+pwsh -File scripts/Remove-GovernancePolicies.ps1 -Subscription $SUB
 ```
 
 ---

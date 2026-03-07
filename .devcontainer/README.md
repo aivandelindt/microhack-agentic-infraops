@@ -1,12 +1,21 @@
-# DevContainer — Jekyll Development Environment
+# DevContainer — Agentic InfraOps MicroHack
 
-This devcontainer provides a ready-to-use environment for building and previewing the Agentic InfraOps MicroHack documentation site.
+This devcontainer provides the complete environment for both running the MicroHack workshop and building the documentation site.
 
 ## What's Included
 
-- **Ruby** (via Jekyll devcontainer image) — for Jekyll site generation
-- **Node.js LTS** — for markdownlint-cli2
-- **VS Code extensions** — Markdown linting, YAML support, Mermaid preview, Liquid syntax
+| Tool | Version | Purpose |
+|---|---|---|
+| Ruby + Jekyll | via base image | Documentation site generation |
+| Node.js + npm | LTS | markdownlint-cli2 |
+| Azure CLI (`az`) | Latest | Azure resource management |
+| Bicep CLI | Latest | Infrastructure as Code (installed via Azure CLI feature) |
+| GitHub CLI (`gh`) | Latest | Repository and PR management |
+| Python 3 + pip | 3.12 | Diagram generation, MCP server |
+| PowerShell (`pwsh`) | 7.x | Deployment scripts, microhack automation |
+| k6 | Latest | Load testing (challenge 5) |
+
+**VS Code extensions** — Azure Bicep, Azure CLI Tools, PowerShell, Azure Resource Groups, Markdown linting, YAML support, Mermaid preview
 
 ## Getting Started
 

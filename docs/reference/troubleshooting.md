@@ -139,7 +139,7 @@ For remaining issues, check `.markdownlint-cli2.jsonc` for the rule that fired.
 Check status with:
 
 ```powershell
-pwsh import/microhack/scripts/Get-GovernanceStatus.ps1
+pwsh scripts/Get-GovernanceStatus.ps1
 ```
 
 ### Scoring script returns zero

@@ -1,11 +1,19 @@
+---
+layout: default
+title: Feedback Form
+parent: About
+nav_order: 3
+description: "Workshop feedback form — help us improve future events"
+---
+
 # Microhack Feedback Form
 
 > **Thank you for participating!** Your feedback helps us improve future events.
 
-> [!TIP]
 > This form is a markdown template. For live events, convert it to
 > [Microsoft Forms](https://forms.office.com) or print it as a handout.
 > Checkbox items (☐) are for pen-and-paper or digital-form use.
+{: .tip }
 
 ## Event Details
 

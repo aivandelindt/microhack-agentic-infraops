@@ -3,6 +3,7 @@ layout: default
 title: Getting Started
 nav_order: 2
 has_children: true
+has_toc: false
 description: "Set up your environment and learn the workshop scenario"
 ---
 
@@ -12,5 +13,5 @@ Everything you need to prepare for the MicroHack. Follow the setup guide to conf
 
 **In this section:**
 
-- **[Environment Setup](setup.html)** — Dev container, Azure CLI, quota checks, and first-run verification
-- **[Workshop Prep](workshop-prep.html)** — Business scenario briefing and team role cards
+- **[Environment Setup](setup.md)** — Dev container, Azure CLI, quota checks, and first-run verification
+- **[Workshop Prep](workshop-prep.md)** — Business scenario briefing and team role cards

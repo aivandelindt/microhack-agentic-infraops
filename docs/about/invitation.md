@@ -1,3 +1,11 @@
+---
+layout: default
+title: Workshop Invitation
+parent: About
+nav_order: 2
+description: "Event invitation details — what to expect, what to bring, and how to prepare"
+---
+
 # Agentic InfraOps Microhack — Invitation
 
 > **Transform how you deliver Azure infrastructure using AI-powered agents**
@@ -64,7 +72,7 @@ ability to adapt to changing requirements — just like real projects!
 - Azure subscription with Owner access (required for Azure Policy)
 - Curiosity and a willingness to experiment! 🚀
 
-📋 **Full setup checklist**: [Getting Started](https://github.com/jonathan-vella/azure-agentic-infraops-workshop/blob/main/docs/getting-started.md)
+📋 **Full setup checklist**: [Getting Started](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/docs/getting-started/setup.md)
 
 ---
 

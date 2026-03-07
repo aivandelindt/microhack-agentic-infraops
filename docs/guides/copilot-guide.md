@@ -28,7 +28,7 @@ pre-installed (Azure CLI, Bicep, k6, Node.js, Python). You don't need to install
 on your local machine beyond Docker and VS Code.
 
 When you open the repository, VS Code prompts you to "Reopen in Container." Accept this to
-get the fully configured environment. See [Getting Started](../getting-started/setup.md#dev-container-setup) for details.
+get the fully configured environment. See [Getting Started](../getting-started/setup.md#dev-container) for details.
 
 ---
 
@@ -36,7 +36,7 @@ get the fully configured environment. See [Getting Started](../getting-started/s
 
 GitHub Copilot is an AI coding assistant built into VS Code. This project requires a
 **Copilot Pro+** or **Copilot Enterprise** license (verified during
-[pre-event setup](../getting-started/setup.md#accounts)).
+[pre-event setup](../getting-started/setup.md#github-with-copilot-pro-or-enterprise)).
 
 Copilot works in three main modes, each suited to different tasks:
 

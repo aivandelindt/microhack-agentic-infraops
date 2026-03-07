@@ -15,10 +15,10 @@ description: "Complete environment setup: Azure subscription, GitHub Codespace, 
 - [🎯 Who This Is For](#-who-this-is-for)
 - [🗺️ What to Expect](#️-what-to-expect)
 - [📋 Prerequisites](#-prerequisites)
-- [🐳 Dev Container](#-dev-container)
+- [🐳 Dev Container](#dev-container)
 - [🚀 Setup Steps](#-setup-steps)
-- [⚖️ Azure Quota Requirements](#️-azure-quota-requirements)
-- [✅ Pre-Event Checklist](#-pre-event-checklist)
+- [⚖️ Azure Quota Requirements](#azure-quota-requirements)
+- [✅ Pre-Event Checklist](#pre-event-checklist)
 - [⏱️ First 10 Minutes on Event Day](#️-first-10-minutes-on-event-day)
 - [🚑 Troubleshooting Quick Fixes](#-troubleshooting-quick-fixes)
 - [⏭️ Next Steps](#️-next-steps)
@@ -81,6 +81,8 @@ Bicep Infrastructure as Code.
 {: .warning }
 
 ### ✅ Pre-Event Checklist
+
+{: #pre-event-checklist }
 
 > Complete every item below **before the event day**. Arrive ready — there is no setup
 > time built into the agenda.
@@ -301,6 +303,8 @@ az account list --output table
 
 ## 🐳 Dev Container
 
+{: #dev-container }
+
 > **Pull and build the Dev Container image before the event day.** The first build
 > downloads ~1–2 GB of layers and takes 3–5 minutes. Doing this on-site wastes time
 > and strains shared Wi-Fi. Complete [Setup Steps](#-setup-steps) in advance.
@@ -331,7 +335,6 @@ The repo includes a Dev Container with all tools pre-installed. It works with
 | --------------------------------- | ----------------------------------------- |
 | `.devcontainer/devcontainer.json` | Container definition and VS Code settings |
 | `.vscode/extensions.json`         | Recommended VS Code extensions            |
-| `.vscode/mcp.json`                | MCP server configuration                  |
 
 </details>
 
@@ -473,7 +476,7 @@ The Conductor guides you through all 7 steps with approval gates:
 6. **Deploy** — Azure provisioning with what-if preview
 7. **Documentation** — as-built suite
 
-Explore complete sample artifacts in [`agent-output/_sample/`](../agent-output/_sample/).
+Explore complete sample artifacts in the `agent-output/_sample/` directory (created during the workshop).
 
 <details markdown="1">
 <summary><strong>Network Requirements</strong></summary>
@@ -494,6 +497,8 @@ Ensure your network allows outbound HTTPS to:
 ---
 
 ## ⚖️ Azure Quota Requirements
+
+{: #azure-quota-requirements }
 
 > **Verify your subscription has sufficient quota BEFORE the microhack.**
 {: .warning }

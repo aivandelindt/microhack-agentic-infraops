@@ -46,40 +46,30 @@ A Stockholm-based farm-to-table delivery company needs cloud infrastructure. You
 
 ```text
 docs/                   # GitHub Pages site (just-the-docs theme)
-import/
-  docs/                 # User-facing documentation
-    getting-started.md  # Setup, dev container, quotas
-    copilot-guide.md    # VS Code agents, skills, prompting tips
-    workshop-prep.md    # Scenario brief and team role cards
-    hints-and-tips.md   # Challenge-specific guidance
-    troubleshooting.md  # Common issues and fixes
-  microhack/            # MicroHack materials
-    challenges/         # 8 challenge briefs
-    facilitator/        # Facilitator guide, scoring rubric, solution reference
-    participant/        # Participant resources
-    scripts/            # Governance & scoring PowerShell scripts
+facilitator/            # Facilitator guide, scoring rubric, solution reference
+scripts/                # Governance & scoring PowerShell scripts
 ```
 
 ## Getting Started
 
 1. **Open in Dev Container** — This repo includes a dev container with all prerequisites.
-2. **Read** [Getting Started](import/docs/getting-started.md) for setup and Azure quota requirements.
-3. **Review** [Workshop Prep](import/docs/workshop-prep.md) for the scenario brief and team roles.
-4. **Follow** the challenges in order starting from [Challenge 1](import/microhack/challenges/challenge-1-requirements.md).
+2. **Read** [Getting Started](docs/getting-started/setup.md) for setup and Azure quota requirements.
+3. **Review** [Workshop Prep](docs/getting-started/workshop-prep.md) for the scenario brief and team roles.
+4. **Follow** the challenges in order starting from [Challenge 1](docs/challenges/challenge-1-requirements.md).
 
 ## Quick Links
 
 | Resource | Description |
 | --- | --- |
-| [Agenda](import/microhack/AGENDA.md) | Full schedule with timing |
-| [Copilot Guide](import/docs/copilot-guide.md) | Agents, skills, and prompting tips |
-| [Quick Reference Card](import/docs/quick-reference-card.md) | Printable one-page cheat sheet |
-| [Scoring Rubric](import/microhack/facilitator/scoring-rubric.md) | WAF-aligned evaluation criteria |
-| [Troubleshooting](import/docs/troubleshooting.md) | Common issues and fixes |
+| [Agenda](docs/about/agenda.md) | Full schedule with timing |
+| [Copilot Guide](docs/guides/copilot-guide.md) | Agents, skills, and prompting tips |
+| [Quick Reference Card](docs/guides/quick-reference-card.md) | Printable one-page cheat sheet |
+| [Scoring Rubric](facilitator/scoring-rubric.md) | WAF-aligned evaluation criteria |
+| [Troubleshooting](docs/reference/troubleshooting.md) | Common issues and fixes |
 
 ## Contributing
 
-See [Contributing Guide](import/docs/guides/contributing.md) for Git workflow, commit conventions, and versioning.
+See [Contributing Guide](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/CONTRIBUTING.md) for Git workflow, commit conventions, and versioning.
 
 ## License
 
