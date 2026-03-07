@@ -15,10 +15,10 @@
 
 <!-- Update this at the START of each session -->
 
-**Phase**: D (Challenges)
-**Step**: D1 — Create challenges/index.md content
-**Prompt**: `site-06-challenges.prompt.md`
-**Goal**: Merge challenges/README.md workflow diagram + AGENDA schedule into challenges index
+**Phase**: F (Reference)
+**Step**: F1 — Migrate GLOSSARY.md
+**Prompt**: `site-08-reference.prompt.md`
+**Goal**: Migrate glossary.md, troubleshooting.md, governance-scripts.md to docs/reference/
 **Blockers**: Smoke test deferred (no Ruby in WSL environment — will run in devcontainer or CI)
 
 ---
@@ -79,33 +79,33 @@ Transformation rules for ALL migration steps:
 
 **Prompt**: site-06
 
-- [ ] D1: Create `docs/challenges/index.md` content (merge challenges/README.md workflow diagram + AGENDA schedule extract)
+- [x] D1: Create `docs/challenges/index.md` content (merge challenges/README.md workflow diagram + AGENDA schedule extract)
   - Mermaid diagram from: `import/microhack/challenges/README.md` (1 flowchart)
-- [ ] D2: Migrate `challenge-1-requirements.md` → `docs/challenges/challenge-1-requirements.md`
+- [x] D2: Migrate `challenge-1-requirements.md` → `docs/challenges/challenge-1-requirements.md`
   - Add challenge_header include (Duration: 30min, Points: 20, Agent: requirements)
-- [ ] D3: Migrate `challenge-2-architecture.md` → `docs/challenges/challenge-2-architecture.md`
+- [x] D3: Migrate `challenge-2-architecture.md` → `docs/challenges/challenge-2-architecture.md`
   - Callouts: 1 (NOTE), Facilitator link: 1 (scoring-rubric.md → remove/rewrite)
-- [ ] D4: Migrate `challenge-3-implementation.md` → `docs/challenges/challenge-3-implementation.md`
+- [x] D4: Migrate `challenge-3-implementation.md` → `docs/challenges/challenge-3-implementation.md`
   - Callouts: 1 (NOTE), Facilitator link: 1, Mermaid: 1, Repo URL: 1 (governance scripts)
-- [ ] D5: Migrate `challenge-4-dr-curveball.md` → `docs/challenges/challenge-4-dr-curveball.md`
+- [x] D5: Migrate `challenge-4-dr-curveball.md` → `docs/challenges/challenge-4-dr-curveball.md`
   - Callouts: 1 (NOTE), Facilitator link: 1
-- [ ] D6: Migrate `challenge-5-load-testing.md` → `docs/challenges/challenge-5-load-testing.md`
+- [x] D6: Migrate `challenge-5-load-testing.md` → `docs/challenges/challenge-5-load-testing.md`
   - Callouts: 1 (NOTE), Facilitator link: 1
-- [ ] D7: Migrate `challenge-6-documentation.md` → `docs/challenges/challenge-6-documentation.md`
+- [x] D7: Migrate `challenge-6-documentation.md` → `docs/challenges/challenge-6-documentation.md`
   - Callouts: 1 (NOTE), Facilitator link: 1
-- [ ] D8: Migrate `challenge-7-diagnostics.md` → `docs/challenges/challenge-7-diagnostics.md`
-- [ ] D9: Migrate `challenge-8-partner-showcase.md` → `docs/challenges/challenge-8-partner-showcase.md`
+- [x] D8: Migrate `challenge-7-diagnostics.md` → `docs/challenges/challenge-7-diagnostics.md`
+- [x] D9: Migrate `challenge-8-partner-showcase.md` → `docs/challenges/challenge-8-partner-showcase.md`
   - Mermaid: 1 (timeline diagram)
 
 ### Phase E — Content Migration: Guides (Step 7)
 
 **Prompt**: site-07
 
-- [ ] E1: Migrate `import/docs/copilot-guide.md` → `docs/guides/copilot-guide.md`
+- [x] E1: Migrate `import/docs/copilot-guide.md` → `docs/guides/copilot-guide.md`
   - Callouts: 1 (TIP)
-- [ ] E2: Migrate `import/docs/hints-and-tips.md` → `docs/guides/hints-and-tips.md`
+- [x] E2: Migrate `import/docs/hints-and-tips.md` → `docs/guides/hints-and-tips.md`
   - `<details>` blocks: 10 (all need `markdown="1"`)
-- [ ] E3: Migrate `import/docs/quick-reference-card.md` → `docs/guides/quick-reference-card.md`
+- [x] E3: Migrate `import/docs/quick-reference-card.md` → `docs/guides/quick-reference-card.md`
   - Facilitator link: 1 (scoring-rubric → rewrite to GitHub URL or descriptive text)
   - Mermaid: 1 (4-backtick code example — must NOT render as live chart, verify)
 
@@ -269,6 +269,23 @@ Each challenge file (D2-D9) must include the challenge header at the top of cont
 |     |            |            | repo URLs, 7 link fixes) |                     |           |
 |     |            |            | + workshop-prep.md (1    |                     |           |
 |     |            |            | link fix). All verified. |                     |           |
+| 6   | 2026-03-07 | D / D1-D9  | Migrated all 8 challenge | E1: Migrate copilot | None      |
+|     |            |            | files + updated index    | -guide.md           |           |
+|     |            |            | with links. Callouts (5  |                     |           |
+|     |            |            | NOTE→{:.note}), details  |                     |           |
+|     |            |            | (3×markdown=1), repo URL |                     |           |
+|     |            |            | (1), facilitator links   |                     |           |
+|     |            |            | (5 removed), Mermaid (2  |                     |           |
+|     |            |            | preserved). All verified.|                     |           |
+| 7   | 2026-03-07 | E / E1-E3  | Migrated 3 guide files:  | F1: Migrate glossary| None      |
+|     |            |            | copilot-guide (1 TIP     | .md                 |           |
+|     |            |            | callout, 4 link fixes),  |                     |           |
+|     |            |            | hints-and-tips (10       |                     |           |
+|     |            |            | details→markdown=1),     |                     |           |
+|     |            |            | quick-reference-card (1  |                     |           |
+|     |            |            | facilitator link→text,   |                     |           |
+|     |            |            | stray backtick fence     |                     |           |
+|     |            |            | fixed). All verified.    |                     |           |
 
 ---
 
@@ -290,6 +307,7 @@ Each challenge file (D2-D9) must include the challenge header at the top of cont
 | 2026-03-07 | SVG favicon instead of .ico                      | Can't generate .ico programmatically; SVG supported by modern browsers; added via head_custom.html |
 | 2026-03-07 | Smoke test deferred to devcontainer/CI            | Ruby not available in WSL environment               |
 | 2026-03-07 | getting-started.md has 16 callouts, not 17       | Actual count: TIP ×3, WARNING ×6, IMPORTANT ×4, NOTE ×3 = 16 (tracker had TIP ×4) |
+| 2026-03-07 | Fixed stray 4-backtick fence in quick-ref-card   | Original had ```` wrapping Pro Tips content in a code block — removed opening and closing stray fences |
 
 ---
 

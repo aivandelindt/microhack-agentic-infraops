@@ -14,14 +14,14 @@ Eight challenges guide you through the full Infrastructure-as-Code lifecycle —
 
 | # | Challenge | Duration | Points |
 |---|---|---|---|
-| 1 | Requirements Capture | 30 min | 20 |
-| 2 | Architecture Design | 30 min | 25 |
-| 3 | Bicep Implementation & Deploy | 45 min | 25 |
-| 4 | DR Curveball & Deploy | 45 min | 10 |
-| 5 | Load Testing | 30 min | 5 |
-| 6 | Workload Documentation | 15 min | 5 |
-| 7 | Troubleshooting & Diagnostics | 5 min | 5 |
-| 8 | Partner Showcase | 60 min | 10 |
+| 1 | [Requirements Capture](challenge-1-requirements.md) | 30 min | 20 |
+| 2 | [Architecture Design](challenge-2-architecture.md) | 30 min | 25 |
+| 3 | [Bicep Implementation & Deploy](challenge-3-implementation.md) | 45 min | 25 |
+| 4 | [DR Curveball & Deploy](challenge-4-dr-curveball.md) | 45 min | 10 |
+| 5 | [Load Testing](challenge-5-load-testing.md) | 30 min | 5 |
+| 6 | [Workload Documentation](challenge-6-documentation.md) | 15 min | 5 |
+| 7 | [Troubleshooting & Diagnostics](challenge-7-diagnostics.md) | 5 min | 5 |
+| 8 | [Partner Showcase](challenge-8-partner-showcase.md) | 60 min | 10 |
 
 **Total:** 105 base points + up to 25 bonus points
 
