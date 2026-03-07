@@ -15,10 +15,10 @@
 
 <!-- Update this at the START of each session -->
 
-**Phase**: B (Structure)
-**Step**: B1 — Landing page + section indexes
-**Prompt**: `site-04-landing-structure.prompt.md`
-**Goal**: Create landing page index.md and 5 section index pages
+**Phase**: D (Challenges)
+**Step**: D1 — Create challenges/index.md content
+**Prompt**: `site-06-challenges.prompt.md`
+**Goal**: Merge challenges/README.md workflow diagram + AGENDA schedule into challenges index
 **Blockers**: Smoke test deferred (no Ruby in WSL environment — will run in devcontainer or CI)
 
 ---
@@ -46,21 +46,22 @@
 
 **Prompt**: site-04
 
-- [ ] B1: Create `docs/index.md` (landing page — hero, CTA, schedule, navigation cards)
+- [x] B1: Create `docs/index.md` (landing page — hero, CTA, schedule, navigation cards)
   - Extract from: `import/microhack/README.md` (business scenario, scoring, learning objectives)
   - Extract from: `import/microhack/workshop-invitation.md` (tagline, one-liner)
   - New: Mermaid Gantt schedule overview
-- [ ] B2: Create `docs/getting-started/index.md` (section index — short intro, has_children: true)
-- [ ] B2: Create `docs/challenges/index.md` (section index — challenge overview table + workflow diagram from README.md)
-- [ ] B2: Create `docs/guides/index.md` (section index — short intro, has_children: true)
-- [ ] B2: Create `docs/reference/index.md` (section index — short intro, has_children: true)
-- [ ] B2: Create `docs/about/index.md` (section index — short intro, has_children: true)
+- [x] B2: Create `docs/getting-started/index.md` (section index — short intro, has_children: true)
+- [x] B2: Create `docs/challenges/index.md` (section index — challenge overview table + workflow diagram from README.md)
+- [x] B2: Create `docs/guides/index.md` (section index — short intro, has_children: true)
+- [x] B2: Create `docs/reference/index.md` (section index — short intro, has_children: true)
+- [x] B2: Create `docs/about/index.md` (section index — short intro, has_children: true)
 
 ### Phase C — Content Migration: Getting Started (Step 5)
 
 **Prompt**: site-05
 
 Transformation rules for ALL migration steps:
+
 1. Add YAML frontmatter (layout, title, nav_order, parent, description)
 2. Convert callouts: `> [!WARNING]` → `{: .warning }`, `> [!TIP]` → `{: .tip }`, `> [!NOTE]` → `{: .note }`, `> [!IMPORTANT]` → `{: .important }`
 3. Add `markdown="1"` to ALL `<details>` tags
@@ -68,11 +69,11 @@ Transformation rules for ALL migration steps:
 5. Fix internal cross-links to new relative paths
 6. Remove/rewrite facilitator content links (convert to GitHub repo URLs or descriptive text)
 
-- [ ] C1: Migrate `import/docs/getting-started.md` → `docs/getting-started/setup.md`
-  - Callouts: 17 (TIP ×4, WARNING ×6, IMPORTANT ×4, NOTE ×3)
+- [x] C1: Migrate `import/docs/getting-started.md` → `docs/getting-started/setup.md`
+  - Callouts: 16 (TIP ×3, WARNING ×6, IMPORTANT ×4, NOTE ×3)
   - `<details>` blocks: 24 (all need `markdown="1"`)
   - Repo URLs: 2 (git clone + cd)
-- [ ] C2: Migrate `import/docs/workshop-prep.md` → `docs/getting-started/workshop-prep.md`
+- [x] C2: Migrate `import/docs/workshop-prep.md` → `docs/getting-started/workshop-prep.md`
 
 ### Phase D — Content Migration: Challenges (Step 6)
 
@@ -152,6 +153,7 @@ Transformation rules for ALL migration steps:
 These rules apply to every file migrated in Phases C-G:
 
 ### 1. Callout Conversion
+
 ```
 > [!WARNING]       →  {: .warning }    (yellow)
 > text              →  > text
@@ -165,28 +167,37 @@ These rules apply to every file migrated in Phases C-G:
 > [!IMPORTANT]     →  {: .important }  (green)
 > text              →  > text
 ```
+
 Format: Remove the `> [!TYPE]` line. Keep the blockquote content. Add `{: .warning }` (or appropriate type) on the line immediately after the closing blockquote.
 
 ### 2. `<details>` Block Handling
+
 Add `markdown="1"` attribute to every `<details>` tag:
+
 ```html
 <details>           →  <details markdown="1">
 <details open>      →  <details open markdown="1">
 ```
 
 ### 3. Repo URL Rewriting
+
 ```
 azure-agentic-infraops-workshop  →  microhack-agentic-infraops
 ```
+
 Apply to all URLs, git clone commands, and path references.
 
 ### 4. Facilitator Link Strategy
+
 Links to `facilitator/scoring-rubric.md`, `facilitator/facilitator-guide.md`, or `facilitator/solution-reference.md`:
+
 - **In challenge scoring sections**: Remove the link but keep descriptive text (e.g., "See scoring rubric for details" without link)
 - **In AGENDA.md**: Convert to full GitHub repo URL: `https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/import/microhack/facilitator/facilitator-guide.md`
 
 ### 5. Challenge Header Include
+
 Each challenge file (D2-D9) must include the challenge header at the top of content (after frontmatter):
+
 ```liquid
 {% include challenge_header.html
    duration="30 min"
@@ -201,6 +212,7 @@ Each challenge file (D2-D9) must include the challenge header at the top of cont
 ## Key Files (context loading reference)
 
 ### Always read (every session)
+
 1. **This file** — `.github/exec-plans/active/site-execution.md`
 2. **Plan** — `.github/prompts/plan-agenticInfraOpsMicrohack.prompt.md` (read only the phase you're working on)
 
@@ -244,6 +256,19 @@ Each challenge file (D2-D9) must include the challenge header at the top of cont
 |     |            |            | CSS), logo.svg, favicon  |                     |           |
 |     |            |            | .svg + head_custom.html, |                     |           |
 |     |            |            | challenge_header.html    |                     |           |
+| 4   | 2026-03-07 | B / B1-B2  | Created docs/index.md    | C1: Migrate getting | None      |
+|     |            |            | landing page (hero, Gantt| -started.md → setup |           |
+|     |            |            | schedule, key facts,     | .md                 |           |
+|     |            |            | objectives, scenario,    |                     |           |
+|     |            |            | nav cards) + 5 section   |                     |           |
+|     |            |            | index pages with correct |                     |           |
+|     |            |            | frontmatter & nav_order  |                     |           |
+| 5   | 2026-03-07 | C / C1-C2  | Migrated getting-started | D1: Create challenge| None      |
+|     |            |            | .md → setup.md (16       | index content       |           |
+|     |            |            | callouts, 24 details, 2  |                     |           |
+|     |            |            | repo URLs, 7 link fixes) |                     |           |
+|     |            |            | + workshop-prep.md (1    |                     |           |
+|     |            |            | link fix). All verified. |                     |           |
 
 ---
 
@@ -264,6 +289,7 @@ Each challenge file (D2-D9) must include the challenge header at the top of cont
 | 2026-03-07 | Facilitator links → descriptive text or GH URLs  | Facilitator content excluded from site; links break |
 | 2026-03-07 | SVG favicon instead of .ico                      | Can't generate .ico programmatically; SVG supported by modern browsers; added via head_custom.html |
 | 2026-03-07 | Smoke test deferred to devcontainer/CI            | Ruby not available in WSL environment               |
+| 2026-03-07 | getting-started.md has 16 callouts, not 17       | Actual count: TIP ×3, WARNING ×6, IMPORTANT ×4, NOTE ×3 = 16 (tracker had TIP ×4) |
 
 ---
 
@@ -272,11 +298,13 @@ Each challenge file (D2-D9) must include the challenge header at the top of cont
 Completed 2026-03-07. Full findings in `.github/exec-plans/active/adversarial-review-01.md`.
 
 ### Critical (3) — All addressed
+
 - C1: AGENDA.md "UNCHANGED" constraint → redefined as "meaning preserved"
 - C2: Facilitator links in 6+ files → explicit removal/rewrite strategy in transformation rules
 - C3: Tracker inside docs/ → moved to `.github/exec-plans/`
 
 ### High (5) — All addressed
+
 - H1: Build mode contradiction → GitHub Actions mode only
 - H2: Step 6 oversized → file-level checkboxes added
 - H3: `<details>` blocks won't render markdown → `markdown="1"` rule added
@@ -284,6 +312,7 @@ Completed 2026-03-07. Full findings in `.github/exec-plans/active/adversarial-re
 - H5: No htmlproofer → added to Gemfile
 
 ### Medium (7) — Incorporated into step prompts
+
 - M1: Corrected Mermaid audit list (5 live diagrams, not in copilot-guide)
 - M2: getting-started split into short index + setup.md child
 - M3: File-level sub-checkboxes added to tracker
