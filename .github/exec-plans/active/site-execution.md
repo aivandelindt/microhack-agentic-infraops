@@ -15,11 +15,11 @@
 
 <!-- Update this at the START of each session -->
 
-**Phase**: A (Foundation)
-**Step**: A1 — DevContainer setup
-**Prompt**: `site-01-devcontainer.prompt.md`
-**Goal**: Create `.devcontainer/devcontainer.json` + `.devcontainer/README.md`
-**Blockers**: None
+**Phase**: B (Structure)
+**Step**: B1 — Landing page + section indexes
+**Prompt**: `site-04-landing-structure.prompt.md`
+**Goal**: Create landing page index.md and 5 section index pages
+**Blockers**: Smoke test deferred (no Ruby in WSL environment — will run in devcontainer or CI)
 
 ---
 
@@ -29,18 +29,18 @@
 
 **Prompt sequence**: site-01, site-02, site-03
 
-- [ ] A1: Create `.devcontainer/devcontainer.json` (Jekyll 2-bookworm, Node.js LTS, VS Code extensions)
-- [ ] A1: Create `.devcontainer/README.md` (usage docs)
-- [ ] A2: Create `docs/Gemfile` (jekyll ~4.4, just-the-docs ~0.10, html-proofer ~5.0)
-- [ ] A2: Create `docs/_config.yml` (theme, callouts, mermaid, search, nav)
-- [ ] A2: Create `.github/workflows/pages.yml` (GitHub Actions build from docs/)
-- [ ] A2: Create `docs/404.md` (custom 404 page)
-- [ ] A2: Create `docs/.gitignore` (_site/, .jekyll-cache/, vendor/)
-- [ ] A3: Create `docs/_sass/custom/custom.scss` (Azure blue #0078D4, callout styles, challenge cards, print CSS, `<details>` styling)
-- [ ] A3: Create `docs/assets/images/logo.svg` (event-branded SVG logo)
-- [ ] A3: Create `docs/assets/images/favicon.ico` (derived from logo)
-- [ ] A3: Create `docs/_includes/challenge_header.html` (Liquid template: duration, points, agent, output params)
-- [ ] **Smoke test**: `cd docs && bundle install && bundle exec jekyll build` — zero errors, theme renders
+- [x] A1: Create `.devcontainer/devcontainer.json` (Jekyll 2-bookworm, Node.js LTS, VS Code extensions)
+- [x] A1: Create `.devcontainer/README.md` (usage docs)
+- [x] A2: Create `docs/Gemfile` (jekyll ~4.4, just-the-docs ~0.10, html-proofer ~5.0)
+- [x] A2: Create `docs/_config.yml` (theme, callouts, mermaid, search, nav)
+- [x] A2: Create `.github/workflows/pages.yml` (GitHub Actions build from docs/)
+- [x] A2: Create `docs/404.md` (custom 404 page)
+- [x] A2: Create `docs/.gitignore` (_site/, .jekyll-cache/, vendor/)
+- [x] A3: Create `docs/_sass/custom/custom.scss` (Azure blue #0078D4, callout styles, challenge cards, print CSS, `<details>` styling)
+- [x] A3: Create `docs/assets/images/logo.svg` (event-branded SVG logo)
+- [x] A3: Create `docs/assets/images/favicon.svg` + `_includes/head_custom.html` (SVG favicon — modern browsers)
+- [x] A3: Create `docs/_includes/challenge_header.html` (Liquid template: duration, points, agent, output params)
+- [ ] **Smoke test**: `cd docs && bundle install && bundle exec jekyll build` — DEFERRED (no Ruby in WSL; run in devcontainer or CI)
 
 ### Phase B — Structure (Step 4)
 
@@ -230,6 +230,20 @@ Each challenge file (D2-D9) must include the challenge header at the top of cont
 |     |            |            | prompts, session-resume  |                     |           |
 |     |            |            | prompt; adversarial      |                     |           |
 |     |            |            | review completed         |                     |           |
+| 1   | 2026-03-07 | A / A1     | Created devcontainer.json| A2: Jekyll scaffold | None      |
+|     |            |            | + README.md; JSON valid  |                     |           |
+| 2   | 2026-03-07 | A / A2     | Created Gemfile, _config | A3: Theme assets    | None      |
+|     |            |            | .yml, pages.yml workflow,|                     |           |
+|     |            |            | 404.md, .gitignore; all  |                     |           |
+|     |            |            | YAML validated; config   |                     |           |
+|     |            |            | uses verified JTD v0.10  |                     |           |
+|     |            |            | keys from official docs  |                     |           |
+| 3   | 2026-03-07 | A / A3     | Created custom.scss      | B1: Landing page +  | Smoke test|
+|     |            |            | (Azure colors, challenge | section indexes     | deferred  |
+|     |            |            | badges, details, print   |                     | (no Ruby) |
+|     |            |            | CSS), logo.svg, favicon  |                     |           |
+|     |            |            | .svg + head_custom.html, |                     |           |
+|     |            |            | challenge_header.html    |                     |           |
 
 ---
 
@@ -248,6 +262,8 @@ Each challenge file (D2-D9) must include the challenge header at the top of cont
 | 2026-03-07 | htmlproofer added to Gemfile                     | Automated broken link detection in audit step       |
 | 2026-03-07 | `<details>` blocks get `markdown="1"` globally   | Kramdown doesn't process markdown in raw HTML       |
 | 2026-03-07 | Facilitator links → descriptive text or GH URLs  | Facilitator content excluded from site; links break |
+| 2026-03-07 | SVG favicon instead of .ico                      | Can't generate .ico programmatically; SVG supported by modern browsers; added via head_custom.html |
+| 2026-03-07 | Smoke test deferred to devcontainer/CI            | Ruby not available in WSL environment               |
 
 ---
 
