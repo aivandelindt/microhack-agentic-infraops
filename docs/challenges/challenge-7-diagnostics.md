@@ -83,6 +83,14 @@ Ask yourself:
 
 💡 **Keep it scannable**: Numbered steps, not paragraphs
 
-## Next Step
+## Escalation
 
-Move to [Challenge 8: Partner Showcase](challenge-8-partner-showcase.md) to present your FreshConnect solution!
+If you're unsure what the most likely failure modes are, review your deployed resources in the Azure Portal and think about which component failing would have the highest business impact. See [Troubleshooting](../reference/troubleshooting.md) for common failure patterns.
+
+## Artifact Handoff
+
+| Item | Value |
+|---|---|
+| **Input from** | Deployed infrastructure, prior artifacts (architecture, Bicep, ADR) |
+| **Your output** | `agent-output/freshconnect/07-diagnostics-quick-card.md` (required), optionally `07-ab-diagnostics-runbook.md` |
+| **Next step** | [Challenge 8: Partner Showcase](challenge-8-partner-showcase.md) — present your FreshConnect solution |

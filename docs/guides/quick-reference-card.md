@@ -8,7 +8,16 @@ description: "At-a-glance reference card for challenges, scoring, agents, and ke
 
 # Quick Reference Card
 
-> **Print this page** (Ctrl+P → Save as PDF or print double-sided)
+> **Print this page** (Ctrl+P → Save as PDF or print double-sided). Optimized for A4 paper and narrow screens.
+
+---
+
+## Key Actions at a Glance
+
+1. **Before the event** → Run the [Readiness Gate](../getting-started/setup.md#readiness-gate)
+2. **First 10 minutes** → Open Dev Container, `az login`, verify agents
+3. **Each challenge** → Check inputs, produce outputs, hand off to next challenge
+4. **End of day** → Team lead deletes resources and confirms cleanup
 
 ---
 
@@ -37,9 +46,9 @@ description: "At-a-glance reference card for challenges, scoring, agents, and ke
 
 | Method              | How                                                                                              |
 | ------------------- | ------------------------------------------------------------------------------------------------ |
-| **Rubric scoring**  | Facilitators score against the published rubric and team artifacts                               |
-| **Leaderboard**     | Use your facilitator worksheet or HackerBoard instance if your event package includes one        |
-| **Web app**         | Optional: submit the same rubric-based totals in HackerBoard when that tooling is available      |
+| **Rubric scoring**  | All scoring is manual. Facilitators review artifacts and verify deployments against the rubric.   |
+| **Leaderboard**     | Use your facilitator worksheet or HackerBoard instance if your event package includes one         |
+| **Tooling**         | Optional: record rubric-based totals in HackerBoard when that tooling is available (it does not calculate scores automatically) |
 | **Rubric**          | Scoring Rubric (available from facilitator) — single source of truth for points |
 
 ---
@@ -109,24 +118,29 @@ az deployment group what-if -g rg-freshconnect-dev-swc -f main.bicep
 # Deploy
 az deployment group create -g rg-freshconnect-dev-swc -f main.bicep
 
-# Cleanup (END OF DAY!)
+# Cleanup (END OF DAY — team lead is responsible!)
 az group delete -n rg-freshconnect-dev-swc --yes --no-wait
+az group delete -n rg-freshconnect-dev-gwc --yes --no-wait  # if secondary region was used
+# Ask facilitator to remove policies, or run:
+pwsh -File scripts/Remove-GovernancePolicies.ps1 -Subscription "<sub>"
+# Verify cleanup:
+az group list --query "[?starts_with(name, 'rg-freshconnect')]" -o table
 ```
 
 ---
 
 ## Expected Outputs
 
-| Challenge | Output File/Artifact                                |
-| --------- | --------------------------------------------------- |
-| 1         | `agent-output/{team}/01-requirements.md`            |
-| 2         | `agent-output/{team}/02-architecture-assessment.md` |
-| 3         | `infra/bicep/{team}/main.bicep` + modules           |
-| 4         | Updated Bicep with DR + ADR document                |
-| 5         | `agent-output/{team}/05-load-test-results.md`       |
-| 6         | `agent-output/{team}/07-ab-*.md` (documentation)    |
-| 7         | `agent-output/{team}/07-ab-*.md` (troubleshooting)  |
-| 8         | Presentation (slides or markdown)                   |
+| Challenge | Input Artifact | Output File/Artifact | Next Action |
+| --------- | -------------- | --------------------------------------------------- | ----------- |
+| 1         | Scenario brief | `agent-output/{team}/01-requirements.md`            | C2: Architecture |
+| 2         | C1 requirements | `agent-output/{team}/02-architecture-assessment.md` | C3: Bicep |
+| 3         | C2 architecture | `infra/bicep/{team}/main.bicep` + modules           | C4: DR Curveball |
+| 4         | C3 Bicep (or design docs) | Updated Bicep with DR + ADR document      | C5: Load Test |
+| 5         | Deployed infra | `agent-output/{team}/05-load-test-results.md`       | C6: Docs |
+| 6         | All prior artifacts | `agent-output/{team}/07-ab-*.md` (documentation) | C7: Diagnostics |
+| 7         | Deployed infra | `agent-output/{team}/07-diagnostics-quick-card.md`  | C8: Showcase |
+| 8         | All artifacts | Presentation (slides or markdown)                   | Wrap-up |
 
 ---
 

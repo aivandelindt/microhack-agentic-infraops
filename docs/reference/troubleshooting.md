@@ -10,6 +10,24 @@ description: "Common issues and solutions for environment setup, Azure deploymen
 
 Common issues and fixes for Agentic InfraOps.
 
+## Quick Diagnosis
+
+> **Start here.** Identify your failure type, then follow the link to the relevant section.\n{: .tip }
+
+| Symptom | Likely category | Go to |
+|---|---|---|
+| Can't log in to Azure, subscription not found | [Azure CLI](#azure-cli) | Auth / subscription issue |
+| `RequestDisallowedByPolicy` error | [Policy Errors](#policy-errors-and-governance) | Azure Policy denial |
+| `QuotaExceeded`, region capacity errors | [Quota Errors](#quota-errors) | Insufficient Azure quota |
+| Container won't build, extensions missing | [Dev Container](#dev-container) | Environment setup issue |
+| `bicep build` fails, module errors | [Bicep](#bicep) | Template/syntax issue |
+| Deployment fails (naming, auth, timeout) | [Deployment Errors](#deployment-errors) | Azure deployment issue |
+| Agent not appearing, MCP errors | [Copilot Agents](#copilot-agents) | Agent / tooling issue |
+| Secret leaked in output or commit | [Secrets](#secrets-and-credential-leakage) | Credential leakage |
+| Lint or link check fails | [Validation](#validation-and-linting) | Linting / validation |
+
+---
+
 ## Dev Container
 
 ### Container fails to build
@@ -128,6 +146,116 @@ For remaining issues, check `.markdownlint-cli2.jsonc` for the rule that fired.
 1. For internal links: verify the target file exists
 2. For external links: check if the URL is behind authentication or geo-blocked
 3. Add false positives to `.markdown-link-check.json` ignore patterns
+
+## Secrets and Credential Leakage
+
+### Secret appears in agent output or committed file
+
+**Symptoms**: A connection string, access key, or password is visible in an agent-generated file or Git history.
+
+**Fixes**:
+
+1. **Rotate the credential immediately** — regenerate the key or password in the Azure Portal or CLI
+2. Replace the secret with a placeholder (`<your-connection-string>`) in the file
+3. If already committed, remove from Git history or notify your facilitator
+4. Use Key Vault references or environment variables going forward
+
+### Preventing secret leakage
+
+- Never paste real secrets into Copilot Chat prompts
+- Review all agent-generated files before committing
+- Use `az keyvault secret set` to store secrets safely
+- Use managed identities where possible to avoid secrets entirely
+
+---
+
+## Policy Errors and Governance
+
+### `RequestDisallowedByPolicy` on deployment
+
+**Symptoms**: Deployment fails with a policy violation error naming a specific policy.
+
+**Diagnosis**:
+
+1. Read the error message — it names the policy that denied the operation
+2. Common microhack policies: required tags (`Environment`, `Project`), HTTPS-only, TLS 1.2, allowed locations
+
+**Fixes by policy type**:
+
+| Policy denial | Fix |
+|---|---|
+| Missing `Environment` or `Project` tag | Add `tags` block to every resource in your Bicep |
+| Storage not HTTPS-only | Set `supportsHttpsTrafficOnly: true` |
+| Storage TLS version | Set `minimumTlsVersion: 'TLS1_2'` |
+| Storage public blob access | Set `allowBlobPublicAccess: false` |
+| SQL not Azure AD-only | Set `azureADOnlyAuthentication: true` |
+| App Service not HTTPS | Set `httpsOnly: true` |
+| Location not allowed | Deploy to `swedencentral` or `germanywestcentral` only |
+
+### Policies not taking effect
+
+**Symptoms**: Deployment succeeds but you expected a policy denial, or `Get-GovernanceStatus.ps1` shows `Unknown`.
+
+**Fixes**:
+
+1. Azure Policies take 5–15 minutes to propagate after deployment
+2. Run `Get-GovernanceStatus.ps1 -MicrohackOnly` to check activation status
+3. If status is `Unknown`, wait 10 minutes and re-check
+4. If still not active after 30 minutes, ask facilitator to re-run `Setup-GovernancePolicies.ps1`
+
+> Even if policies haven't propagated yet, add the required tags and security settings to your Bicep — they are part of the success criteria.\n{: .tip }
+
+### Escalation
+
+If you cannot resolve a policy error after checking the table above, ask your facilitator. Provide the full error message and the resource type you were deploying.
+
+---
+
+## Quota Errors
+
+### `QuotaExceeded` on deployment
+
+**Symptoms**: Deployment fails with quota or capacity error for a specific resource type or region.
+
+**Fixes**:
+
+1. Check current usage: `az vm list-usage -l swedencentral -o table`
+2. Try a smaller SKU (e.g., S1 instead of P1v3)
+3. Try the secondary region (`germanywestcentral`)
+4. Delete unused resources from previous attempts
+5. Ask your facilitator for help if no quota is available
+
+---
+
+## Deployment Errors
+
+### `NameNotAvailable` or `StorageAccountAlreadyTaken`
+
+**Symptoms**: Globally unique resource name is already in use.
+
+**Fix**: Use `uniqueString(resourceGroup().id)` suffix pattern in your Bicep naming convention.
+
+### `AuthorizationFailed` during deployment
+
+**Symptoms**: Deployment fails with permission error.
+
+**Fixes**:
+
+1. Verify you're targeting the correct subscription: `az account show`
+2. Re-authenticate: `az login --use-device-code`
+3. Confirm you have Owner or Contributor role on the subscription
+
+### Deployment timeout or partial failure
+
+**Symptoms**: Some resources create successfully, others fail or time out.
+
+**Fixes**:
+
+1. Check the deployment status in the Azure Portal (Resource group → Deployments)
+2. Look for the specific resource that failed and its error message
+3. Fix the failing resource and re-deploy — already-existing resources will be skipped
+
+---
 
 ## Microhack-Specific
 

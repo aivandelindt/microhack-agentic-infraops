@@ -31,6 +31,9 @@ az account show --query "{Name:name, Id:id}" -o table
 
 You need **Owner** or **Resource Policy Contributor** role on the subscription to create and delete policy assignments.
 
+> **One subscription per team** is the only supported model. Do not share a subscription across teams — it causes naming collisions and cross-team policy interference.
+{: .warning }
+
 ---
 
 ## Running the Scripts
@@ -114,6 +117,8 @@ TotalPolicies  : 8
 ```
 
 > Policies take **5–15 minutes** to become effective after deployment. Teams may not see errors immediately.
+> Facilitators should deploy policies at least 30 minutes before Challenge 3 begins and verify activation
+> using `Get-GovernanceStatus.ps1 -MicrohackOnly`. If the `State` column shows `Unknown`, wait and re-run.
 {: .warning }
 
 ---

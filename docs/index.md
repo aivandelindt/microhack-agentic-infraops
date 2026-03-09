@@ -17,7 +17,13 @@ Transform how you deliver Azure infrastructure using AI-powered agents in this 1
 
 </div>
 
+> **Are you in the right place?** This site contains workshop instructions. To do the challenges, create your own repository from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator). Do not clone this documentation repository for challenge work.
+{: .warning }
+
 ## What Is This MicroHack?
+
+> **TL;DR**: Your team uses AI agents to go from business requirements to deployed Azure infrastructure in one day. 8 challenges, 105 base points, a surprise DR curveball midway through.
+{: .tip }
 
 A team-based, 1-day hackathon where you orchestrate **specialized AI agents** to transform business requirements into production-ready Azure infrastructure. Instead of writing Bicep templates line by line, you'll collaborate with agents that understand Azure best practices — from requirements gathering through architecture design, code generation, and deployment.
 
@@ -47,6 +53,17 @@ gantt
         C8 Partner Showcase     :15:50, 60m
         Wrap-up                 :16:50, 10m
 ```
+
+<details markdown="1">
+<summary><strong>Text alternative: Schedule overview</strong></summary>
+
+**Morning**: Intro & Setup (09:00–10:00) → C1 Requirements (10:00–11:00) → C2 Architecture (11:00–12:00) → Lunch (12:00–12:45)
+
+**Afternoon**: C3 Bicep & Deploy (12:45–13:30) → C4 DR Curveball (13:30–14:15) → Checkpoint (14:15–14:30) → C5 Load Testing (14:30–15:00) → Break (15:00–15:15) → C6 Documentation (15:15–15:30) → C7 Diagnostics (15:30–15:35) → Presentation Prep (15:35–15:50)
+
+**Showcase**: C8 Partner Showcase (15:50–16:50) → Wrap-up (16:50–17:00)
+
+</details>
 
 ## Key Facts
 
@@ -78,6 +95,17 @@ A Stockholm-based farm-to-table delivery company needs modern cloud infrastructu
 | After Challenge 4 | ~€700/month | + `germanywestcentral` | 500 users |
 
 ## Explore the Workshop
+
+### Quick Entry Points
+
+| I need to... | Go to |
+|---|---|
+| **Check if I'm ready** | [Readiness Gate](getting-started/setup.md#readiness-gate) |
+| **Set up my environment** | [Environment Setup](getting-started/setup.md) |
+| **Read the scenario** | [Workshop Prep](getting-started/workshop-prep.md) |
+| **Start the challenges** | [Challenge 1](challenges/challenge-1-requirements.md) |
+| **Fix something broken** | [Troubleshooting](reference/troubleshooting.md) |
+| **Clean up after the event** | [Post-Event Cleanup](getting-started/setup.md#post-event-cleanup) |
 
 <div class="nav-card-grid">
 

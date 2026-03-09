@@ -42,6 +42,8 @@ description: "Detailed 1-day hackathon agenda with timing, activities, and facil
 
 ## Challenge Summary
 
+> **Block duration vs. task duration**: Each schedule block includes time for coaching check-ins, transitions, and buffer. The \"Duration\" below is the recommended active working time for the challenge task itself. The remaining block time is for facilitator check-ins, setup, and transitions.\n{: .note }
+
 | #   | Challenge                     | Duration | Points | Agent(s)                             |
 | --- | ----------------------------- | -------- | ------ | ------------------------------------ |
 | 1   | Requirements Capture          | 30 min   | 20     | `requirements`                       |

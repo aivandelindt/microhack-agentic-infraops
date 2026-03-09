@@ -163,16 +163,14 @@ After generating documentation:
 - **7-13 min**: Review generated documentation, request refinements or additional sections
 - **13-15 min**: Save artifacts and identify gaps for future documentation
 
-## What You're Learning
+## Escalation
 
-- **Prompt Engineering**: How to provide context and constraints for documentation generation
-- **Business Thinking**: Which documentation delivers the most value in different scenarios
-- **Operational Maturity**: Professional infrastructure requires professional documentation
-- **Agent Capabilities**: How AI agents can accelerate documentation while maintaining quality
+If the `design` agent produces incomplete or overly verbose output, try breaking your prompt into smaller, more specific requests. See [Troubleshooting → Copilot Agents](../reference/troubleshooting.md#copilot-agents) for agent-specific fixes.
 
-> Final scoring uses the criteria in the scoring rubric, which is the single source of truth for all point values. Scoring rubric available from your facilitator.
-{: .note }
+## Artifact Handoff
 
-## Next Step
-
-Move to [Challenge 7: Troubleshooting & Diagnostics](challenge-7-diagnostics.md) to create incident response runbooks.
+| Item | Value |
+|---|---|
+| **Input from** | All prior artifacts (requirements, architecture, Bicep, ADR, load test results) |
+| **Your output** | `agent-output/freshconnect/07-ab-operations-guide.md` and at least one additional doc |
+| **Next step** | [Challenge 7: Diagnostics](challenge-7-diagnostics.md) — create a quick-reference troubleshooting card |

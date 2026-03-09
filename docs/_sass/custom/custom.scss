@@ -6,9 +6,9 @@
 // ---------------------------------------------------------------------------
 // 1. Color Variables
 // ---------------------------------------------------------------------------
-$azure-blue: #0078D4;
-$azure-green: #107C10;
-$azure-dark: #003D6B;
+$azure-blue: #0078d4;
+$azure-green: #107c10;
+$azure-dark: #003d6b;
 $badge-bg: #f0f4f8;
 
 // ---------------------------------------------------------------------------
@@ -150,7 +150,9 @@ details {
   padding: 1.25rem;
   text-decoration: none;
   color: inherit;
-  transition: box-shadow 0.2s, border-color 0.2s;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
 
   &:hover {
     border-color: $azure-blue;
@@ -197,9 +199,66 @@ details {
     page-break-inside: avoid;
   }
 
+  // Reduce font size for print density
+  body {
+    font-size: 10pt;
+  }
+
+  table {
+    font-size: 9pt;
+  }
+
+  // Ensure code blocks wrap on narrow paper
+  pre,
+  code {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
   a[href]::after {
     content: " (" attr(href) ")";
     font-size: 0.85em;
     color: #555;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 8. Mobile / Narrow Screen Support
+// ---------------------------------------------------------------------------
+@media (max-width: 600px) {
+  // Stack wide tables vertically on narrow screens
+  .table-wrapper table {
+    font-size: 0.85rem;
+  }
+
+  // Quick-reference card: make schedule table scrollable
+  .main-content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  // Reduce hero padding on mobile
+  .hero-section {
+    padding: 1rem 0.5rem;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+    }
+  }
+
+  // Stack nav cards in a single column
+  .nav-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  // Challenge header badges wrap naturally (flex-wrap is already set)
+  .challenge-header {
+    padding: 0.5rem;
   }
 }

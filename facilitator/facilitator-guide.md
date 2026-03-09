@@ -50,7 +50,50 @@ solutions.
 
 ---
 
+## Facilitator Readiness Checklist
+
+Complete this checklist before the event, on the morning of, and at wrap-up.
+
+### Pre-Event (1–2 Days Before)
+
+- [ ] **Licensing confirmed**: Every participant has Copilot Pro+ or Enterprise
+- [ ] **Subscriptions verified**: One dedicated Azure subscription per team, each with Owner access
+- [ ] **Quotas checked**: Each subscription has sufficient quota in `swedencentral` (run `az vm list-usage -l swedencentral -o table`)
+- [ ] **Policies deployed**: `Setup-GovernancePolicies.ps1` run on each subscription
+- [ ] **Policy activation verified**: `Get-GovernanceStatus.ps1 -MicrohackOnly` shows Compliant/NonCompliant (not Unknown) on each subscription
+- [ ] **Template repo accessible**: [azure-agentic-infraops-accelerator](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator) is reachable and up to date
+- [ ] **Room setup**: Projector, timer, whiteboard or shared screen for leaderboard
+- [ ] **Scoring materials ready**: Scoring rubric printed or accessible, facilitator worksheet prepared
+- [ ] **Network tested**: Venue Wi-Fi can reach `github.com`, `mcr.microsoft.com`, `portal.azure.com`
+
+### Day-of Go/No-Go (09:00)
+
+- [ ] **Docker/Codespaces working**: At least one team member per team can open the Dev Container
+- [ ] **Azure CLI authenticated**: Every team can run `az account show` successfully
+- [ ] **Copilot Chat operational**: Custom agents appear in the agent dropdown
+- [ ] **Policies still active**: Quick spot-check with `Get-GovernanceStatus.ps1 -MicrohackOnly`
+- [ ] **Timer set**: Visible timer for challenge blocks
+
+> **Go/No-Go rule**: If any team cannot authenticate to Azure or access Copilot custom agents, resolve before starting Challenge 1. Do not proceed with a broken setup.
+
+### Wrap-Up Checklist
+
+- [ ] **Scores finalized**: All teams scored against rubric
+- [ ] **Cleanup confirmed**: Every team's resource groups deleted (verified via `az group list`)
+- [ ] **Policies removed**: `Remove-GovernancePolicies.ps1` run on every subscription
+- [ ] **Feedback collected**: Participant feedback form distributed
+- [ ] **Retrospective completed**: Each team shared one highlight
+
+---
+
 ## Pre-Event Setup
+
+### Subscription Model
+
+> **One Azure subscription per team is the only supported model.** Shared subscriptions are not supported. Sharing causes naming collisions, RBAC conflicts, and accidental cross-team interference. Verify that every team has a dedicated subscription before the event begins.
+{: .warning }
+
+Each team needs **Owner** access on their subscription (required for Azure Policy deployment). If Owner is restricted, the minimum alternative is **Contributor** plus **Resource Policy Contributor**.
 
 ### Governance Policies (Optional but Recommended)
 
@@ -82,6 +125,24 @@ Deploy Azure Policies to create realistic governance constraints. Teams will enc
 
 > [!WARNING]
 > Policies take 5-15 minutes to become effective after deployment.
+> **Deploy policies at least 30 minutes before the first team reaches Challenge 3.**
+> Verify activation using the status script below before the event begins.
+
+#### Verifying Policy Activation
+
+After deploying policies, confirm they are active:
+
+```powershell
+# Check microhack policies are assigned and evaluating
+pwsh -File scripts/Get-GovernanceStatus.ps1 -Subscription "<sub-id>" -MicrohackOnly
+```
+
+- If the `State` column shows **Compliant** or **NonCompliant**, the policy is active.
+- If the `State` column shows **Unknown**, compliance data is still propagating. Wait 5–10 minutes and re-run.
+- If no assignments appear, re-run `Setup-GovernancePolicies.ps1`.
+
+> **If policies are still not active when Challenge 3 begins**: Inform teams that policy enforcement is delayed. Teams should add the required tags and security settings to their Bicep anyway — the policies will catch violations once propagation completes. Do not skip the governance requirements.
+{: .tip }
 
 ---
 
@@ -169,6 +230,19 @@ No common issues — monitor Pricing MCP functionality.
 ### Block 5: ⚡ Challenge 4 - DR Curveball & Deployment (13:30 - 14:15)
 
 **Duration**: 45 minutes
+
+#### Challenge 3→4 Fallback Rules
+
+Before announcing the curveball, quickly assess each team's Challenge 3 outcome:
+
+| Team status | Facilitator action |
+|---|---|
+| **Deployed successfully** | Full Challenge 4 path (design + update Bicep + deploy DR) |
+| **Partial deployment** | Encourage extending what deployed; document gaps in ADR |
+| **Failed deployment** | Direct to **paper exercise**: ADR + architecture diagram without deploying. No pre-built reference deployment is provided. |
+
+> Teams on the paper-exercise path can still earn full ADR and diagram points. Adjust scoring expectations using the rubric — the paper-exercise variant is explicitly accounted for.
+{: .tip }
 
 #### 📢 Announcement Script (13:30)
 
@@ -306,7 +380,20 @@ Finalize scores using [scoring-rubric.md](scoring-rubric.md), then announce the 
 - Share key learnings from presentations
 - Announce final leaderboard
 - **Run 5-minute team retrospective** (see template below)
-- Remind teams to clean up resources
+- **Enforce cleanup**: The **team lead** is the cleanup owner. Each team lead must delete their team's resource groups and confirm deletion before leaving. Facilitators must remove governance policies from every subscription used:
+
+  ```powershell
+  pwsh -File scripts/Remove-GovernancePolicies.ps1 -Subscription "<sub-id>"
+  ```
+
+- **Verify cleanup** before closing the event:
+
+  ```bash
+  az group list --query "[?starts_with(name, 'rg-freshconnect')]" -o table
+  # Expected: empty result for each subscription
+  ```
+
+- If any team has already left, the facilitator assumes cleanup responsibility for that team's subscription.
 
 #### Team Retrospective (5 min)
 
@@ -357,6 +444,36 @@ Fast teams disengage if idle. Offer these stretch activities:
 | Private Endpoints  | Portal → SQL/Storage → Networking          |
 | Multi-Region       | Resources in `germanywestcentral`          |
 | Managed Identities | Portal → App Service → Identity            |
+
+---
+
+## Incident Response Runbook
+
+Use this table when a team hits a blocking issue. Identify the failure class, take the next action, and decide whether to unblock, compress time, skip, or fall back.
+
+### Failure Class Reference
+
+| Failure Class | Symptoms | Immediate Action | Escalation |
+|---|---|---|---|
+| **Policy not active** | Deployment succeeds but should have been denied; `Get-GovernanceStatus` shows `Unknown` | Wait 10 min, re-run status script. Tell team to add tags/security settings anyway. | If still inactive after 30 min, re-run `Setup-GovernancePolicies.ps1`. |
+| **Copilot access issue** | Agent picker is empty; "Copilot is not available"; custom agents missing | Verify Copilot Pro+ or Enterprise license. Check `customAgentInSubagent.enabled` setting. Reload VS Code window. | If license is wrong tier, participant cannot use custom agents. Pair with another team member who has access. |
+| **Azure quota exceeded** | `QuotaExceeded` error on deployment | Check quota: `az vm list-usage -l swedencentral -o table`. Try a different SKU or region. | If no quota available, reduce scope (fewer resources) or share deployment output with team for learning. |
+| **Deployment failure (naming)** | `NameNotAvailable`, `StorageAccountAlreadyTaken` | Use `uniqueString(resourceGroup().id)` suffix pattern. Check resource name constraints. | If persistent, create a fresh resource group with a different name. |
+| **Deployment failure (auth)** | `AuthorizationFailed`, `AADSTS50076` | Re-run `az login --use-device-code`. Verify subscription access: `az account show`. | If subscription lacks Owner role, check if Contributor + Resource Policy Contributor suffices. |
+| **Deployment failure (Bicep)** | `BCP035`, `BCP037`, template validation errors | Read the error message — it usually names the exact property. Use `bicep build` to validate before deploying. | If team is stuck >5 min, intervene directly with the specific Bicep fix. |
+| **MCP tools not responding** | Azure MCP or Pricing MCP errors, tools unavailable | Check `.vscode/mcp.json`. Verify `az login` is active. Reload VS Code window. | If MCP remains broken, teams can use Azure Portal or CLI for pricing info manually. |
+| **Timing compression** | Team is behind schedule by >15 min | Compress: combine remaining work, reduce scope. At >30 min behind, skip non-essential challenges (C5, C6, C7 can be abbreviated). | Ensure C1–C4 and C8 are completed — these carry the most learning value and points. |
+| **Dev Container failure** | Container fails to build, image pull timeout | Check Docker Desktop is running (4 GB RAM). Run `Dev Containers: Rebuild Without Cache`. Check network. | If container cannot build, fall back to GitHub Codespaces. |
+
+### Decision Framework
+
+When a team is blocked, follow this order:
+
+1. **Can you unblock in <2 minutes?** → Fix it directly (auth, reload, typo fix)
+2. **Is it a learning moment?** → Guide the team to the fix (Bicep errors, naming)
+3. **Is it infrastructure/tooling?** → Fix it directly, don't let teams waste time
+4. **Is it >5 minutes with no progress?** → Compress scope or activate fallback path
+5. **Is the team >30 minutes behind?** → Skip to the next critical challenge
 
 ---
 

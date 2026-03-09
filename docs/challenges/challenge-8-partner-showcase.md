@@ -48,6 +48,16 @@ graph TB
     style O fill:#5c2d91,color:#fff
 ```
 
+<details markdown="1">
+<summary><strong>Text alternative: Presentation setup</strong></summary>
+
+- **Presenting Team** (Partner role): Presents their solution to the Customer Team
+- **Customer Team**: Asks tough questions to challenge the presenting team
+- **Microsoft Coaches**: Observe and evaluate both teams
+- **Other Teams**: Learn from the presentation and Q&A
+
+</details>
+
 ## Role Assignments
 
 The coach will pair teams in a round-robin:

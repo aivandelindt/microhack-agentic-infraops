@@ -13,8 +13,9 @@
 ## Recommended Scoring Workflow
 
 > [!TIP]
-> Score directly from this rubric. If your event package includes HackerBoard or other facilitator tooling,
-> enter the same rubric-based totals there after review.
+> All scoring is manual. Score directly from this rubric by reviewing team artifacts and verifying deployments.
+> If your event package includes HackerBoard or other facilitator tooling, enter the same rubric-based totals
+> there after review. The tooling records scores — it does not calculate them.
 
 1. Review each team's deliverables under `agent-output/{team}/` and `infra/bicep/{team}/`.
 2. Validate deployment and bonus criteria using the Azure portal or CLI where needed.
@@ -25,19 +26,22 @@
 
 ## Scoring Overview
 
-| Category                | Points  | Automated? |
-| ----------------------- | ------- | ---------- |
-| Requirements & Planning | 20      | ✅         |
-| Architecture Design     | 25      | ✅         |
-| Implementation Quality  | 25      | ✅         |
-| Deployment Success      | 10      | ✅         |
-| Load Testing            | 5       | ✅         |
-| Documentation           | 5       | ✅         |
-| Diagnostics             | 5       | ✅         |
-| Partner Showcase        | 10      | 🧑‍⚖️ Manual  |
-| **Base Total**          | **105** |            |
-| **Bonus Points**        | +25     | ✅         |
-| **Max Total**           | **130** |            |
+| Category                | Points  | Review Method |
+| ----------------------- | ------- | ------------- |
+| Requirements & Planning | 20      | Manual: review artifact |
+| Architecture Design     | 25      | Manual: review artifact |
+| Implementation Quality  | 25      | Manual: review Bicep files |
+| Deployment Success      | 10      | Manual: verify in Azure Portal/CLI |
+| Load Testing            | 5       | Manual: review artifact |
+| Documentation           | 5       | Manual: review artifact |
+| Diagnostics             | 5       | Manual: review artifact |
+| Partner Showcase        | 10      | Manual: facilitator scores live |
+| **Base Total**          | **105** |               |
+| **Bonus Points**        | +25     | Manual: verify in Azure Portal/CLI |
+| **Max Total**           | **130** |               |
+
+> All scoring is performed manually by facilitators using this rubric. If your event package includes optional tooling (e.g., HackerBoard), use it to _record_ rubric-based totals — it does not calculate scores automatically.
+{: .note }
 
 ---
 
@@ -83,12 +87,15 @@
 
 **Verification**: Azure Portal / CLI
 
-| Criterion              | Points |
-| ---------------------- | ------ |
-| What-If executed       | 2      |
-| Deployment succeeded   | 4      |
-| Core resources running | 2      |
-| Summary documented     | 2      |
+| Criterion              | Points | Notes |
+| ---------------------- | ------ | ----- |
+| What-If executed       | 2      | Paper-exercise teams: score 0 for deployment criteria |
+| Deployment succeeded   | 4      | Paper-exercise teams: score 0 |
+| Core resources running | 2      | Paper-exercise teams: score 0 |
+| Summary documented     | 2      | Paper-exercise teams: can earn this for documenting what they _would_ deploy |
+
+> **Paper-exercise variant (Challenge 3 deployment failed)**: Teams that pivoted to the paper exercise cannot earn What-If, deployment, or running-resources points. They can still earn the Summary documented point by describing their intended deployment. All other categories (Requirements, Architecture, Implementation quality, DR ADR, Showcase) are scored normally.
+{: .note }
 
 ### 5. Load Testing (5 pts)
 

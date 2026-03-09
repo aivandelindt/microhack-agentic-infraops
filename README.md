@@ -4,6 +4,13 @@
 
 ## Overview
 
+> **This repository contains workshop documentation, facilitator guides, and governance scripts.** It is NOT the repository participants work in during the event. Participants must create their own repository from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator).
+
+| Repository | Purpose | Who uses it |
+|---|---|---|
+| **This repo** (`microhack-agentic-infraops`) | Workshop docs, facilitator guides, scoring rubric, governance scripts | Facilitators, content maintainers |
+| **[Template repo](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)** (`azure-agentic-infraops-accelerator`) | Starting point for participant work — contains agents, skills, dev container, and Bicep scaffold | Participants ("Use this template" → create your own) |
+
 Teams use GitHub Copilot custom agents to design, plan, implement, and deploy Azure infrastructure — all guided by AI and aligned with the [Azure Well-Architected Framework](https://learn.microsoft.com/azure/well-architected/).
 
 Participants should create their own repository from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator) rather than cloning this repository directly. End-user guidance is published at [jonathan-vella.github.io/azure-agentic-infraops](https://jonathan-vella.github.io/azure-agentic-infraops/).
@@ -60,12 +67,27 @@ This repository uses `markdownlint-cli2` for Markdown linting and `lefthook` for
 - Run `npm install` once after cloning to install dependencies and register the `pre-commit` hook.
 - Run `npm run lint:md` to lint all Markdown files in the repository.
 
+## Sensitive-Content Review Checklist
+
+Before merging changes that involve permissions, policies, costs, cleanup, or real Azure actions, apply this checklist:
+
+- [ ] **Azure roles and permissions**: Are stated role requirements accurate? Do we still recommend the minimum viable role?
+- [ ] **Subscription model**: Does the change maintain one-subscription-per-team as the only supported model?
+- [ ] **Azure Policy guidance**: Are policy names, effects, and propagation timing still correct?
+- [ ] **Cost and quota**: Are budget figures, SKU recommendations, and quota guidance still accurate?
+- [ ] **Cleanup and post-event**: Does the change preserve the team-lead-owns-cleanup model? Are verification steps included?
+- [ ] **Secret handling**: Does the change avoid embedding real secrets? Does it reinforce placeholder usage?
+- [ ] **Script safety**: Do script changes preserve `-WhatIf` support and idempotent behavior?
+- [ ] **Scoring accuracy**: Does the change keep scoring language consistent with the rubric (single source of truth)?
+- [ ] **Terminology**: Does the change follow the [canonical vocabulary](docs/reference/glossary.md#naming-conventions)?
+
 ## Getting Started
 
 1. **Create your repo from the template** — Start from [azure-agentic-infraops-accelerator](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator) and create your own repository.
-2. **Read** [Getting Started](docs/getting-started/setup.md) for the template-based setup flow, dev container steps, and Azure quota requirements.
-3. **Review** [Workshop Prep](docs/getting-started/workshop-prep.md) for the scenario brief and team roles.
-4. **Follow** the challenges in order starting from [Challenge 1](docs/challenges/challenge-1-requirements.md).
+2. **Run the readiness gate** — Open [Getting Started](docs/getting-started/setup.md#readiness-gate) and verify every blocking item passes before the event.
+3. **Read** [Getting Started](docs/getting-started/setup.md) for the template-based setup flow, dev container steps, and Azure quota requirements.
+4. **Review** [Workshop Prep](docs/getting-started/workshop-prep.md) for the scenario brief and team roles.
+5. **Follow** the challenges in order starting from [Challenge 1](docs/challenges/challenge-1-requirements.md).
 
 ## Quick Links
 

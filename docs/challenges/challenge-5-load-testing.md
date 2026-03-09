@@ -198,12 +198,17 @@ Context:
 💡 **10 minutes**: Use `design` agent to generate professional documentation
 💡 **5 minutes**: Iterate on failures or explore Azure Load Testing (if time permits)
 
+## Escalation
+
+If your load test fails or you cannot reach your deployed endpoint, see [Troubleshooting](../reference/troubleshooting.md). If your Challenge 3 deployment failed and you have no running endpoint, document your _intended_ test plan and expected targets instead.
+
+## Artifact Handoff
+
+| Item | Value |
+|---|---|
+| **Input from** | Deployed infrastructure (Challenge 3/4), endpoint URL |
+| **Your output** | `agent-output/freshconnect/05-load-test-results.md` |
+| **Next step** | [Challenge 6: Workload Documentation](challenge-6-documentation.md) — generate operational documentation |
+
 > Final scoring uses the criteria in the scoring rubric, which is the single source of truth for all point values. Scoring rubric available from your facilitator.
 {: .note }
-
-## Next Steps
-
-After validating performance, proceed to [Challenge 6: Documentation](challenge-6-documentation.md)
-to create comprehensive workload documentation.
-
-Create a deployment summary and prepare for team showcase!

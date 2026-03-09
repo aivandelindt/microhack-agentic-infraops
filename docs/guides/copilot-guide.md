@@ -84,6 +84,22 @@ the primary mode for this microhack.**
 
 ---
 
+## Handling Secrets in Copilot Chat
+
+> AI agents may echo terminal output, including secrets. Follow these rules to avoid accidental leakage.
+{: .warning }
+
+| Do | Don't |
+|---|---|
+| Use placeholders: `<your-api-key>` | Paste real API keys, passwords, or tokens into chat |
+| Reference Key Vault for secret values | Hard-code connection strings in Bicep or scripts |
+| Review agent output before committing | Commit files without checking for echoed secrets |
+| Rotate any accidentally exposed secret | Assume no one saw it |
+
+If an agent generates output containing a real secret, **do not commit that file**. Replace the secret with a placeholder, rotate the credential, and continue.
+
+---
+
 ## Custom Agents
 
 This workshop includes **8 specialized agents** that understand Azure infrastructure

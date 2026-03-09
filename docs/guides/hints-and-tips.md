@@ -11,6 +11,10 @@ description: "Practical hints, tips, and role-specific guidance for each challen
 > **Coaching approach**: These hints use questions to guide your thinking.
 > The best solutions come from understanding _why_, not just copying _what_.
 
+## Something Broken?
+
+If you're stuck on an error rather than a design question, go to [Troubleshooting](../reference/troubleshooting.md) first. The Quick Diagnosis table at the top will route you to the right fix.
+
 ## Understanding Agent Output Templates
 
 <details markdown="1">

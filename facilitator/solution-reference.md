@@ -33,6 +33,20 @@ infra/bicep/freshconnect/
 
 ---
 
+## Challenge 3→4 Fallback: Paper Exercise
+
+Teams that fail Challenge 3 deployment pivot to a paper exercise for Challenge 4:
+
+- **Required output**: `agent-output/freshconnect/04-adr-ha-dr-strategy.md` (same ADR as deployed teams)
+- **Required output**: Updated architecture diagram showing primary + secondary region
+- **No deployment required**: Teams describe what they _would_ deploy and why
+- **Scoring**: ADR quality and architectural reasoning are scored; deployment points are not available for paper-exercise teams
+- **No pre-built reference deployment is provided**
+
+The paper exercise preserves the core learning objective: making informed DR architecture decisions under time pressure.
+
+---
+
 ## Expected Requirements
 
 **Functional:**

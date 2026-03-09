@@ -10,6 +10,47 @@ description: "Definitions of key terms used throughout the workshop"
 
 Key terms and definitions for Agentic InfraOps.
 
+> **Canonical vocabulary**: The terms below are the agreed names used throughout all participant-facing docs, facilitator guides, and scripts. Use these exact terms when writing or updating workshop content.\n{: .note }
+
+## Naming Conventions
+
+| Concept | Canonical term | Do not use |
+|---|---|---|
+| The event | **MicroHack** or **microhack** | hackathon, workshop (except in general descriptions) |
+| Event organiser | **Facilitator** | coach, instructor, proctor |
+| Event participant | **Participant** | attendee, student, user (in workshop context) |
+| Challenge tasks | **Challenge 1**, **Challenge 2**, etc. | Task, Exercise, Lab |
+| The surprise DR requirement | **Curveball** (Challenge 4) | twist, surprise, pivot |
+| The fictional company | **Nordic Fresh Foods** | NFF, the customer (reserve "customer" for the C8 role) |
+| The platform being built | **FreshConnect** | the app, the project (when referring to the scenario) |
+| Azure deployment language | **Bicep** | ARM templates (unless comparing) |
+| AI assistant | **GitHub Copilot** | Copilot (alone is acceptable), AI, the agent (when referring to the product) |
+| Specific AI persona | **Agent** (e.g., `requirements` agent) | bot, assistant |
+| Scoring document | **Scoring rubric** | rubric, scorecard |
+| Working repository | **Template repo** (`azure-agentic-infraops-accelerator`) | starter repo, base repo |
+| This documentation repo | **Docs repo** (`microhack-agentic-infraops`) | main repo, source repo |
+| Team subscription model | **One subscription per team** | shared subscription (prohibited) |
+| Post-event resource deletion | **Cleanup** | teardown, decommission |
+
+## Azure Product Names
+
+Use the full product name on first reference, then the short form:
+
+| Full name | Acceptable short form |
+|---|---|
+| Azure App Service | App Service |
+| Azure SQL Database | SQL Database |
+| Azure Blob Storage | Blob Storage, Storage Account |
+| Azure Key Vault | Key Vault |
+| Azure Policy | Policy |
+| Azure Monitor / Application Insights | App Insights |
+| Azure Resource Manager | ARM |
+| GitHub Copilot Pro+ | Copilot Pro+ |
+| GitHub Copilot Enterprise | Copilot Enterprise |
+| Azure Well-Architected Framework | WAF |
+
+---
+
 [A](#a) · [B](#b) · [C](#c) · [D](#d) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [L](#l) · [M](#m) · [P](#p) · [S](#s) · [V](#v) · [W](#w)
 
 ---

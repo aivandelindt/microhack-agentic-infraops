@@ -21,7 +21,7 @@ Use [scoring-rubric.md](scoring-rubric.md) as the source of truth for all points
 
 ### Curveball Timing
 
-⚡ **12:45** — Announce the multi-region DR requirement (see [facilitator-guide.md](facilitator-guide.md) for script)
+⚡ **13:30** — Announce the multi-region DR requirement (see [facilitator-guide.md](facilitator-guide.md) for script)
 
 ### Emergency Contacts
 

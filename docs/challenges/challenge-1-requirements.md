@@ -148,6 +148,14 @@ Your requirements document should capture:
 
 💡 **Agent collaboration** — The `requirements` agent suggests defaults when you're unsure
 
+## Artifact Handoff
+
+| Item | Value |
+|---|---|
+| **Input from** | Scenario brief ([Workshop Prep](../getting-started/workshop-prep.md)) |
+| **Your output** | `agent-output/freshconnect/01-requirements.md` |
+| **Next step** | [Challenge 2: Architecture Assessment](challenge-2-architecture.md) — the `architect` agent reads your requirements document |
+
 💡 **MVP mindset** — Perfect is the enemy of shipped. What's essential for launch?
 
 💡 **Document unknowns** — "TBD" is valid. Capture what you need to research.
@@ -160,14 +168,3 @@ After completing this challenge:
 - What questions caught you off-guard?
 - What would you do differently next time?
 - Did you frame requirements from business perspective or technical preference?
-
-## Next Step
-
-After requirements are approved, proceed to [Challenge 2: Architecture](challenge-2-architecture.md).
-
-Hand off to the `architect` agent or manually invoke:
-
-```
-Review the requirements in agent-output/freshconnect/01-requirements.md
-and create a comprehensive WAF assessment with cost estimates.
-```

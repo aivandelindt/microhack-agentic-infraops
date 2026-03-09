@@ -148,6 +148,14 @@ Your architecture assessment should capture:
 
 💡 **Compliance first** — GDPR violations are expensive. Data residency is non-negotiable.
 
+## Artifact Handoff
+
+| Item | Value |
+|---|---|
+| **Input from** | `agent-output/freshconnect/01-requirements.md` (Challenge 1) |
+| **Your output** | `agent-output/freshconnect/02-architecture-assessment.md`, `agent-output/freshconnect/03-des-architecture-diagram.md` |
+| **Next step** | [Challenge 3: Bicep Implementation](challenge-3-implementation.md) — the `bicep-plan` agent reads your architecture assessment |
+
 ## Reflection Questions
 
 After completing this challenge:
@@ -216,7 +224,3 @@ Your diagram should visualize:
 - Regional placement of resources
 
 **Save your diagram** — you'll need it for your Partner Showcase in Challenge 8.
-
-## Next Step
-
-After architecture assessment and diagram are complete, proceed to [Challenge 3: Implementation](challenge-3-implementation.md).

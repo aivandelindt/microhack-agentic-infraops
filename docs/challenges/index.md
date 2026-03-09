@@ -11,6 +11,8 @@ description: "8 challenges taking you from requirements to partner showcase"
 
 Eight challenges guide you through the full Infrastructure-as-Code lifecycle — from gathering requirements with an AI agent to presenting your solution in a partner showcase.
 
+> Each challenge names its **input artifact** (what you need from the previous step), **output artifact** (what you produce), and **next step**. Check the Artifact Handoff table at the bottom of each challenge page.\n{: .tip }
+
 ## Challenge Overview
 
 | # | Challenge | Duration | Points |
@@ -43,6 +45,15 @@ graph LR
     style CB fill:#ff6b6b,color:#fff
     style C8 fill:#0078d4,color:#fff
 ```
+
+<details markdown="1">
+<summary><strong>Text alternative: Challenge flow</strong></summary>
+
+C1 Requirements → C2 Architecture → C3 Bicep Implementation → ⚡ CURVEBALL ⚡ → C4 DR → C5 Load Test → C6 Docs → C7 Diagnose → C8 Showcase
+
+Challenge 4 is announced as a surprise midway through the event.
+
+</details>
 
 > Challenge 4 is announced as a surprise midway through the event — simulating real-world requirement changes.
 {: .note }

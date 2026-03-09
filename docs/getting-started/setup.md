@@ -12,16 +12,41 @@ description: "Complete environment setup: Azure subscription, GitHub Codespace, 
 
 ## 📑 Table of Contents
 
+- [Readiness Gate](#readiness-gate)
 - [Who This Is For](#who-this-is-for)
 - [What to Expect](#what-to-expect)
 - [Prerequisites](#prerequisites)
+- [Handling Secrets Safely](#handling-secrets-safely)
 - [🐳 Dev Container](#dev-container)
 - [Setup Steps](#setup-steps)
 - [⚖️ Azure Quota Requirements](#azure-quota-requirements)
+- [Post-Event Cleanup](#post-event-cleanup)
 - [Pre-Event Checklist](#pre-event-checklist)
 - [First 10 Minutes on Event Day](#first-10-minutes-on-event-day)
 - [Troubleshooting Quick Fixes](#troubleshooting-quick-fixes)
 - [Next Steps](#next-steps)
+
+---
+
+## Readiness Gate
+
+> Run through this quick checklist to confirm you can participate. **Every item marked "Blocks participation" must pass before the event starts.** Items marked "Optional" enhance the experience but won't stop you.\n{: .important }
+
+| # | Check | How to verify | Blocks participation? |
+|---|---|---|---|
+| 1 | **Copilot Pro+ or Enterprise** license | [github.com/settings/copilot](https://github.com/settings/copilot) → confirms Pro+ or Enterprise | **Yes** — custom agents require this tier |
+| 2 | **Azure subscription** with Owner access | `az login && az account show` → shows your subscription | **Yes** — you cannot deploy without it |
+| 3 | **One subscription per team** confirmed | Ask your facilitator | **Yes** — shared subscriptions are not supported |
+| 4 | **Azure quota** in swedencentral | `az vm list-usage -l swedencentral -o table` → sufficient vCPUs | **Yes** — insufficient quota blocks deployment |
+| 5 | **Dev Container builds** successfully | F1 → "Reopen in Container" → tools load | **Yes** — all challenge work happens inside the container |
+| 6 | **Custom agents visible** in Copilot Chat | Ctrl+Alt+I → agent dropdown shows InfraOps Conductor | **Yes** — challenges depend on custom agents |
+| 7 | **Azure CLI authenticated** inside container | `az account show` inside Dev Container terminal | **Yes** — deployment requires authentication |
+| 8 | **Repository created from template** | Your repo exists at `github.com/<your-org>/<your-repo>` (not a clone of this docs repo) | **Yes** — you need your own working repo |
+| 9 | Docker Desktop running | `docker --version` | **Yes** — required for Dev Container |
+| 10 | Network access to Azure and GitHub | Can reach `portal.azure.com` and `github.com` | **Yes** — required throughout |
+
+> If any "Blocks participation" item fails, resolve it before the event or contact your facilitator immediately. Do not wait until event day.
+{: .warning }
 
 ---
 
@@ -32,9 +57,15 @@ description: "Complete environment setup: Azure subscription, GitHub Codespace, 
 - **Self-guided learners**: Follow the same steps to explore the agentic workflow
   at your own pace.
 
+> **Important**: Your working repository is created from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator), not from this documentation repository. If you cloned this repo directly, you have the wrong starting point.
+{: .warning }
+
 ---
 
 ## What to Expect
+
+> **TL;DR**: 8 challenges in one day. You use AI agents to capture requirements, design architecture, generate Bicep, deploy to Azure, and present your solution. A DR curveball hits midway through.
+{: .tip }
 
 ### The Microhack in 60 Seconds
 
@@ -281,12 +312,9 @@ Setup guide: [VS Code Copilot Setup](https://code.visualstudio.com/docs/copilot/
 
 **Requirements:**
 
-- **Owner** access on the subscription (required for Azure Policy in governance challenges)
+- **One Azure subscription per team** — this is the only supported model. Shared subscriptions cause naming collisions, RBAC confusion, and accidental cross-team interference. Do not share a subscription across teams.
+- **Owner** role on the subscription is required so that facilitators can deploy Azure Policy assignments for the governance challenges. If your organisation restricts Owner, the minimum alternative is **Contributor** plus **Resource Policy Contributor** — but Owner is strongly recommended.
 - Sufficient quota — see [Azure Quota Requirements](#azure-quota-requirements) below
-- A subscription can be shared across teams if quota permits
-
-> See [Azure subscription limits][azure-limits] when planning shared subscriptions.
-{: .tip }
 
 **Verify:**
 
@@ -296,6 +324,51 @@ az account list --output table
 ```
 
 </details>
+
+---
+
+## Post-Event Cleanup
+
+> **The team lead is responsible for cleanup.** Before leaving the event, the team lead must delete all team resources and confirm cleanup is complete. Do not leave resources running overnight.
+{: .warning }
+
+**Cleanup steps:**
+
+1. Delete all resource groups created during the microhack:
+
+   ```bash
+   az group delete -n rg-freshconnect-dev-swc --yes --no-wait
+   # Repeat for any additional resource groups (e.g., secondary region)
+   az group delete -n rg-freshconnect-dev-gwc --yes --no-wait
+   ```
+
+2. Ask your facilitator to remove governance policies (or, if you have Owner access):
+
+   ```powershell
+   pwsh -File scripts/Remove-GovernancePolicies.ps1 -Subscription "<subscription-name-or-id>"
+   ```
+
+3. Verify cleanup is complete:
+
+   ```bash
+   az group list --query "[?starts_with(name, 'rg-freshconnect')]" -o table
+   # Expected: empty result
+   ```
+
+**Deadline**: Cleanup must be confirmed before the team leaves the event venue.
+
+---
+
+## Handling Secrets Safely
+
+> Throughout the microhack you will work with Azure credentials, connection strings, and API keys. Follow these rules to prevent accidental leakage.
+{: .warning }
+
+- **Never paste** real passwords, connection strings, access keys, or tokens into Copilot Chat prompts.
+- **Never commit** secrets to your repository. Use placeholders like `<your-connection-string>` in code and documentation.
+- **Use environment variables or Key Vault** for any values your deployment scripts need at runtime.
+- **If you accidentally expose a secret**: rotate it immediately (`az keyvault secret set`, regenerate storage keys, etc.) and notify your facilitator.
+- **Review agent output** before committing — agents may echo sensitive values from your terminal session.
 
 ---
 
@@ -654,5 +727,4 @@ See [Troubleshooting](../reference/troubleshooting.md) for a complete reference.
 - [Hints & Tips](../guides/hints-and-tips.md) — challenge-specific guidance
 - [Troubleshooting](../reference/troubleshooting.md) — common issues and fixes
 
-[azure-limits]: https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits
 [copilot-azure-billing]: https://docs.github.com/en/copilot/reference/copilot-billing/azure-billing

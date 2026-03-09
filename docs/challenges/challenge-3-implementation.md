@@ -19,8 +19,10 @@ description: "Generate Bicep templates, deploy infrastructure to Azure, and demo
 
 If your facilitator has deployed Azure Policies for the event, your Bicep templates will need to
 comply with governance constraints (required tags, HTTPS-only, TLS 1.2, etc.).
-See the [Governance Scripts](../reference/governance-scripts.md)
-reference for details.
+See the [Governance Scripts](../reference/governance-scripts.md) reference for details.
+
+> **Policy propagation timing**: Azure Policies take 5–15 minutes to become effective after deployment. If your deployment succeeds but you expected a policy denial, the policy may not have propagated yet. Ask your facilitator to verify with `Get-GovernanceStatus.ps1 -MicrohackOnly`. Even if policies are delayed, include the required tags and security settings in your Bicep — they are part of the success criteria.
+{: .note }
 
 ## The Business Challenge
 
@@ -132,6 +134,25 @@ az deployment group create \
 
 **Critical Deliverable**: Create a Mermaid flowchart that explains the agent-driven deployment workflow.
 
+## What Happens Next: Preparing for Challenge 4
+
+Challenge 4 (DR Curveball) builds directly on your Challenge 3 deployment. Your path through Challenge 4 depends on your deployment outcome:
+
+| Challenge 3 Outcome | Challenge 4 Path |
+|---|---|
+| **Deployment succeeded** | Extend your deployed infrastructure with multi-region DR (full path) |
+| **Partial deployment** (some resources created) | Extend what deployed; document what you would change for failed resources in your ADR |
+| **Deployment failed** (no resources created) | Pivot to the **paper exercise**: design the DR architecture on paper (ADR + diagram) without deploying |
+
+> **If your deployment failed**: You still complete Challenge 4. Design the DR architecture as an ADR and diagram, explaining what you _would_ deploy and why. This preserves the learning objective. No pre-built reference deployment is provided.
+{: .note }
+
+**Output from this challenge that feeds Challenge 4:**
+
+- `infra/bicep/freshconnect/main.bicep` (or your design documents if deployment failed)
+- `agent-output/freshconnect/04-implementation-plan.md`
+- Your Mermaid deployment workflow diagram
+
 Your flowchart must show:
 
 1. How the `bicep-code` agent generates templates
@@ -211,6 +232,14 @@ properties: {
 }
 ```
 
+## Artifact Handoff
+
+| Item | Value |
+|---|---|
+| **Input from** | `agent-output/freshconnect/02-architecture-assessment.md` (Challenge 2) |
+| **Your output** | `infra/bicep/freshconnect/main.bicep` + modules, `agent-output/freshconnect/04-implementation-plan.md`, Mermaid workflow diagram |
+| **Next step** | [Challenge 4: DR Curveball](challenge-4-dr-curveball.md) — extends your deployed infrastructure (or pivots to paper exercise if deployment failed) |
+
 ## Success Criteria
 
 | Criterion                                  | Points |
@@ -250,7 +279,7 @@ When you encounter issues, ask yourself:
 
 After your infrastructure is deployed and you've created your workflow diagram:
 
-⏸️ **Wait for Challenge 4** - The coach will announce a business change at 12:45 that will test your agility!
+⏸️ **Wait for Challenge 4** - The coach will announce a business change at 13:30 that will test your agility!
 
 Use any extra time to:
 
@@ -258,6 +287,3 @@ Use any extra time to:
 - Explore alternative architectures
 - Practice explaining your workflow diagram
 - Prepare for the DR curveball
-
-> Final scoring uses the criteria in the scoring rubric, which is the single source of truth for all point values. Scoring rubric available from your facilitator.
-{: .note }

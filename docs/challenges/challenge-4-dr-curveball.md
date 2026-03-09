@@ -17,7 +17,7 @@ description: "Respond to a surprise business requirement change — add high ava
 
 ## ⚡ The Announcement
 
-> **COACH READS AT 12:45:**
+> **COACH READS AT 13:30:**
 >
 > _"ATTENTION ALL TEAMS! 📣_
 >
@@ -43,6 +43,19 @@ description: "Respond to a surprise business requirement change — add high ava
 ## Your Challenge
 
 You must decide: **What level of HA/DR does the business need?**
+
+### Which Path Are You On?
+
+Your Challenge 4 path depends on Challenge 3 outcome:
+
+| Challenge 3 Outcome | Your Challenge 4 Tasks |
+|---|---|
+| **Deployment succeeded** | Design DR strategy → Update Bicep → Deploy DR infrastructure → Update diagram |
+| **Partial deployment** | Design DR strategy → Update Bicep for what works → Document remaining gaps in ADR → Update diagram |
+| **Deployment failed** | Design DR strategy → **Paper exercise**: Write ADR + architecture diagram without deploying |
+
+> **Paper exercise path**: If your Challenge 3 deployment failed, you still earn points by producing a high-quality ADR and updated architecture diagram. Describe what you _would_ deploy, which services need replication, and what your failover strategy would be. No pre-built reference deployment is provided.
+{: .tip }
 
 ### Option A: Single-Region HA
 
@@ -168,14 +181,17 @@ to show HA/DR configuration based on agent-output/freshconnect/04-adr-ha-dr-stra
 
 ## Success Criteria
 
-| Criterion                           | Points |
-| ----------------------------------- | ------ |
-| ADR documented with clear rationale | 2      |
-| HA/DR approach chosen and justified | 2      |
-| Bicep parameterized for HA strategy | 2      |
-| **DR infrastructure deployed**      | 2      |
-| Updated architecture diagram        | 2      |
-| **Total**                           | **10** |
+| Criterion                           | Points | Paper-exercise path |
+| ----------------------------------- | ------ | ------------------- |
+| ADR documented with clear rationale | 2      | Full points available |
+| HA/DR approach chosen and justified | 2      | Full points available |
+| Bicep parameterized for HA strategy | 2      | Score based on written design |
+| **DR infrastructure deployed**      | 2      | Not available (0 pts) |
+| Updated architecture diagram        | 2      | Full points available |
+| **Total**                           | **10** | **Max 8 pts** |
+
+> Teams on the paper-exercise path (Challenge 3 deployment failed) can earn up to 8 of 10 points by producing a high-quality ADR, justified approach, written Bicep design, and updated diagram. The 2 deployment points require actual Azure resources.
+{: .note }
 
 ## Time Management Tips
 
@@ -200,9 +216,10 @@ matters more than the specific option you choose.
 > Final scoring uses the criteria in the scoring rubric, which is the single source of truth for all point values. Scoring rubric available from your facilitator.
 {: .note }
 
-## Next Step
+## Artifact Handoff
 
-After completing your ADR and Bicep updates:
-
-Proceed to [Challenge 5: Load Testing](challenge-5-load-testing.md) to validate your
-infrastructure can handle the expected load.
+| Item | Value |
+|---|---|
+| **Input from** | `infra/bicep/freshconnect/main.bicep` + modules (Challenge 3), or your implementation plan if deployment failed |
+| **Your output** | `agent-output/freshconnect/04-adr-ha-dr-strategy.md`, updated Bicep with DR parameters (or paper-exercise ADR + diagram) |
+| **Next step** | [Challenge 5: Load Testing](challenge-5-load-testing.md) — validate your deployed infrastructure under load |
