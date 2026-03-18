@@ -24,52 +24,81 @@
       </div>
       <div class="chat-message agent-response">
         <div class="message-label">AGENT RESPONSE</div>
+        <div class="streaming-line" aria-hidden="true">
+          <span class="streaming-line__prompt">copilot</span>
+          <span class="streaming-line__text"
+            >Orchestrating specialized agents for a resilient Azure delivery
+            plan</span
+          >
+        </div>
         <div class="agent-list">
           <div class="agent-item">
-            <span class="agent-icon" style="background: #0078d4;">📋</span>
-            <span>
-              <strong class="agent-name" style="color: #0078d4;"
-                >requirements</strong
-              >
-              — capturing business & technical needs
-            </span>
+            <span class="agent-check agent-check--done"></span>
+            <div class="agent-item__body">
+              <div class="agent-item__copy">
+                <strong class="agent-name" style="color: #78beff;"
+                  >requirements</strong
+                >
+                <span>capturing business and technical needs</span>
+              </div>
+              <span class="agent-state">done</span>
+              <span class="agent-meter"><span style="width: 100%"></span></span>
+            </div>
           </div>
           <div class="agent-item">
-            <span class="agent-icon" style="background: #50e6ff;">🏗️</span>
-            <span>
-              <strong class="agent-name" style="color: #50e6ff;"
-                >architecture</strong
-              >
-              — designing Well-Architected solution
-            </span>
+            <span class="agent-check agent-check--active"></span>
+            <div class="agent-item__body">
+              <div class="agent-item__copy">
+                <strong class="agent-name" style="color: #7ce8ff;"
+                  >architecture</strong
+                >
+                <span>designing the Well-Architected target state</span>
+              </div>
+              <span class="agent-state">in progress</span>
+              <span class="agent-meter"><span style="width: 78%"></span></span>
+            </div>
           </div>
           <div class="agent-item">
-            <span class="agent-icon" style="background: #00b7c3;">⚙️</span>
-            <span>
-              <strong class="agent-name" style="color: #00b7c3;">bicep</strong>
-              — generating infrastructure templates
-            </span>
+            <span class="agent-check agent-check--active"></span>
+            <div class="agent-item__body">
+              <div class="agent-item__copy">
+                <strong class="agent-name" style="color: #52d9e2;">bicep</strong
+                >
+                <span>generating infrastructure templates and modules</span>
+              </div>
+              <span class="agent-state">in progress</span>
+              <span class="agent-meter"><span style="width: 63%"></span></span>
+            </div>
           </div>
           <div class="agent-item">
-            <span class="agent-icon" style="background: #6cb8f7;">🧪</span>
-            <span>
-              <strong class="agent-name" style="color: #6cb8f7;"
-                >validation</strong
-              >
-              — running deployment checks
-            </span>
+            <span class="agent-check"></span>
+            <div class="agent-item__body">
+              <div class="agent-item__copy">
+                <strong class="agent-name" style="color: #9ccfff;"
+                  >validation</strong
+                >
+                <span>running pre-flight checks and deployment validation</span>
+              </div>
+              <span class="agent-state">queued</span>
+              <span class="agent-meter"><span style="width: 34%"></span></span>
+            </div>
           </div>
           <div class="agent-item">
-            <span class="agent-icon" style="background: #773adc;">📖</span>
-            <span>
-              <strong class="agent-name" style="color: #a88bfa;">docs</strong>
-              — writing workload documentation
-            </span>
+            <span class="agent-check"></span>
+            <div class="agent-item__body">
+              <div class="agent-item__copy">
+                <strong class="agent-name" style="color: #b79dff;">docs</strong>
+                <span>assembling runbooks, scoring notes, and handoff docs</span
+                >
+              </div>
+              <span class="agent-state">queued</span>
+              <span class="agent-meter"><span style="width: 18%"></span></span>
+            </div>
           </div>
         </div>
         <div class="agent-status">
           <span class="status-dot"></span>
-          5 agents working in parallel…
+          2 of 5 streams actively executing, shared delivery pipeline ready
         </div>
       </div>
     </div>
@@ -89,13 +118,29 @@
   }
 
   .chat-window {
-    border-radius: 0.75rem;
+    position: relative;
+    border-radius: 1rem;
     overflow: hidden;
-    border: 1px solid var(--sl-color-gray-5);
-    background: var(--sl-color-gray-6);
+    border: 1px solid rgba(141, 154, 178, 0.24);
+    background:
+      linear-gradient(180deg, rgba(19, 24, 35, 0.98), rgba(13, 17, 24, 0.98)),
+      var(--sl-color-gray-6);
     box-shadow:
-      0 20px 60px -15px rgba(0, 0, 0, 0.3),
-      0 0 0 1px rgba(255, 255, 255, 0.05);
+      0 28px 70px -26px rgba(0, 0, 0, 0.78),
+      0 0 0 1px rgba(255, 255, 255, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .chat-window::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06),
+      transparent 14%
+    );
+    pointer-events: none;
   }
 
   .chat-titlebar {
@@ -103,8 +148,8 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1rem;
-    background: var(--sl-color-gray-5);
-    border-bottom: 1px solid var(--sl-color-gray-4);
+    background: rgba(27, 33, 46, 0.95);
+    border-bottom: 1px solid rgba(141, 154, 178, 0.16);
   }
 
   .titlebar-dots {
@@ -129,9 +174,10 @@
   }
 
   .titlebar-text {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--sl-color-gray-2);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: #aebed2;
   }
 
   .chat-body {
@@ -139,6 +185,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    font-family: var(--font-mono, "IBM Plex Mono", "Menlo", monospace);
   }
 
   .message-label {
@@ -151,52 +198,139 @@
   }
 
   .user-message p {
-    font-family: "Menlo", "Consolas", monospace;
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: var(--sl-color-white);
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: #e7eef8;
     margin: 0;
+  }
+
+  .streaming-line {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.72rem;
+    color: #9db0c9;
+  }
+
+  .streaming-line__prompt {
+    color: #7ce8ff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .streaming-line__text {
+    display: inline-block;
+    max-width: 36ch;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 1px solid rgba(124, 232, 255, 0.7);
+    animation:
+      typing 4.8s steps(56, end) infinite,
+      caret 0.9s step-end infinite;
   }
 
   .agent-list {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.85rem;
   }
 
   .agent-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.75rem;
-    font-size: 0.85rem;
-    color: var(--sl-color-gray-2);
-    font-family: "Menlo", "Consolas", monospace;
+    font-size: 0.78rem;
+    color: #aebed2;
   }
 
-  .agent-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
+  .agent-check {
+    width: 18px;
+    height: 18px;
+    margin-top: 0.15rem;
+    border-radius: 999px;
+    border: 1px solid rgba(141, 154, 178, 0.28);
+    background: rgba(255, 255, 255, 0.02);
+    position: relative;
     flex-shrink: 0;
+  }
+
+  .agent-check--done::after,
+  .agent-check--active::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 999px;
+  }
+
+  .agent-check--done::after {
+    background: #78beff;
+  }
+
+  .agent-check--active::after {
+    background: #7ce8ff;
+    animation: pulse-dot 1.8s ease-in-out infinite;
+  }
+
+  .agent-item__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.35rem 0.75rem;
+    width: 100%;
+  }
+
+  .agent-item__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .agent-item__copy span {
+    color: #94a8c2;
+    line-height: 1.45;
+  }
+
+  .agent-state {
+    justify-self: end;
+    color: #8095b2;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.64rem;
+    padding-top: 0.05rem;
+  }
+
+  .agent-meter {
+    grid-column: 1 / -1;
+    display: block;
+    height: 5px;
+    border-radius: 999px;
+    background: rgba(123, 138, 165, 0.16);
+    overflow: hidden;
+  }
+
+  .agent-meter span {
+    display: block;
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #4d96da, #7ce8ff);
+    box-shadow: 0 0 14px rgba(124, 232, 255, 0.25);
   }
 
   .agent-name {
     font-weight: 600;
+    font-size: 0.84rem;
   }
 
   .agent-status {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.8rem;
-    color: var(--sl-color-gray-3);
+    font-size: 0.74rem;
+    color: #8ca1bc;
     margin-top: 0.75rem;
     padding-top: 0.75rem;
-    border-top: 1px solid var(--sl-color-gray-5);
+    border-top: 1px solid rgba(141, 154, 178, 0.12);
   }
 
   .status-dot {
@@ -211,9 +345,28 @@
     0%,
     100% {
       opacity: 1;
+      transform: scale(1);
     }
     50% {
       opacity: 0.4;
+      transform: scale(0.85);
+    }
+  }
+
+  @keyframes typing {
+    0%,
+    20% {
+      width: 0;
+    }
+    60%,
+    100% {
+      width: 100%;
+    }
+  }
+
+  @keyframes caret {
+    50% {
+      border-color: transparent;
     }
   }
 
@@ -239,8 +392,16 @@
       padding: 1rem;
     }
 
-    .agent-item {
-      align-items: flex-start;
+    .streaming-line__text {
+      max-width: 24ch;
+    }
+
+    .agent-item__body {
+      grid-template-columns: 1fr;
+    }
+
+    .agent-state {
+      justify-self: start;
     }
   }
 </style>

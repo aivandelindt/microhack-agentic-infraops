@@ -62,7 +62,15 @@ export default defineConfig({
           autogenerate: { directory: "about" },
         },
       ],
-      customCss: ["@fontsource-variable/inter", "./src/styles/custom.css"],
+      customCss: [
+        "@fontsource/space-grotesk/400.css",
+        "@fontsource/space-grotesk/700.css",
+        "@fontsource/manrope/400.css",
+        "@fontsource/manrope/700.css",
+        "@fontsource/ibm-plex-mono/400.css",
+        "@fontsource/ibm-plex-mono/500.css",
+        "./src/styles/custom.css",
+      ],
       components: {
         Footer: "./src/components/Footer.astro",
       },
