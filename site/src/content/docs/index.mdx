@@ -2,102 +2,73 @@
 title: Agentic InfraOps MicroHack
 description: "1-day hands-on hackathon: Design, deploy, and present Azure infrastructure using AI agents and GitHub Copilot"
 template: splash
-hero:
-  tagline: "Orchestrate specialized AI agents to transform business requirements into production-ready Azure infrastructure — all in one day."
-  image:
-    file: ../../assets/images/hero.svg
-    alt: "AI agents orchestrating Azure infrastructure deployment"
-  actions:
-    - text: Get Started
-      link: getting-started/
-      icon: right-arrow
-    - text: View Challenges
-      link: challenges/
-      icon: open-book
-      variant: minimal
 ---
 
 import { Card, CardGrid, LinkCard } from "@astrojs/starlight/components";
+import { Image } from 'astro:assets';
 import AgentChat from "../../components/AgentChat.astro";
+import heroImage from '../../assets/images/hero.svg';
 
-<div class="landing-section agent-demo">
-
-## See It in Action
-
-<AgentChat />
-
+<div class="custom-hero-wrapper">
+  <div class="custom-hero-left">
+    <h1>Agentic InfraOps <br/>MicroHack</h1>
+    <p class="tagline">Orchestrate specialized AI agents to transform business requirements into production-ready Azure infrastructure — all in one day.</p>
+    
+    <div class="hero-bottom-row">
+      <div class="actions">
+        <a href="getting-started/" class="action primary">Get Started →</a>
+        <a href="challenges/" class="action secondary">
+          View Challenges
+          <svg viewBox="0 0 24 24" width="1.2em" height="1.2em" stroke="currentColor" fill="none" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+        </a>
+      </div>
+      <div class="hero-diagram-container">
+        <Image src={heroImage} alt="AI Orchestration Diagram" class="hero-diagram" />
+      </div>
+    </div>
+  </div>
+  
+  <div class="custom-hero-right">
+    <h2>See It in Action</h2>
+    <AgentChat />
+  </div>
 </div>
 
-<div class="landing-section">
-
-## The Scenario
-
-**Nordic Fresh Foods** — a Stockholm-based farm-to-table delivery company — needs modern cloud infrastructure before peak season. Your team will capture their requirements, design a Well-Architected solution, generate and deploy Bicep templates — and midway through, adapt to a **surprise multi-region disaster-recovery** requirement.
-
-<div class="fact-pills">
-  <span class="pill">⏱️ 1 day</span>
-  <span class="pill">🏆 8 challenges</span>
-  <span class="pill">📊 105 pts + 25 bonus</span>
-  <span class="pill">👥 3–6 per team</span>
-  <span class="pill">🤖 AI-assisted</span>
+<div class="landing-section explore-section">
+  <h2>Explore the MicroHack</h2>
+  <CardGrid starlight-card-grid>
+    <LinkCard
+      title="🚀 Getting Started"
+      description="Set up your environment, check prerequisites, and learn the scenario."
+      href="getting-started/"
+    />
+    <LinkCard
+      title="⚡ Challenges"
+      description="8 challenges — from requirements capture to partner showcase."
+      href="challenges/"
+    />
+    <LinkCard
+      title="📖 Guides"
+      description="Copilot guide, hints & tips, and a printable quick-reference card."
+      href="guides/"
+    />
+    <LinkCard
+      title="📚 Reference"
+      description="Glossary, troubleshooting, and governance scripts."
+      href="reference/"
+    />
+  </CardGrid>
 </div>
 
-</div>
-
-<div class="landing-section">
-
-## Quick Entry Points
-
-<CardGrid>
-  <LinkCard
-    title="Check if I'm ready"
-    description="Verify prerequisites and environment setup."
-    href="getting-started/setup/"
-  />
-  <LinkCard
-    title="Read the scenario"
-    description="Understand the Nordic Fresh Foods story."
-    href="getting-started/workshop-prep/"
-  />
-  <LinkCard
-    title="Start the challenges"
-    description="Begin with Challenge 1: Requirements."
-    href="challenges/challenge-1-requirements/"
-  />
-  <LinkCard
-    title="Fix something broken"
-    description="Common issues and solutions."
-    href="reference/troubleshooting/"
-  />
-</CardGrid>
-
-</div>
-
-<div class="landing-section">
-
-## Explore the MicroHack
-
-<CardGrid>
-  <LinkCard
-    title="🚀 Getting Started"
-    description="Set up your environment, check prerequisites, and learn the scenario."
-    href="getting-started/"
-  />
-  <LinkCard
-    title="⚡ Challenges"
-    description="8 challenges — from requirements capture to partner showcase."
-    href="challenges/"
-  />
-  <LinkCard
-    title="📖 Guides"
-    description="Copilot guide, hints & tips, and a printable quick-reference card."
-    href="guides/"
-  />
-  <LinkCard
-    title="📚 Reference"
-    description="Glossary, troubleshooting, and governance scripts."
-    href="reference/"
-  />
-</CardGrid>
-
+<div class="landing-section scenario-section">
+  <h2>The Scenario</h2>
+  <p><strong>Nordic Fresh Foods</strong> — a Stockholm-based farm-to-table delivery company — needs modern cloud infrastructure before peak season. Your team will capture their requirements, design a Well-Architected solution, generate and deploy Bicep templates — and midway through, adapt to a <strong>surprise multi-region disaster-recovery</strong> requirement.</p>
+  
+  <div class="fact-pills">
+    <span class="pill">⏱️ 1 day</span>
+    <span class="pill">🏆 8 challenges</span>
+    <span class="pill">📊 105 pts + 25 bonus</span>
+    <span class="pill">👥 3–6 per team</span>
+    <span class="pill">🤖 AI-assisted</span>
+  </div>
 </div>

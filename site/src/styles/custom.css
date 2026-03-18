@@ -215,3 +215,251 @@ a {
     break-inside: avoid;
   }
 }
+
+/* Custom Hero Layout */
+.custom-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding-block: 4rem 2rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .custom-hero {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+  }
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--sl-color-white);
+}
+
+.hero-content .tagline {
+  font-size: var(--sl-text-xl);
+  color: var(--sl-color-gray-2);
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.hero-content .actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.action.primary {
+  background: var(--sl-color-accent);
+  color: var(--sl-color-white);
+}
+
+.action.primary:hover {
+  background: var(--sl-color-accent-high);
+}
+
+.action.secondary {
+  background: transparent;
+  color: var(--sl-color-white);
+  border: 1px solid var(--sl-color-gray-4);
+}
+
+.action.secondary:hover {
+  border-color: var(--sl-color-white);
+  background: var(--sl-color-gray-6);
+}
+
+.hero-demo h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--sl-color-white);
+}
+
+/* Redesign Explore Section */
+.explore-section {
+  background: #0d1117; /* Even darker distinct block */
+  padding: 3rem;
+  border-radius: 1rem;
+  border: 1px solid var(--sl-color-gray-5);
+  margin-block: 4rem;
+}
+
+.explore-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+}
+
+/* Redesign Scenario Section */
+.scenario-section {
+  background: #161b22; 
+  padding: 3rem;
+  border-radius: 1rem;
+  border: 1px dashed var(--sl-color-gray-4);
+  text-align: center;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.scenario-section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.scenario-section p {
+  color: var(--sl-color-gray-2);
+  line-height: 1.6;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Update Custom Hero to match new markup */
+.custom-hero-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding-block: 2rem 2rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+  .custom-hero-wrapper {
+    grid-template-columns: 1.1fr 1.3fr;
+    gap: 2rem;
+  }
+}
+
+.custom-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.custom-hero-left h1 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--sl-color-white);
+  margin-bottom: 0;
+}
+
+.custom-hero-left .tagline {
+  font-size: var(--sl-text-lg);
+  color: var(--sl-color-gray-2);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.hero-diagram-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+.hero-diagram {
+  max-width: 100%;
+  height: auto;
+  max-height: 160px;
+}
+
+.custom-hero-right h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--sl-color-white);
+  font-weight: 600;
+}
+
+/* Specific styling for the top backgrounds */
+.custom-hero-wrapper {
+  background: #0d1117; 
+  padding: 3rem;
+  border-radius: 1rem;
+  border: 1px solid var(--sl-color-gray-5);
+}
+
+/* Update the layout for actions and diagram */
+.hero-bottom-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero-bottom-row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.hero-diagram-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero-diagram-container {
+    justify-content: flex-end;
+    margin-top: -3rem; 
+  }
+}
+
+.hero-diagram {
+  max-width: 100%;
+  height: auto;
+  max-height: 180px;
+}
+
+/* Subtle gradient glow behind custom hero in dark mode */
+:root:not([data-theme="light"]) .custom-hero-wrapper {
+  position: relative;
+}
+:root:not([data-theme="light"]) .custom-hero-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -4rem -2rem;
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(0, 120, 212, 0.12) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+:root[data-theme="light"] .custom-hero-wrapper {
+  position: relative;
+}
+:root[data-theme="light"] .custom-hero-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -4rem -2rem;
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(0, 120, 212, 0.06) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
