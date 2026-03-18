@@ -18,7 +18,6 @@ prev:
 
 :::
 
-# Challenge 8: Partner Showcase 🎤
 
 ## Overview
 

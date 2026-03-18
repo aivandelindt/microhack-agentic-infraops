@@ -6,9 +6,6 @@ sidebar:
   hidden: true
 ---
 
-
-# Guides
-
 Practical resources to help you get the most out of GitHub Copilot and the AI agents during the MicroHack.
 
 **In this section:**

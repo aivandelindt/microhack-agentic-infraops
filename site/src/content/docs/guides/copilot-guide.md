@@ -5,9 +5,6 @@ sidebar:
   order: 1
 ---
 
-
-# Copilot & Agents Guide
-
 ## VS Code Essentials
 
 Visual Studio Code is your development environment. Here are the key features:

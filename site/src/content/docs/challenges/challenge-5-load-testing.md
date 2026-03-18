@@ -21,7 +21,6 @@ next:
 
 :::
 
-# Challenge 5: Load Testing & Performance Validation
 
 ## The Business Context
 

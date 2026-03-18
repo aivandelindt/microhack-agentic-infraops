@@ -21,7 +21,6 @@ next:
 
 :::
 
-# Challenge 4: The Curveball — High Availability & Disaster Recovery
 
 ## ⚡ The Announcement
 

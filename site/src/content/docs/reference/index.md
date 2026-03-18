@@ -6,9 +6,6 @@ sidebar:
   hidden: true
 ---
 
-
-# Reference
-
 Reference materials for use during and after the workshop.
 
 **In this section:**

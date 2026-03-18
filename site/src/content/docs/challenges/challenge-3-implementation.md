@@ -21,7 +21,6 @@ next:
 
 :::
 
-# Challenge 3: Bicep Implementation, Deployment & Workflow Understanding
 
 ## Prerequisite: Azure Policy Deployment (Recommended)
 

@@ -6,9 +6,6 @@ sidebar:
   hidden: true
 ---
 
-
-# Getting Started
-
 Choose your entry point based on where you are in the workshop journey:
 
 ## Before the Event

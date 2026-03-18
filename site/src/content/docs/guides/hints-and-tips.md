@@ -5,9 +5,6 @@ sidebar:
   order: 2
 ---
 
-
-# Hints & Tips
-
 > **Coaching approach**: These hints use questions to guide your thinking.
 > The best solutions come from understanding _why_, not just copying _what_.
 

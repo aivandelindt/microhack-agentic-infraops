@@ -6,9 +6,6 @@ sidebar:
   order: 3
 ---
 
-
-# Troubleshooting
-
 Common issues and fixes for Agentic InfraOps.
 
 ## Quick Diagnosis

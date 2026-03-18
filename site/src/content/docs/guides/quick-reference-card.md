@@ -5,9 +5,6 @@ sidebar:
   order: 3
 ---
 
-
-# Quick Reference Card
-
 > **Print this page** (Ctrl+P → Save as PDF or print double-sided). Optimized for A4 paper and narrow screens.
 
 ---
@@ -101,7 +98,6 @@ Select from the **agent dropdown** in Chat view:
 ## Essential CLI Commands
 
 ```bash
-# Verify setup
 az account show --query name -o tsv
 bicep --version
 

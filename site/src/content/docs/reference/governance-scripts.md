@@ -20,7 +20,6 @@ These scripts are **for facilitators only**. Participants do not need to run the
 ## Prerequisites
 
 ```bash
-# Verify tools are available
 pwsh --version
 az --version
 

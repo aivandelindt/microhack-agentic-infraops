@@ -5,9 +5,6 @@ sidebar:
   order: 3
 ---
 
-
-# Microhack Feedback Form
-
 > **Thank you for participating!** Your feedback helps us improve future events.
 
 :::tip

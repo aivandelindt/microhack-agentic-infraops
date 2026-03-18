@@ -21,7 +21,6 @@ next:
 
 :::
 
-# Challenge 7: Troubleshooting & Diagnostics
 
 ## The 2 AM Scenario
 

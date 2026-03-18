@@ -21,7 +21,6 @@ next:
 
 :::
 
-# Challenge 2: Architecture Assessment
 
 ## The Architecture Challenge
 

@@ -5,9 +5,6 @@ sidebar:
   order: 1
 ---
 
-
-# Glossary
-
 Key terms and definitions for Agentic InfraOps.
 
 :::note

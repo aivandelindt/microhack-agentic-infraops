@@ -21,7 +21,6 @@ next:
 
 :::
 
-# Challenge 6: Workload Documentation
 
 ## The Business Context
 

@@ -21,7 +21,6 @@ next:
 
 :::
 
-# Challenge 1: Requirements Gathering
 
 ## Objective
 

@@ -1,0 +1,236 @@
+---
+// AgentChat — A visual mockup of AI agents orchestrating Azure infrastructure
+// Inspired by the Squad project's Copilot Chat component
+---
+
+<div class="agent-chat">
+  <div class="chat-window">
+    <div class="chat-titlebar">
+      <div class="titlebar-dots">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+      </div>
+      <span class="titlebar-text">GitHub Copilot Chat</span>
+    </div>
+    <div class="chat-body">
+      <div class="chat-message user-message">
+        <div class="message-label">YOU</div>
+        <p>
+          Team, we need Azure infrastructure for Nordic Fresh Foods. Capture
+          their requirements and design a Well-Architected solution with Bicep
+          templates.
+        </p>
+      </div>
+      <div class="chat-message agent-response">
+        <div class="message-label">AGENT RESPONSE</div>
+        <div class="agent-list">
+          <div class="agent-item">
+            <span class="agent-icon" style="background: #0078d4;">📋</span>
+            <span>
+              <strong class="agent-name" style="color: #0078d4;"
+                >requirements</strong
+              >
+              — capturing business & technical needs
+            </span>
+          </div>
+          <div class="agent-item">
+            <span class="agent-icon" style="background: #50e6ff;">🏗️</span>
+            <span>
+              <strong class="agent-name" style="color: #50e6ff;"
+                >architecture</strong
+              >
+              — designing Well-Architected solution
+            </span>
+          </div>
+          <div class="agent-item">
+            <span class="agent-icon" style="background: #00b7c3;">⚙️</span>
+            <span>
+              <strong class="agent-name" style="color: #00b7c3;">bicep</strong>
+              — generating infrastructure templates
+            </span>
+          </div>
+          <div class="agent-item">
+            <span class="agent-icon" style="background: #6cb8f7;">🧪</span>
+            <span>
+              <strong class="agent-name" style="color: #6cb8f7;"
+                >validation</strong
+              >
+              — running deployment checks
+            </span>
+          </div>
+          <div class="agent-item">
+            <span class="agent-icon" style="background: #773adc;">📖</span>
+            <span>
+              <strong class="agent-name" style="color: #a88bfa;">docs</strong>
+              — writing workload documentation
+            </span>
+          </div>
+        </div>
+        <div class="agent-status">
+          <span class="status-dot"></span>
+          5 agents working in parallel…
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="agent-features">
+    <span class="feature-pill">🤖 Specialized agents</span>
+    <span class="feature-pill">⚡ Parallel execution</span>
+    <span class="feature-pill">🏗️ Azure best practices</span>
+    <span class="feature-pill">📊 Built-in scoring</span>
+  </div>
+</div>
+
+<style>
+  .agent-chat {
+    max-width: 640px;
+    margin: 1.5rem auto;
+  }
+
+  .chat-window {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--sl-color-gray-5);
+    background: var(--sl-color-gray-6);
+    box-shadow:
+      0 20px 60px -15px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .chat-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--sl-color-gray-5);
+    border-bottom: 1px solid var(--sl-color-gray-4);
+  }
+
+  .titlebar-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .dot-red {
+    background: #ff5f57;
+  }
+  .dot-yellow {
+    background: #febc2e;
+  }
+  .dot-green {
+    background: #28c840;
+  }
+
+  .titlebar-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--sl-color-gray-2);
+  }
+
+  .chat-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .message-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sl-color-gray-3);
+    margin-bottom: 0.5rem;
+  }
+
+  .user-message p {
+    font-family: "Menlo", "Consolas", monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--sl-color-white);
+    margin: 0;
+  }
+
+  .agent-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .agent-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--sl-color-gray-2);
+    font-family: "Menlo", "Consolas", monospace;
+  }
+
+  .agent-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .agent-name {
+    font-weight: 600;
+  }
+
+  .agent-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--sl-color-gray-3);
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--sl-color-gray-5);
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #28c840;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+
+  .agent-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .feature-pill {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    background: var(--sl-color-gray-6);
+    border: 1px solid var(--sl-color-gray-5);
+    color: var(--sl-color-gray-2);
+  }
+</style>

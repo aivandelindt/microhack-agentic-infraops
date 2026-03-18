@@ -37,16 +37,90 @@
 
 /* Hero polish */
 .hero {
-  padding-block: 3rem !important;
+  padding-block: 4rem !important;
+  position: relative;
+}
+
+/* Subtle gradient glow behind hero in dark mode */
+:root:not([data-theme="light"]) .hero::before {
+  content: "";
+  position: absolute;
+  inset: -4rem -2rem;
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(0, 120, 212, 0.12) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+:root[data-theme="light"] .hero::before {
+  content: "";
+  position: absolute;
+  inset: -4rem -2rem;
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(0, 120, 212, 0.06) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: -1;
 }
 
 .hero .tagline {
-  font-size: var(--sl-text-lg) !important;
+  font-size: var(--sl-text-xl) !important;
   max-width: 52ch;
+  line-height: 1.5;
 }
 
 .hero .actions {
   gap: 1rem;
+}
+
+/* Landing page sections */
+.landing-section {
+  margin-block: 2.5rem;
+}
+
+.landing-section .sl-heading-wrapper {
+  text-align: center;
+}
+
+.landing-section h2 {
+  display: inline;
+}
+
+.landing-section > p {
+  text-align: center;
+  max-width: 72ch;
+  margin-inline: auto;
+}
+
+.agent-demo .sl-heading-wrapper {
+  margin-bottom: 0.25rem;
+}
+
+/* Fact pills row */
+.fact-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: var(--sl-color-accent-low);
+  color: var(--sl-color-accent-high);
+  border: 1px solid color-mix(in srgb, var(--sl-color-accent) 30%, transparent);
 }
 
 /* Better table styling */
@@ -128,6 +202,11 @@ a {
 /* Footer cleanup */
 .site-title::after {
   content: "";
+}
+
+/* Hide footer on splash/landing pages */
+[data-has-hero] footer {
+  display: none;
 }
 
 /* Print improvements */

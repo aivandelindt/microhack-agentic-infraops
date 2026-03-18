@@ -6,9 +6,6 @@ sidebar:
   order: 2
 ---
 
-
-# Workshop Prep
-
 > **Read before the microhack** | Scenario brief and team role cards
 
 ---
