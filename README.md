@@ -55,7 +55,7 @@ A Stockholm-based farm-to-table delivery company needs cloud infrastructure. You
 ## Repository Structure
 
 ```text
-docs/                   # GitHub Pages site (Material for MkDocs)
+site/                   # Astro Starlight documentation site
 facilitator/            # Facilitator guide, scoring rubric, solution reference
 scripts/                # Governance PowerShell scripts
 ```
@@ -66,6 +66,7 @@ This repository uses `markdownlint-cli2` for Markdown linting and `lefthook` for
 
 - Run `npm install` once after cloning to install dependencies and register the `pre-commit` hook.
 - Run `npm run lint:md` to lint all Markdown files in the repository.
+- Run `cd site && npm install && npm run build` to build the documentation site.
 
 ## Sensitive-Content Review Checklist
 
@@ -79,27 +80,27 @@ Before merging changes that involve permissions, policies, costs, cleanup, or re
 - [ ] **Secret handling**: Does the change avoid embedding real secrets? Does it reinforce placeholder usage?
 - [ ] **Script safety**: Do script changes preserve `-WhatIf` support and idempotent behavior?
 - [ ] **Scoring accuracy**: Does the change keep scoring language consistent with the rubric (single source of truth)?
-- [ ] **Terminology**: Does the change follow the [canonical vocabulary](docs/reference/glossary.md#naming-conventions)?
+- [ ] **Terminology**: Does the change follow the [canonical vocabulary](site/src/content/docs/reference/glossary.md#naming-conventions)?
 
 ## Getting Started
 
 1. **Create your repo from the template** — Start from [azure-agentic-infraops-accelerator](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator) and create your own repository.
-2. **Run the readiness gate** — Open [Getting Started](docs/getting-started/setup.md#readiness-gate) and verify every blocking item passes before the event.
-3. **Read** [Getting Started](docs/getting-started/setup.md) for the template-based setup flow, dev container steps, and Azure quota requirements.
-4. **Review** [Workshop Prep](docs/getting-started/workshop-prep.md) for the scenario brief and team roles.
-5. **Follow** the challenges in order starting from [Challenge 1](docs/challenges/challenge-1-requirements.md).
+2. **Run the readiness gate** — Open [Getting Started](https://jonathan-vella.github.io/microhack-agentic-infraops/getting-started/setup/) and verify every blocking item passes before the event.
+3. **Read** [Getting Started](https://jonathan-vella.github.io/microhack-agentic-infraops/getting-started/) for the template-based setup flow, dev container steps, and Azure quota requirements.
+4. **Review** [Workshop Prep](https://jonathan-vella.github.io/microhack-agentic-infraops/getting-started/workshop-prep/) for the scenario brief and team roles.
+5. **Follow** the challenges in order starting from [Challenge 1](https://jonathan-vella.github.io/microhack-agentic-infraops/challenges/challenge-1-requirements/).
 
 ## Quick Links
 
 | Resource | Description |
 | --- | --- |
 | [Template Repo](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator) | Create your own working repository from the template |
-| [Workshop Docs](https://jonathan-vella.github.io/azure-agentic-infraops/) | Published setup and guidance for participants |
-| [Agenda](docs/about/agenda.md) | Full schedule with timing |
-| [Copilot Guide](docs/guides/copilot-guide.md) | Agents, skills, and prompting tips |
-| [Quick Reference Card](docs/guides/quick-reference-card.md) | Printable one-page cheat sheet |
+| [Workshop Docs](https://jonathan-vella.github.io/microhack-agentic-infraops/) | Published setup and guidance for participants |
+| [Agenda](https://jonathan-vella.github.io/microhack-agentic-infraops/about/agenda/) | Full schedule with timing |
+| [Copilot Guide](https://jonathan-vella.github.io/microhack-agentic-infraops/guides/copilot-guide/) | Agents, skills, and prompting tips |
+| [Quick Reference Card](https://jonathan-vella.github.io/microhack-agentic-infraops/guides/quick-reference-card/) | Printable one-page cheat sheet |
 | [Scoring Rubric](facilitator/scoring-rubric.md) | WAF-aligned evaluation criteria |
-| [Troubleshooting](docs/reference/troubleshooting.md) | Common issues and fixes |
+| [Troubleshooting](https://jonathan-vella.github.io/microhack-agentic-infraops/reference/troubleshooting/) | Common issues and fixes |
 
 ## License
 

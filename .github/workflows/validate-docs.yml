@@ -3,9 +3,7 @@ name: Validate Docs (PR)
 on:
   pull_request:
     paths:
-      - "docs/**"
-      - "mkdocs.yml"
-      - "requirements-docs.txt"
+      - "site/**"
       - ".github/workflows/validate-docs.yml"
 
 permissions:
@@ -19,16 +17,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          python-version: "3.12"
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
 
       - name: Install dependencies
-        run: pip install -r requirements-docs.txt
+        run: npm ci
+        working-directory: site
 
-      - name: Build MkDocs site (strict mode)
-        run: mkdocs build --strict
+      - name: Build Astro site
+        run: npm run build
+        working-directory: site
 
       - name: Lint Markdown
-        run: npx markdownlint-cli2 "docs/**/*.md"
+        run: npx markdownlint-cli2
+        working-directory: site
