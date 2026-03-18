@@ -38,18 +38,22 @@ export default defineConfig({
       sidebar: [
         {
           label: "Getting Started",
+          collapsed: true,
           autogenerate: { directory: "getting-started" },
         },
         {
           label: "Challenges",
+          collapsed: true,
           autogenerate: { directory: "challenges" },
         },
         {
           label: "Guides",
+          collapsed: true,
           autogenerate: { directory: "guides" },
         },
         {
           label: "Reference",
+          collapsed: true,
           autogenerate: { directory: "reference" },
         },
         {

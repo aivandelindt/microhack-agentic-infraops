@@ -42,9 +42,8 @@ season.
 - A repository created from the
   [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
 - Curiosity and a willingness to experiment
-
-- Workshop site: <https://jonathan-vella.github.io/microhack-agentic-infraops/>
-- Setup guide: <https://jonathan-vella.github.io/microhack-agentic-infraops/getting-started/setup.html>
+- Access to the [workshop site](https://jonathan-vella.github.io/microhack-agentic-infraops)
+- Time to review the [setup guide](https://jonathan-vella.github.io/microhack-agentic-infraops/getting-started/setup.html)
 
 ---
 

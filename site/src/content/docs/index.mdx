@@ -2,54 +2,54 @@
 title: Home
 description: "1-day hands-on hackathon: Design, deploy, and present Azure infrastructure using AI agents and GitHub Copilot"
 template: splash
-hero:
-  title: Agentic InfraOps MicroHack
-  tagline: Orchestrate specialized AI agents to transform business requirements into production-ready Azure infrastructure — all in one day.
-  actions:
-    - text: Get Started
-      link: getting-started/
-      icon: right-arrow
-      variant: primary
-    - text: View Challenges
-      link: challenges/
-      icon: open-book
-      variant: minimal
 ---
 
-import { Card, CardGrid, LinkCard } from "@astrojs/starlight/components";
-import { Image } from "astro:assets";
+import { CardGrid, LinkCard } from "@astrojs/starlight/components";
 import AgentChat from "../../components/AgentChat.astro";
-import heroImage from "../../assets/images/hero.svg";
 
-<div class="demo-container">
-  <div class="demo-window">
-    <AgentChat />
-  </div>
-</div>
-
-<section class="landing-section scenario-section">
-  <div class="section-heading">
-    <p class="section-kicker">Scenario</p>
-    <h2>From requirements to resilient Azure infrastructure</h2>
-    <p>
-      One team. One day. One evolving brief.
+<section class="landing-hero">
+  <div class="landing-hero__copy">
+    <h1>
+      <span>Agentic InfraOps</span>
+      <span>MicroHack</span>
+    </h1>
+    <p class="landing-hero__tagline">
+      Orchestrate specialized AI agents to transform business requirements into
+      production-ready Azure infrastructure — all in one day.
     </p>
-  </div>
 
-  <div class="scenario-grid">
-    <div class="feature-content">
-      <p><strong>Nordic Fresh Foods</strong> — a Stockholm-based farm-to-table delivery company — needs modern cloud infrastructure before peak season. Your team will capture their requirements, design a Well-Architected solution, generate and deploy Bicep templates — and midway through, adapt to a <strong>surprise multi-region disaster-recovery</strong> requirement.</p>
-
-      <div class="fact-pills left-aligned">
-        <span class="pill">⏱️ 1 day</span>
-        <span class="pill">🏆 8 challenges</span>
-        <span class="pill">📊 105 pts + 25 bonus</span>
-        <span class="pill">👥 3-6 per team</span>
-      </div>
+    <div class="landing-hero__actions">
+      <a class="sl-link-button primary not-content" href="getting-started/">
+        Get Started
+      </a>
+      <a class="sl-link-button minimal not-content" href="challenges/">
+        View Challenges
+      </a>
     </div>
 
-    <div class="feature-image">
-      <Image src={heroImage} alt="AI Orchestration Diagram" class="scenario-diagram" />
+  </div>
+
+  <div class="landing-hero__demo demo-window">
+    <div class="landing-hero__demo-frame">
+      <AgentChat />
+    </div>
+  </div>
+</section>
+
+<section class="landing-section scenario-frame">
+  <div class="scenario-frame__head">
+    <h2>From requirements to resilient Azure infrastructure</h2>
+    <p>One team. One day. One evolving brief.</p>
+  </div>
+
+  <div class="scenario-frame__body">
+    <p><strong>Nordic Fresh Foods</strong> — a Stockholm-based farm-to-table delivery company — needs modern cloud infrastructure before peak season. Your team will capture their requirements, design a Well-Architected solution, generate and deploy Bicep templates — and midway through, adapt to a <strong>surprise multi-region disaster-recovery</strong> requirement.</p>
+
+    <div class="fact-pills left-aligned">
+      <span class="pill">⏱️ 1 day</span>
+      <span class="pill">🏆 8 challenges</span>
+      <span class="pill">📊 105 pts + 25 bonus</span>
+      <span class="pill">👥 3-6 per team</span>
     </div>
 
   </div>
@@ -57,7 +57,6 @@ import heroImage from "../../assets/images/hero.svg";
 
 <section class="landing-section explore-section">
   <div class="section-heading">
-    <p class="section-kicker">Explore</p>
     <h2>Everything your team needs to move fast</h2>
   </div>
 
