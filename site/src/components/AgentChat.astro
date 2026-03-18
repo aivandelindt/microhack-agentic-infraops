@@ -84,8 +84,8 @@
 
 <style>
   .agent-chat {
-    max-width: 640px;
-    margin: 1.5rem auto;
+    max-width: 720px;
+    margin: 0 auto;
   }
 
   .chat-window {
@@ -135,7 +135,7 @@
   }
 
   .chat-body {
-    padding: 1.25rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
@@ -222,15 +222,25 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 0.9rem;
   }
 
   .feature-pill {
     font-size: 0.75rem;
     padding: 0.3rem 0.75rem;
     border-radius: 9999px;
-    background: var(--sl-color-gray-6);
-    border: 1px solid var(--sl-color-gray-5);
+    background: rgba(28, 34, 45, 0.92);
+    border: 1px solid rgba(124, 135, 160, 0.16);
     color: var(--sl-color-gray-2);
+  }
+
+  @media (max-width: 640px) {
+    .chat-body {
+      padding: 1rem;
+    }
+
+    .agent-item {
+      align-items: flex-start;
+    }
   }
 </style>

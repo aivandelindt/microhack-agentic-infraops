@@ -17,9 +17,9 @@ hero:
 ---
 
 import { Card, CardGrid, LinkCard } from "@astrojs/starlight/components";
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import AgentChat from "../../components/AgentChat.astro";
-import heroImage from '../../assets/images/hero.svg';
+import heroImage from "../../assets/images/hero.svg";
 
 <div class="demo-container">
   <div class="demo-window">
@@ -27,29 +27,60 @@ import heroImage from '../../assets/images/hero.svg';
   </div>
 </div>
 
-<div class="landing-section feature-row">
-  <div class="feature-content">
-    <h2>The Scenario</h2>
-    <p><strong>Nordic Fresh Foods</strong> — a Stockholm-based farm-to-table delivery company — needs modern cloud infrastructure before peak season. Your team will capture their requirements, design a Well-Architected solution, generate and deploy Bicep templates — and midway through, adapt to a <strong>surprise multi-region disaster-recovery</strong> requirement.</p>
-    
-    <div class="fact-pills left-aligned">
-      <span class="pill">⏱️ 1 day</span>
-      <span class="pill">🏆 8 challenges</span>
-      <span class="pill">📊 105 pts + 25 bonus</span>
-      <span class="pill">👥 3–6 per team</span>
-    </div>
+<section class="landing-section scenario-section">
+  <div class="section-heading">
+    <p class="section-kicker">Scenario</p>
+    <h2>From requirements to resilient Azure infrastructure</h2>
+    <p>
+      One team. One day. One evolving brief.
+    </p>
   </div>
-  <div class="feature-image">
-    <Image src={heroImage} alt="AI Orchestration Diagram" style="max-height: 220px;" />
-  </div>
-</div>
 
-<div class="landing-section explore-section">
-  <h2>Explore the MicroHack</h2>
+  <div class="scenario-grid">
+    <div class="feature-content">
+      <p><strong>Nordic Fresh Foods</strong> — a Stockholm-based farm-to-table delivery company — needs modern cloud infrastructure before peak season. Your team will capture their requirements, design a Well-Architected solution, generate and deploy Bicep templates — and midway through, adapt to a <strong>surprise multi-region disaster-recovery</strong> requirement.</p>
+
+      <div class="fact-pills left-aligned">
+        <span class="pill">⏱️ 1 day</span>
+        <span class="pill">🏆 8 challenges</span>
+        <span class="pill">📊 105 pts + 25 bonus</span>
+        <span class="pill">👥 3-6 per team</span>
+      </div>
+    </div>
+
+    <div class="feature-image">
+      <Image src={heroImage} alt="AI Orchestration Diagram" class="scenario-diagram" />
+    </div>
+
+  </div>
+</section>
+
+<section class="landing-section explore-section">
+  <div class="section-heading">
+    <p class="section-kicker">Explore</p>
+    <h2>Everything your team needs to move fast</h2>
+  </div>
+
   <CardGrid>
-    <LinkCard title="🚀 Getting Started" description="Set up your environment, check prerequisites, and learn the scenario." href="getting-started/" />
-    <LinkCard title="⚡ Challenges" description="8 challenges — from requirements capture to partner showcase." href="challenges/" />
-    <LinkCard title="📖 Guides" description="Copilot guide, hints & tips, and a printable quick-reference card." href="guides/" />
-    <LinkCard title="📚 Reference" description="Glossary, troubleshooting, and governance scripts." href="reference/" />
+    <LinkCard
+      title="Getting Started"
+      description="Set up your environment, check prerequisites, and learn the scenario."
+      href="getting-started/"
+    />
+    <LinkCard
+      title="Challenges"
+      description="8 challenges — from requirements capture to partner showcase."
+      href="challenges/"
+    />
+    <LinkCard
+      title="Guides"
+      description="Copilot guide, hints & tips, and a printable quick-reference card."
+      href="guides/"
+    />
+    <LinkCard
+      title="Reference"
+      description="Glossary, troubleshooting, and governance scripts."
+      href="reference/"
+    />
   </CardGrid>
-</div>
+</section>
