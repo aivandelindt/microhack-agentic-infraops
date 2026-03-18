@@ -166,9 +166,21 @@ body:has(.landing-hero) footer {
   scroll-margin-top: initial;
 }
 
-.landing-hero :where(.landing-hero__copy, .landing-hero__actions, .landing-hero__demo-frame) > *,
-.scenario-frame :where(.scenario-frame__head, .scenario-frame__body, .scenario-frame__columns, .scenario-panel, .scenario-flow) > *,
-.journey-section :where(.section-heading, .journey-timeline, .journey-step, .scoreboard-strip) > *,
+.landing-hero
+  :where(.landing-hero__copy, .landing-hero__actions, .landing-hero__demo-frame)
+  > *,
+.scenario-frame
+  :where(
+    .scenario-frame__head,
+    .scenario-frame__body,
+    .scenario-frame__columns,
+    .scenario-panel,
+    .scenario-flow
+  )
+  > *,
+.journey-section
+  :where(.section-heading, .journey-timeline, .journey-step, .scoreboard-strip)
+  > *,
 .explore-section :where(.section-heading, .card-grid) > * {
   margin-top: 0 !important;
 }
@@ -737,7 +749,9 @@ body:not(:has(.landing-hero)) .sl-markdown-content {
   font-family: var(--font-body);
 }
 
-body:not(:has(.landing-hero)) .sl-markdown-content :is(p, li, dd, dt, blockquote) {
+body:not(:has(.landing-hero))
+  .sl-markdown-content
+  :is(p, li, dd, dt, blockquote) {
   font-family: var(--font-body);
 }
 
