@@ -161,7 +161,6 @@ body:has(.landing-hero) footer {
 
 .landing-hero *,
 .scenario-frame *,
-.journey-section *,
 .explore-section * {
   scroll-margin-top: initial;
 }
@@ -174,12 +173,8 @@ body:has(.landing-hero) footer {
     .scenario-frame__head,
     .scenario-frame__body,
     .scenario-frame__columns,
-    .scenario-panel,
-    .scenario-flow
+    .scenario-panel
   )
-  > *,
-.journey-section
-  :where(.section-heading, .journey-timeline, .journey-step, .scoreboard-strip)
   > *,
 .explore-section :where(.section-heading, .card-grid) > * {
   margin-top: 0 !important;
@@ -299,9 +294,7 @@ body:has(.landing-hero) footer {
 
 .landing-hero__copy h1,
 .section-heading h2,
-.scenario-frame__head h2,
-.journey-step h3,
-.scoreboard-strip strong {
+.scenario-frame__head h2 {
   font-family: var(--font-display);
 }
 
@@ -437,12 +430,6 @@ body:has(.landing-hero) footer {
   margin: 0 auto 2rem;
 }
 
-.section-heading--left {
-  text-align: left;
-  max-width: 52rem;
-  margin-inline: auto;
-}
-
 .section-heading h2 {
   margin: 0;
   color: #f0f6fc;
@@ -459,13 +446,7 @@ body:has(.landing-hero) footer {
   font-size: 1rem;
 }
 
-.section-heading--left > p:last-child {
-  margin-inline: 0;
-  max-width: 40rem;
-}
-
 .scenario-frame,
-.journey-section,
 .explore-section {
   max-width: var(--landing-content-width);
   margin-inline: auto;
@@ -517,10 +498,7 @@ body:has(.landing-hero) footer {
   align-items: stretch;
 }
 
-.scenario-frame__columns > *,
-.scenario-flow > *,
-.journey-timeline > *,
-.scoreboard-strip > * {
+.scenario-frame__columns > * {
   margin-top: 0 !important;
 }
 
@@ -579,151 +557,6 @@ body:has(.landing-hero) footer {
   box-shadow: 0 0 0 4px rgba(99, 183, 255, 0.1);
 }
 
-.scenario-flow {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-top: 1.35rem;
-}
-
-.scenario-flow span {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 3rem;
-  padding: 0.75rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(124, 135, 160, 0.18);
-  background: rgba(255, 255, 255, 0.03);
-  color: #dcecff;
-  font-size: 0.82rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.scenario-flow span:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  right: -0.65rem;
-  width: 0.55rem;
-  height: 1px;
-  background: rgba(124, 135, 160, 0.45);
-}
-
-.journey-timeline {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
-  align-items: stretch;
-}
-
-.journey-timeline::before {
-  content: "";
-  position: absolute;
-  inset: 1.3rem 0 auto;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    rgba(124, 232, 255, 0.1),
-    rgba(124, 232, 255, 0.35),
-    rgba(255, 180, 76, 0.2)
-  );
-  z-index: 0;
-}
-
-.journey-step {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  padding: 1.25rem;
-  border-radius: 1.2rem;
-  border: 1px solid rgba(124, 135, 160, 0.18);
-  background: linear-gradient(
-    180deg,
-    rgba(18, 23, 33, 0.95),
-    rgba(13, 17, 24, 0.95)
-  );
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
-}
-
-.journey-step::before {
-  content: "";
-  position: absolute;
-  left: 1.2rem;
-  top: -0.42rem;
-  width: 0.85rem;
-  height: 0.85rem;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #8ad2ff, #63b7ff);
-  box-shadow: 0 0 0 6px rgba(99, 183, 255, 0.12);
-}
-
-.journey-step__index {
-  display: inline-block;
-  margin-bottom: 0.9rem;
-  color: #8fcfff;
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
-
-.journey-step h3 {
-  margin: 0;
-  color: #f0f6fc;
-  font-size: 1.15rem;
-  letter-spacing: -0.03em;
-}
-
-.journey-step p {
-  margin: 0.7rem 0 0;
-  color: #b0c0d2;
-  font-size: 0.95rem;
-  line-height: 1.65;
-}
-
-.scoreboard-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
-  align-items: stretch;
-}
-
-.scoreboard-strip > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-height: 8.75rem;
-  padding: 1.1rem 1.2rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(124, 135, 160, 0.16);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.scoreboard-strip__label {
-  display: block;
-  margin-bottom: 0.45rem;
-  color: #8da5c0;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.scoreboard-strip strong {
-  margin-top: auto;
-  color: #f0f6fc;
-  font-size: 1.2rem;
-  letter-spacing: -0.03em;
-}
-
 body:not(:has(.landing-hero)) .main-pane :is(h1, h2, h3, h4) {
   font-family: var(--font-display);
   letter-spacing: -0.03em;
@@ -770,7 +603,6 @@ body:not(:has(.landing-hero))
 .landing-hero__copy,
 .landing-hero__demo,
 .scenario-frame,
-.journey-section,
 .explore-section {
   animation: rise-fade 0.8s ease both;
 }
@@ -785,10 +617,6 @@ body:not(:has(.landing-hero))
 
 .scenario-frame {
   animation-delay: 0.22s;
-}
-
-.journey-section {
-  animation-delay: 0.3s;
 }
 
 .explore-section {
@@ -906,9 +734,7 @@ a {
     max-width: none;
   }
 
-  .scenario-frame__columns,
-  .scoreboard-strip,
-  .journey-timeline {
+  .scenario-frame__columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -942,15 +768,7 @@ a {
     padding: 1rem;
   }
 
-  .scenario-flow,
-  .scenario-frame__columns,
-  .scoreboard-strip,
-  .journey-timeline {
+  .scenario-frame__columns {
     grid-template-columns: 1fr;
-  }
-
-  .scenario-flow span:not(:last-child)::after,
-  .journey-timeline::before {
-    display: none;
   }
 }
