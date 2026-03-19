@@ -48,6 +48,7 @@ season.
 - Curiosity and a willingness to experiment
 
 Workshop site: <https://jonathan-vella.github.io/microhack-agentic-infraops/>
+
 Setup guide: <https://jonathan-vella.github.io/microhack-agentic-infraops/getting-started/setup.html>
 
 ---

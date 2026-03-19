@@ -339,10 +339,10 @@ body:has(.landing-hero) footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 11.5rem;
-  padding: 0.88rem 1.3rem;
+  min-width: 9rem;
+  padding: 0.62rem 1rem;
   border-radius: 999px;
-  font-size: 0.94rem;
+  font-size: 0.84rem;
   font-weight: 700;
   line-height: 1;
   text-decoration: none;
@@ -359,7 +359,7 @@ body:has(.landing-hero) footer {
 }
 
 .landing-hero__actions .primary {
-  min-width: 12.2rem;
+  min-width: 9.5rem;
   background: linear-gradient(180deg, #9ad7ff, #63b7ff);
   color: #06111c;
   box-shadow:
