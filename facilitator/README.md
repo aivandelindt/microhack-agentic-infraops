@@ -16,7 +16,7 @@ Use [scoring-rubric.md](scoring-rubric.md) as the source of truth for all points
 
 1. Review each team's artifacts in `agent-output/{team}/` and `infra/bicep/{team}/`.
 2. Record the base and bonus scores using the rubric criteria.
-3. Add the Partner Showcase score using the rubric during Challenge 8.
+3. Add the Team Showcase score using the rubric during Challenge 8.
 4. If your event package includes HackerBoard, you can enter the same rubric-based scores there for live leaderboard display.
 
 ### Curveball Timing

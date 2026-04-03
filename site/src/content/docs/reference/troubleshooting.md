@@ -304,7 +304,7 @@ pwsh scripts/Get-GovernanceStatus.ps1
 
 1. Recheck the team artifacts against the criteria in the scoring rubric
 2. Confirm deployment evidence and bonus claims in Azure before awarding those points
-3. Verify that the Partner Showcase score was added separately from the base score
+3. Verify that the Team Showcase score was added separately from the base score
 
 ## Leaderboard App
 

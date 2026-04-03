@@ -239,4 +239,4 @@ Your diagram should visualize:
 - Network boundaries and security zones
 - Regional placement of resources
 
-**Save your diagram** — you'll need it for your Partner Showcase in Challenge 8.
+**Save your diagram** — you'll need it for your Team Showcase in Challenge 8.

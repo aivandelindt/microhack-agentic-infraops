@@ -8,7 +8,7 @@
 
 > **105-point base + 25 bonus** | WAF-aligned | Scored by facilitators using the rubric
 
-> **Note**: Challenge 8 (Partner Showcase) is scored by facilitators using the rubric on a 0-10 scale.
+> **Note**: Challenge 8 (Team Showcase) is scored by facilitators using the rubric on a 0-10 scale.
 
 ## Recommended Scoring Workflow
 
@@ -19,7 +19,7 @@
 
 1. Review each team's deliverables under `agent-output/{team}/` and `infra/bicep/{team}/` or `infra/terraform/{team}/`.
 2. Validate deployment and bonus criteria using the Azure portal or CLI where needed.
-3. Record the Partner Showcase score during the presentation.
+3. Record the Team Showcase score during the presentation.
 4. Keep the final totals in your chosen leaderboard tool or facilitator worksheet.
 
 ---
@@ -35,7 +35,7 @@
 | Load Testing            | 5       | Manual: review artifact |
 | Documentation           | 5       | Manual: review artifact |
 | Diagnostics             | 5       | Manual: review artifact |
-| Partner Showcase        | 10      | Manual: facilitator scores live |
+| Team Showcase           | 10      | Manual: facilitator scores live |
 | **Base Total**          | **105** |               |
 | **Bonus Points**        | +25     | Manual: verify in Azure Portal/CLI |
 | **Max Total**           | **130** |               |
@@ -95,7 +95,7 @@
 | Summary documented     | 2      | Paper-exercise teams: can earn this for documenting what they _would_ deploy |
 
 > [!NOTE]
-> **Paper-exercise variant (Challenge 3 deployment failed)**: Teams that pivoted to the paper exercise cannot earn What-If, deployment, or running-resources points. They can still earn the Summary documented point by describing their intended deployment. All other categories (Requirements, Architecture, Implementation quality, DR ADR, Showcase) are scored normally.
+> **Paper-exercise variant (Challenge 3 deployment failed)**: Teams that pivoted to the paper exercise cannot earn What-If, deployment, or running-resources points. They can still earn the Summary documented point by describing their intended deployment. All other categories (Requirements, Architecture, Implementation quality, DR ADR, Team Showcase) are scored normally.
 
 ### 5. Load Testing (5 pts)
 
@@ -128,14 +128,14 @@ or `agent-output/{team}/07-ab-diagnostics-runbook.md` (bonus depth)
 | Monitoring queries included  | 2      |
 | Incident response documented | 1      |
 
-### 8. Partner Showcase (10 pts)
+### 8. Team Showcase (10 pts)
 
 **Scoring method**: Scored by facilitators using the rubric on a 0-10 scale
 
 | Criterion               | Points |
 | ----------------------- | ------ |
 | Technical communication | 3      |
-| Customer engagement     | 2      |
+| Stakeholder engagement  | 2      |
 | Solution justification  | 2      |
 | Team collaboration      | 2      |
 | Active listening        | 1      |

@@ -331,31 +331,30 @@ Use this short buffer to confirm teams are ready for load testing, unblock deplo
 - Assign team pairings (see below)
 - Set up presentation area (projector, timer)
 
-### Block 8: Challenge 8 - Partner Showcase 🎤 (15:50 - 16:50)
+### Block 8: Challenge 8 - Team Showcase 🎤 (15:50 - 16:50)
 
 **Duration**: 60 minutes (up to 6 teams × ~9 min + transitions)
 
 #### Presentation Setup
 
-Pair teams for the role-play:
+Pair teams for presentations:
 
-| Presenting (Partner) | Challenging (Customer) |
-| -------------------- | ---------------------- |
-| Team 1               | Team 2                 |
-| Team 2               | Team 3                 |
-| Team 3               | Team 4                 |
-| Team 4               | Team 5                 |
-| Team 5               | Team 6                 |
-| Team 6               | Team 1                 |
+| Presenting Team | Stakeholder Team |
+| --------------- | ---------------- |
+| Team 1          | Team 2           |
+| Team 2          | Team 3           |
+| Team 3          | Team 4           |
+| Team 4          | Team 5           |
+| Team 5          | Team 6           |
+| Team 6          | Team 1           |
 
 #### 📢 Announcement Script (15:50)
 
-> _"Time for Challenge 8 — the Partner Showcase! 🎤_
+> _"Time for Challenge 8 — the Team Showcase! 🎤_
 >
-> _Each team will present their FreshConnect solution. You are now the **Partner** pitching to
-> Nordic Fresh Foods._
+> _Each team will present their FreshConnect solution to a stakeholder panel._
 >
-> _When you're not presenting, you'll play the **Customer** — asking tough but fair questions!_
+> _When you're not presenting, you'll play the **Stakeholder** role — asking tough but fair questions!_
 >
 > _Format: 4 min pitch + 2 min Q&A + 30 sec transition._
 >
@@ -420,7 +419,7 @@ Fast teams disengage if idle. Offer these stretch activities:
 | Add **Managed Identities** and remove connection strings (bonus +5) | After C3/C4 |
 | Write a second documentation artifact (e.g., DR runbook)            | After C6    |
 | Explore the `challenger` agent on their own artifacts               | Anytime     |
-| Prepare extra slides for the Partner Showcase                       | After C7    |
+| Prepare extra slides for the Team Showcase                          | After C7    |
 | Help a struggling neighboring team (peer coaching)                  | Anytime     |
 
 ---
@@ -431,7 +430,7 @@ Fast teams disengage if idle. Offer these stretch activities:
 
 1. Review each team's artifacts and deployment evidence against [scoring-rubric.md](scoring-rubric.md).
 2. Verify bonus claims in Azure where needed.
-3. Add the Partner Showcase score using the rubric after each presentation.
+3. Add the Team Showcase score using the rubric after each presentation.
 4. Publish totals from your facilitator worksheet or HackerBoard instance if your event package includes one.
 
 > [!TIP]
@@ -517,7 +516,7 @@ When a team is blocked, follow this order:
 
 Legend: ⬜ Not started | 🔄 In progress | ✅ Complete
 
-> **Note**: C8 (Partner Showcase) is facilitator-scored (0-10) via `-ShowcaseScore`.
+> **Note**: C8 (Team Showcase) is facilitator-scored (0-10) via `-ShowcaseScore`.
 
 ---
 

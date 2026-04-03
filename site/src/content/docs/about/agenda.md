@@ -36,7 +36,7 @@ sidebar:
 | 15:15-15:30 | **Challenge 6** | 15 min   | Documentation                     |
 | 15:30-15:35 | **Challenge 7** | 5 min    | Diagnostics                       |
 | 15:35-15:50 | 🎯 **Prep**     | 15 min   | Presentation Preparation          |
-| 15:50-16:50 | **Challenge 8** | 60 min   | Partner Showcase 🎤               |
+| 15:50-16:50 | **Challenge 8** | 60 min   | Team Showcase 🎤                  |
 | 16:50-17:00 | **Wrap-up**     | 10 min   | Leaderboard, cleanup, close       |
 
 ---
@@ -58,7 +58,7 @@ sidebar:
 | 5   | Load Testing                  | 30 min   | 5      | (k6 scripts)                         |
 | 6   | Documentation                 | 15 min   | 5      | `design`                             |
 | 7   | Diagnostics                   | 5 min    | 5      | `diagnose`                           |
-| 8   | Partner Showcase 🎤           | 60 min   | 10     | (presentation)                       |
+| 8   | Team Showcase 🎤              | 60 min   | 10     | (presentation)                       |
 
 **Total Points**: 105 base + 25 bonus
 
@@ -154,7 +154,7 @@ Use this short buffer to unblock teams, confirm deployments, and reset before th
 
 ### 🎯 Presentation Prep (15:35 - 15:50)
 
-Teams prepare their Partner Showcase presentations (4-min pitch + 2-min Q&A format).
+Teams prepare their Team Showcase presentations (4-min pitch + 2-min Q&A format).
 
 ### Block 8: Challenge 8 (15:50 - 16:50)
 

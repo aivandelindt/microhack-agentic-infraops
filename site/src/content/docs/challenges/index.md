@@ -1,11 +1,11 @@
 ---
 title: Challenges
-description: 8 challenges taking you from requirements to partner showcase
+description: 8 challenges taking you from requirements to team showcase
 sidebar:
   order: 0
 ---
 
-Eight challenges guide you through the full Infrastructure-as-Code lifecycle — from gathering requirements to presenting your solution in a partner showcase. Each challenge applies platform engineering practices, accelerated by GitHub Copilot.
+Eight challenges guide you through the full Infrastructure-as-Code lifecycle — from gathering requirements to presenting your solution in a team showcase. Each challenge applies platform engineering practices, accelerated by GitHub Copilot.
 
 :::tip
 
@@ -24,7 +24,7 @@ Each challenge names its **input artifact** (what you need from the previous ste
 | 5 | [Load Testing](challenge-5-load-testing/) | 30 min | 5 |
 | 6 | [Workload Documentation](challenge-6-documentation/) | 15 min | 5 |
 | 7 | [Troubleshooting & Diagnostics](challenge-7-diagnostics/) | 5 min | 5 |
-| 8 | [Partner Showcase](challenge-8-partner-showcase/) | 60 min | 10 |
+| 8 | [Team Showcase](challenge-8-partner-showcase/) | 60 min | 10 |
 
 **Total:** 105 base points + up to 25 bonus points
 

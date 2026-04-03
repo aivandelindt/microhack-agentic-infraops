@@ -49,7 +49,7 @@ A Stockholm-based farm-to-table delivery company needs a standardised, governanc
 | 15:15–15:30 | Challenge 6     | 15 min   | Documentation                     |
 | 15:30–15:35 | Challenge 7     | 5 min    | Diagnostics                       |
 | 15:35–15:50 | Prep            | 15 min   | Presentation Preparation          |
-| 15:50–16:50 | Challenge 8     | 60 min   | Partner Showcase                  |
+| 15:50–16:50 | Challenge 8     | 60 min   | Team Showcase                     |
 | 16:50–17:00 | Wrap-up         | 10 min   | Leaderboard, cleanup, close       |
 
 ## Repository Structure

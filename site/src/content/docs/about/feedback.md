@@ -65,7 +65,7 @@ Checkbox items (☐) are for pen-and-paper or digital-form use.
 | 5: Load Testing             | ☐1 ☐2 ☐3 ☐4 ☐5 |          |
 | 6: Documentation            | ☐1 ☐2 ☐3 ☐4 ☐5 |          |
 | 7: Diagnostics              | ☐1 ☐2 ☐3 ☐4 ☐5 |          |
-| 8: Partner Showcase         | ☐1 ☐2 ☐3 ☐4 ☐5 |          |
+| 8: Team Showcase            | ☐1 ☐2 ☐3 ☐4 ☐5 |          |
 
 ### 5. What did you learn? (Select all that apply)
 

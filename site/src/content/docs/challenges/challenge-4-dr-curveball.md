@@ -202,7 +202,7 @@ Use the `design` agent to update the FreshConnect architecture diagram
 to show HA/DR configuration based on agent-output/freshconnect/04-adr-ha-dr-strategy.md
 ```
 
-**Save your updated diagram** — you'll need it for your Partner Showcase in Challenge 8.
+**Save your updated diagram** — you'll need it for your Team Showcase in Challenge 8.
 
 ### 5. Updated Cost Estimate
 

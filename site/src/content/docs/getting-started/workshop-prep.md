@@ -128,7 +128,7 @@ Design and deploy the Azure infrastructure for the **FreshConnect MVP** (Minimum
 5. **Load Testing** — Validate performance under stress
 6. **Documentation** — Create operational guides and runbooks
 7. **Diagnostics** — Build troubleshooting procedures
-8. **Partner Showcase** — Present your solution professionally
+8. **Team Showcase** — Present your solution professionally
 
 Not all teams will complete all challenges — the goal is mastering the platform engineering workflow.
 
@@ -239,7 +239,7 @@ Begin with [Challenge 1: Requirements](../../challenges/challenge-1-requirements
 - Note key decisions and rationale
 - Track which challenges are complete
 - Document blockers and solutions
-- Prepare for **Challenge 8: Partner Showcase**
+- Prepare for **Challenge 8: Team Showcase**
 
 **Tips:**
 

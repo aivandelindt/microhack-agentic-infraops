@@ -1,7 +1,7 @@
 ---
-title: 'C8: Partner Showcase'
-description: Present your FreshConnect solution in a role-play partner-customer engagement
-  with Microsoft coaches observing.
+title: 'C8: Team Showcase'
+description: Present your FreshConnect solution to a stakeholder panel with coaches
+  observing and peer teams challenging.
 sidebar:
   order: 8
   badge:
@@ -21,11 +21,12 @@ prev:
 
 ## Overview
 
-This is your moment to shine! Each team will present their FreshConnect solution to a "customer"
-(played by another team) while Microsoft coaches observe and provide feedback.
+This is your moment to shine! Each team will present their FreshConnect solution to a stakeholder
+panel (played by another team) while coaches observe and provide feedback.
 
-**This challenge simulates a real partner-customer engagement** — the kind you'll experience
-when delivering Azure solutions professionally.
+**This challenge simulates a real technical presentation and peer review** — the kind you'll
+experience when proposing Azure solutions to decision-makers, whether they are internal
+stakeholders, customers, or leadership.
 
 ## The Setup
 
@@ -33,9 +34,9 @@ when delivering Azure solutions professionally.
 %%{init: {'theme':'neutral'}}%%
 graph TB
     subgraph Room[Presentation Room]
-        P[👥 Presenting Team<br/>Team A<br/>Partner Role]
-        C[👥 Customer Team<br/>Team B<br/>Asks Tough Questions]
-        F[🎯 Microsoft Coaches<br/>Observing & Evaluating]
+        P[👥 Presenting Team<br/>Team A]
+        C[👥 Stakeholder Team<br/>Team B<br/>Asks Tough Questions]
+        F[🎯 Coaches<br/>Observing & Evaluating]
         O[👀 Other Teams<br/>Learning & Taking Notes]
 
         P -->|Presents Solution| C
@@ -56,9 +57,9 @@ graph TB
 <summary>Text alternative: Presentation setup</summary>
 
 
-- **Presenting Team** (Partner role): Presents their solution to the Customer Team
-- **Customer Team**: Asks tough questions to challenge the presenting team
-- **Microsoft Coaches**: Observe and evaluate both teams
+- **Presenting Team**: Presents their solution to the Stakeholder Team
+- **Stakeholder Team**: Asks tough questions to challenge the presenting team
+- **Coaches**: Observe and evaluate both teams
 - **Other Teams**: Learn from the presentation and Q&A
 
 
@@ -68,14 +69,14 @@ graph TB
 
 The coach will pair teams in a round-robin:
 
-| Presenting Team (Partner) | Challenging Team (Customer) |
-| ------------------------- | --------------------------- |
-| Team 1                    | Team 2                      |
-| Team 2                    | Team 3                      |
-| Team 3                    | Team 4                      |
-| Team 4                    | Team 1                      |
+| Presenting Team | Stakeholder Team |
+| --------------- | ---------------- |
+| Team 1          | Team 2           |
+| Team 2          | Team 3           |
+| Team 3          | Team 4           |
+| Team 4          | Team 1           |
 
-> For larger cohorts, extend the rotation (e.g., Team 5 → Team 6 → Team 1). When you're the "customer," your job is to ask tough but fair questions!
+> For larger cohorts, extend the rotation (e.g., Team 5 → Team 6 → Team 1). When you're the stakeholder team, your job is to ask tough but fair questions!
 
 ---
 
@@ -83,13 +84,13 @@ The coach will pair teams in a round-robin:
 
 **Time per team**: ~14 minutes
 
-| Segment        | Duration | Content                           |
-| -------------- | -------- | --------------------------------- |
-| Partner Pitch  | 4 min    | Present your solution             |
-| Customer Q&A   | 2 min    | Customer team asks questions      |
-| Coach Feedback | 2 min    | Brief facilitator comments        |
-| Transition     | 30 sec   | Switch presenters                 |
-| Buffer         | ~5 min   | Overrun margin and audience notes |
+| Segment            | Duration | Content                           |
+| ------------------ | -------- | --------------------------------- |
+| Solution Pitch     | 4 min    | Present your solution             |
+| Stakeholder Q&A    | 2 min    | Stakeholder team asks questions   |
+| Coach Feedback     | 2 min    | Brief facilitator comments        |
+| Transition         | 30 sec   | Switch presenters                 |
+| Buffer             | ~5 min   | Overrun margin and audience notes |
 
 ---
 
@@ -232,9 +233,9 @@ Thank you for your time!
 
 ---
 
-## Customer Role: Question Bank
+## Stakeholder Role: Question Bank
 
-**If you're playing the customer**, use these questions to challenge the partner team.
+**If you're the stakeholder team**, use these questions to challenge the presenting team.
 Pick 2-3 questions that are relevant to their presentation.
 
 ### Architecture Questions
@@ -283,7 +284,7 @@ Pick 2-3 questions that are relevant to their presentation.
 
 ---
 
-## Tips for Presenters (Partner Role)
+## Tips for Presenters
 
 ✅ **DO:**
 
@@ -291,7 +292,7 @@ Pick 2-3 questions that are relevant to their presentation.
 - Admit what you didn't finish (honesty wins respect)
 - Explain trade-offs, not just decisions
 - Use your artifacts (diagrams, IaC templates, cost estimates)
-- Thank the customer for their questions
+- Thank the stakeholder team for their questions
 
 ❌ **DON'T:**
 
@@ -303,7 +304,7 @@ Pick 2-3 questions that are relevant to their presentation.
 
 ---
 
-## Tips for Questioners (Customer Role)
+## Tips for Questioners (Stakeholder Role)
 
 ✅ **DO:**
 
@@ -321,7 +322,7 @@ Pick 2-3 questions that are relevant to their presentation.
 
 ---
 
-## Microsoft Feedback Focus
+## Coach Feedback Focus
 
 Coaches will provide brief feedback on:
 
@@ -330,7 +331,7 @@ Coaches will provide brief feedback on:
 | **Clarity**         | Was the solution easy to understand?                      |
 | **Justification**   | Were decisions well-reasoned?                             |
 | **WAF Alignment**   | Did they address reliability, security, cost, operations? |
-| **Professionalism** | How would this land with a real customer?                 |
+| **Professionalism** | How would this land with a real stakeholder?              |
 
 ---
 
@@ -341,7 +342,7 @@ This challenge is worth **10 points** and focuses on professional skills:
 | Skill                       | Points | What You're Practicing                |
 | --------------------------- | ------ | ------------------------------------- |
 | **Technical Communication** | 3      | Explaining complex solutions simply   |
-| **Customer Engagement**     | 2      | Handling questions under pressure     |
+| **Stakeholder Engagement**  | 2      | Handling questions under pressure     |
 | **Solution Justification**  | 2      | Defending architectural decisions     |
 | **Team Collaboration**      | 2      | Presenting as a unified team          |
 | **Active Listening**        | 1      | Learning from other teams' approaches |

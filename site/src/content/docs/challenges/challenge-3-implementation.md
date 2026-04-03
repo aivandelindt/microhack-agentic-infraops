@@ -231,7 +231,7 @@ Your flowchart must show:
 5. Common errors and how agents adjust
 6. The feedback loop when issues are discovered
 
-**Why This Matters**: In your Partner Showcase, you'll need to explain this workflow to
+**Why This Matters**: In your Team Showcase, you'll need to explain this workflow to
 demonstrate you understand the process, not just executed commands.
 
 **Save your flowchart** in your presentation materials - you'll need it for Challenge 8.
