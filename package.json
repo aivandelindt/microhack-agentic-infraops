@@ -7,6 +7,6 @@
   },
   "devDependencies": {
     "lefthook": "^2.1.4",
-    "markdownlint-cli2": "^0.22.0"
+    "markdownlint-cli2": "^0.21.0"
   }
 }
