@@ -15,220 +15,116 @@ next:
   label: 'C3: Implementation'
 ---
 
-
 :::note[Challenge Info]
-⏱️ **30 min** · 🏆 **25 pts** · 🤖 architect · 📄 02-architecture-assessment.md, 03-des-architecture-diagram.md
+⏱️ **30 min** · 🏆 **25 pts** · 🤖 `architect`, `design` · 📄 `02-architecture-assessment.md`, `03-des-architecture-diagram.md`
 
 :::
 
-## The Architecture Challenge
+## Objective
 
-You have requirements — now translate them into an Azure architecture that's reliable,
-secure, cost-effective, and Well-Architected.
+- **Do now:** Turn the requirements into an Azure architecture you can justify.
+- **Input:** `agent-output/freshconnect/01-requirements.md`.
+- **Output:** `agent-output/freshconnect/02-architecture-assessment.md` and `agent-output/freshconnect/03-des-architecture-diagram.md`.
+- **Required to move on:** Service choices, WAF trade-offs, cost view, and a diagram.
+- **Decisions now:** Compute platform, data platform, network/security boundary, cost vs reliability trade-offs.
+- **Next:** C3 turns this assessment and diagram into IaC and deployment work.
 
-**Your constraints:**
+Your goal is not to collect every possible Azure option. Your goal is to choose a
+workable MVP architecture that fits the FreshConnect constraints and can survive later
+implementation and stakeholder scrutiny.
 
-- ~€500/month budget for infrastructure
-- Small ops team (managed services preferred)
-- EU data residency (GDPR)
-- 99.9% SLA target
-- 3-month timeline to MVP
+## The Business Challenge
 
-## Your Challenge
+FreshConnect now has clear requirements, but Nordic Fresh Foods still needs a design
+that fits a small ops team, stays in EU regions, targets roughly 99.9% availability,
+and remains defensible inside a budget of about €500 per month. Every service choice
+must balance capability, cost, and operational complexity.
 
-Use the `architect` agent to evaluate your requirements against Azure's Well-Architected Framework
-and produce a comprehensive architecture assessment.
+## Your Tasks
 
-**Prompt Engineering Focus:**
+1. Read the C1 requirements and list the decisions that still need architecture-level
+   judgment instead of more discovery.
+2. Use the `architect` agent to assess the workload against the Azure
+   Well-Architected Framework and recommend Azure services, SKUs, and risks.
+3. Choose the service set and cost posture you are prepared to defend to both a small
+   engineering team and a budget-conscious stakeholder.
+4. Use the `design` agent to create an architecture diagram that matches the written
+   assessment.
+5. Save both artifacts at the required paths.
 
-- How do you reference previous agent work?
-- What architectural decisions should YOU make vs asking the agent?
-- How do you balance cost, reliability, and complexity?
+## Key Decisions
 
-**Guiding Questions:**
+- Which hosting model gives enough reliability and scale without creating an
+  operations burden the team cannot sustain?
+- Which data service best matches FreshConnect's order and partner data while staying
+  within budget and compliance boundaries?
+- Which security controls must be first-class from day one, and which can be deferred
+  without creating unacceptable risk?
+- Where should you spend money for real business value, and where is the architecture
+  starting to drift into over-engineering?
 
-**Service Selection:**
+## Deliverables
 
-- Web hosting: App Service vs Container Apps vs AKS?
-- Database: SQL Database vs Cosmos DB vs PostgreSQL?
-- Storage: Blob Storage tiers — Hot, Cool, Archive?
-- What factors drive each decision?
-- Which options align with team skills and timeline?
-
-**Well-Architected Pillars:**
-
-- **Reliability**: How do you achieve 99.9%? What's your failure strategy?
-- **Security**: How do you handle secrets? What network boundaries exist?
-- **Cost**: Where can you optimize without sacrificing requirements?
-- **Performance**: Where will bottlenecks occur? How do you mitigate?
-- **Operational Excellence**: How complex can your team handle?
-
-**Cost vs Capability Trade-offs:**
-
-- Zone redundancy: Do you need it for MVP?
-- Backup retention: 7 days vs 30 days?
-- Premium tiers: When is Standard sufficient?
-- Managed services premium: Worth the cost reduction in ops burden?
-
-**Compliance Alignment:**
-
-- GDPR: Which services support EU data residency?
-- Azure Policy: What governance should be enforced?
-- Data classification: What data is most sensitive?
-
-## Crafting Your Prompt
-
-**Example approach** (adapt based on your requirements):
-
-```
-Review my requirements in [file path] and assess the architecture against
-Azure Well-Architected Framework.
-
-Key decisions I need guidance on:
-[What are you uncertain about? Where do trade-offs exist?]
-
-Business constraints to consider:
-[Budget, timeline, team, compliance]
-
-Please provide recommendations for [specific areas].
-```
-
-**Architectural Thinking:**
-
-- Start with constraints (budget, compliance, timeline)
-- Consider team capabilities — can they operate it?
-- Identify critical paths — what can't fail?
-- Think iteratively — what's MVP vs future enhancement?
-
-## Expected Conversation Flow
-
-The `architect` agent will:
-
-- Review your requirements document
-- Identify gaps or ambiguities
-- Propose service options with trade-offs
-- Assess against Well-Architected pillars
-- Recommend specific SKUs and configurations
-
-**Your role:**
-
-- Make business-aligned decisions
-- Ask "why" when recommendations seem over-engineered
-- Challenge cost vs value
-- Validate against requirements
-
-## Verification
-
-Your architecture assessment should capture:
-
-- ✅ Workload overview (business context, requirements summary)
-- ✅ Recommended Azure services with SKUs
-- ✅ Well-Architected Framework assessment (5 pillars)
-- ✅ Trade-off analysis (cost, complexity, capability)
-- ✅ Risk identification and mitigation strategies
-- ✅ Specific recommendations for improvement
-- ✅ Cost estimate or reference to pricing considerations
-- ✅ Architecture diagram generated (PNG or Mermaid)
+- `agent-output/freshconnect/02-architecture-assessment.md`
+- `agent-output/freshconnect/03-des-architecture-diagram.md`
+- Assessment includes recommended Azure services, key SKUs, WAF reasoning, risks, and
+  cost assumptions.
+- Diagram shows services, relationships, data flows, security boundaries, and region
+  placement.
 
 ## Success Criteria
 
-| Criterion                                  | Points |
-| ------------------------------------------ | ------ |
-| Architecture assessment document created   | 5      |
-| Azure services selected with justification | 5      |
-| WAF assessment complete (all 5 pillars)    | 5      |
-| Trade-offs documented                      | 3      |
-| Cost estimate provided                     | 4      |
-| Architecture diagram generated             | 3      |
-| **Total**                                  | **25** |
+| Focus | What good looks like | Evidence |
+| --- | --- | --- |
+| Service selection | The chosen Azure services fit the requirements and team capability | Each major service has a short justification tied to a requirement or trade-off |
+| WAF thinking | Reliability, security, cost, performance, and operations are visible in the reasoning | The assessment explains the main trade-offs instead of listing features |
+| Cost fit | The architecture is realistic for the MVP budget | Cost drivers, assumptions, or guardrails are called out explicitly |
+| Architecture communication | Someone else can understand the design quickly | Diagram and written assessment tell the same story |
 
-## Coaching Tips
+## Tips / Hints
 
-💡 **Challenge recommendations** — If something seems over-engineered, ask "Why do we need this?"
+<details>
+<summary>Compact prompt pattern and shared references</summary>
 
-💡 **Cost vs value** — Premium tiers cost more. What business value do they provide?
+Use a prompt structure like this:
 
-💡 **Managed services** — With a small team, operational burden matters as much as cost
+```text
+Review agent-output/freshconnect/01-requirements.md and recommend an Azure MVP
+architecture for FreshConnect.
 
-💡 **MVP mindset** — What's essential for launch vs nice-to-have later?
+Decisions I need to make now:
+- compute platform
+- database choice
+- security and network baseline
+- cost trade-offs within ~€500/month
 
-💡 **Compliance first** — GDPR violations are expensive. Data residency is non-negotiable.
+Return: WAF-aligned recommendations, key risks, and a diagram-ready summary.
+```
+
+Use [Hints & Tips](../../guides/hints-and-tips/#architecture-hints) for deeper service
+selection prompts, [Hints & Tips](../../guides/hints-and-tips/#cost-optimization)
+for cost thinking, and [Quick Reference Card](../../guides/quick-reference-card/#security-checklist)
+for the shared security baseline.
+
+</details>
+
+## Watch Out
+
+- Do not accept an architecture you cannot explain in business terms.
+- Do not let the diagram drift away from the written assessment.
+- Do not ignore cost assumptions until the end; they shape the service choices.
+- Do not forget EU residency or governance requirements when comparing services.
 
 ## Artifact Handoff
 
 | Item | Value |
-|---|---|
+| --- | --- |
 | **Input from** | `agent-output/freshconnect/01-requirements.md` (Challenge 1) |
 | **Your output** | `agent-output/freshconnect/02-architecture-assessment.md`, `agent-output/freshconnect/03-des-architecture-diagram.md` |
+| **Next challenge uses** | C3 uses the assessment and diagram to choose IaC structure, validation steps, and deployment targets |
 
-## Reflection Questions
+## Next Step
 
-After completing this challenge:
-
-- Did the `architect` agent suggest services you hadn't considered?
-- How did you balance cost optimization with reliability requirements?
-- What architectural decisions were hardest to make? Why?
-- Did you prioritize business constraints or technical preferences?
-
-<details>
-<summary>📊 Reliability Checklist</summary>
-
-- [ ] SLA target defined and achievable
-- [ ] RTO/RPO documented
-- [ ] Backup strategy defined
-- [ ] Failure modes identified
-- [ ] Health monitoring configured
-
-</details>
-
-<details>
-<summary>🔒 Security Checklist</summary>
-
-- [ ] Authentication method defined
-- [ ] TLS 1.2 minimum
-- [ ] Secrets in Key Vault
-- [ ] Network security considered
-- [ ] Managed identities preferred
-
-</details>
-
-<details>
-<summary>💰 Cost Checklist</summary>
-
-- [ ] Within budget
-- [ ] Right-sized SKUs
-- [ ] Consumption vs. provisioned evaluated
-- [ ] Dev/Test vs. Production considered
-
-</details>
-
-## Tips
-
-- 💡 The **architect** agent will suggest trade-offs — understand them
-- 💡 Cost estimates are approximate — actual costs may vary
-- 💡 Don't gold-plate the MVP — focus on essential features
-- 💡 Document assumptions and constraints
-
-:::note
-
-Final scoring uses the criteria in the scoring rubric, which is the single source of truth for all point values. Scoring rubric available from your facilitator.
-
-:::
-
-## Required: Architecture Diagram ⭐ MANDATORY
-
-Before proceeding to Challenge 3, generate an architecture diagram:
-
-```
-Use the `design` agent (with the `azure-diagrams` skill) to create an architecture diagram for FreshConnect based on
-agent-output/freshconnect/02-architecture-assessment.md
-```
-
-Your diagram should visualize:
-
-- Azure services and their relationships
-- Data flows between components
-- Network boundaries and security zones
-- Regional placement of resources
-
-**Save your diagram** — you'll need it for your Team Showcase in Challenge 8.
+Challenge 3 turns this design into code. If your assessment is missing a service
+boundary, security control, or cost assumption now, implementation will either stall or
+invent its own answer later.

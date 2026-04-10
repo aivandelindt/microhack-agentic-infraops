@@ -15,87 +15,87 @@ next:
   label: 'C8: Team Showcase'
 ---
 
-
 :::note[Challenge Info]
-⏱️ **5 min** · 🏆 **5 pts** · 📄 07-diagnostics-quick-card.md
+⏱️ **5 min** · 🏆 **5 pts** · 🤖 `diagnose` or `design` · 📄 `agent-output/freshconnect/07-diagnostics-quick-card.md`
 
 :::
 
-## The 2 AM Scenario
+## Objective
 
-**INCIDENT ALERT** 🚨
+- **Do now:** Turn everything you know about FreshConnect into a one-page incident card.
+- **Input:** Platform knowledge from C2-C6, plus any deployed resources and docs.
+- **Output:** `agent-output/freshconnect/07-diagnostics-quick-card.md`.
+- **Required to move on:** Top health checks, symptom-to-action flows, key commands or queries, and an escalation trigger.
+- **Decisions now:** What to check in the first 60 seconds, what failures are most likely, and when to wake up someone else.
+- **Next:** C8 uses this card as evidence that your solution is operable under pressure.
 
-```
-Time: 2:17 AM Sunday
-Alert: FreshConnect API response time degraded
-Severity: High
-P95 Latency: 8.2 seconds (threshold: 2 seconds)
-On-Call: You (first day on rotation)
-```
+The goal is not a full runbook. It is a fast triage aid that works at 2 AM when the
+reader has no spare attention.
 
-You open your laptop. Where do you start? What do you check first?
+## The Business Challenge
 
-## Your Challenge (5 minutes)
+At 2:17 AM on a Sunday, the FreshConnect API P95 latency spikes to 8.2 seconds and the
+on-call engineer is new to the rotation. They need a triage card that tells them what
+to check first, what symptoms mean, and when the problem is bigger than a quick fix.
 
-Create a **quick-reference troubleshooting card** — a one-page guide for the on-call engineer.
+## Your Tasks
 
-Save as: `agent-output/freshconnect/07-diagnostics-quick-card.md`
+1. Pick the top three health checks that should happen in the first 60 seconds.
+2. Add two or three symptom-to-action flows for the failures you think are most likely.
+3. Include the key Azure CLI commands or KQL queries that make the card actionable.
+4. Define the escalation trigger and save the final card at the required path.
 
-Optional bonus depth: add `agent-output/freshconnect/07-ab-diagnostics-runbook.md` with expanded
-KQL and incident workflows.
+## Key Decisions
 
-### Required Elements
+- Which checks tell you fastest whether the issue is platform, application, or dependency?
+- Which failure modes matter most for FreshConnect based on your architecture and load-test results?
+- What can an on-call engineer do safely without architect approval?
+- How do you keep the card short enough to scan while still being useful?
 
-Your troubleshooting card must include:
+## Deliverables
 
-1. **Top 3 Health Checks** (first 60 seconds)
-   - What to check immediately when alerted
-
-2. **Common Symptoms → Actions** (2-3 scenarios)
-   - High API latency → Check X, then Y
-   - Database errors → Check A, then B
-   - Storage failures → Check P, then Q
-
-3. **Key Diagnostic Commands**
-   - Azure CLI or KQL queries to run
-
-4. **Escalation Trigger**
-   - When to wake up the architect
-
-**Format**: Keep it concise — something you could print on a single page.
-
-## Quick Research
-
-Ask yourself:
-
-- **What are the 3 most likely failure modes** for FreshConnect?
-- **What Azure tools** help diagnose each one?
-- **What would you check first** at 2 AM?
+- `agent-output/freshconnect/07-diagnostics-quick-card.md`
+- Top 3 health checks for the first minute of an incident.
+- Two or three symptom-to-action flows.
+- Key commands or queries for diagnosis.
+- Escalation trigger and optional path to `07-ab-diagnostics-runbook.md` if you add bonus depth.
 
 ## Success Criteria
 
-| Criterion                         | Points |
-| --------------------------------- | ------ |
-| Top 3 health checks documented    | 2      |
-| At least 2 symptom → action flows | 2      |
-| Escalation criteria defined       | 1      |
-| **Total**                         | **5**  |
+| Focus | What good looks like | Evidence |
+| --- | --- | --- |
+| First-minute triage | The card helps someone act immediately | Three health checks are specific and ordered |
+| Symptom handling | Common failures map to concrete next actions | Two or more symptom-to-action flows are included |
+| Actionability | The card is usable without extra explanation | Commands, queries, or portal checks are present |
+| Escalation discipline | The card defines the handoff clearly | Clear trigger or threshold tells on-call when to escalate |
 
-## Pro Tips
+## Tips / Hints
 
-💡 **Start with health checks**: "Is it up?" before "Why is it slow?"
+<details>
+<summary>What belongs on the card</summary>
 
-💡 **Use decision trees**: IF this, THEN check that
+Prioritize checks that answer "is it down, slow, or broken by a dependency?" Use
+[Hints & Tips](../../guides/hints-and-tips/#diagnostics) for example diagnostic flows and
+[Quick Reference Card](../../guides/quick-reference-card/#pro-tips) for example queries.
 
-💡 **Keep it scannable**: Numbered steps, not paragraphs
+</details>
 
-## Escalation
+## Watch Out
 
-If you're unsure what the most likely failure modes are, review your deployed resources in the Azure Portal and think about which component failing would have the highest business impact. See [Troubleshooting](../../reference/troubleshooting/) for common failure patterns.
+- A diagnostics card full of paragraphs will not help during an incident.
+- Vague escalation language creates unnecessary delay.
+- Do not include five different branches if only two or three are likely to matter.
+- Avoid commands that require hidden context the on-call engineer will not have.
 
 ## Artifact Handoff
 
 | Item | Value |
-|---|---|
+| --- | --- |
 | **Input from** | Deployed infrastructure, prior artifacts (architecture, IaC templates, ADR) |
 | **Your output** | `agent-output/freshconnect/07-diagnostics-quick-card.md` (required), optionally `07-ab-diagnostics-runbook.md` |
+| **Next challenge uses** | C8 uses this card as evidence that your solution is operable, not just deployable |
+
+## Next Step
+
+Challenge 8 uses this quick card alongside your diagram, ADR, and other artifacts to
+show operational maturity during the final presentation.

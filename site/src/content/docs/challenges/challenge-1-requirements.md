@@ -15,161 +15,88 @@ next:
   label: 'C2: Architecture'
 ---
 
-
 :::note[Challenge Info]
-⏱️ **30 min** · 🏆 **20 pts** · 🤖 requirements · 📄 01-requirements.md
+⏱️ **30 min** · 🏆 **20 pts** · 🤖 `requirements` · 📄 `agent-output/freshconnect/01-requirements.md`
 
 :::
 
 ## Objective
 
-Use the `requirements` agent to capture comprehensive Azure infrastructure requirements for the FreshConnect platform.
+- **Do now:** Turn the FreshConnect scenario into an Azure-ready requirements document.
+- **Input:** Scenario brief from [Workshop Prep](../../getting-started/workshop-prep/).
+- **Output:** `agent-output/freshconnect/01-requirements.md`.
+- **Required to move on:** Scope, NFRs, compliance needs, and budget constraints.
+- **Decisions now:** SLA target, RTO/RPO, authentication model, EU data handling.
+- **Next:** C2 uses this file to choose services and justify architecture trade-offs.
+
+This challenge creates the decision baseline for the entire workshop. If C1 is vague,
+every later challenge becomes guesswork.
 
 ## The Business Challenge
 
-Nordic Fresh Foods needs cloud infrastructure to power their farm-to-table delivery platform.
-They've given you the business context — now you must translate it into technical requirements.
+Nordic Fresh Foods needs cloud infrastructure for FreshConnect, a Stockholm-based
+farm-to-table delivery platform serving 500+ restaurant partners and 10,000
+consumers. Peak seasons can hit 3x normal load, the MVP budget is about €500 per
+month, launch is in 3 months, GDPR keeps customer data in the EU, and the small team
+needs managed services they can actually operate.
 
-**Business Context:**
+## Your Tasks
 
-- Stockholm-based, 500+ restaurant partners, 10,000 consumers
-- Peak season: Summer and December (3x normal load)
-- Budget: ~€500/month for MVP infrastructure
-- Timeline: 3 months to launch
-- Compliance: GDPR (EU data residency required)
-- Team: Small (3 devs + 1 DevOps) — need managed services
+1. Review the scenario and write down the business constraints you cannot ignore:
+   scale, budget, timeline, compliance, and team capacity.
+2. Prompt the `requirements` agent with that context and let it surface gaps,
+   trade-offs, and open questions.
+3. Refine the output until the document clearly separates functional requirements,
+   non-functional requirements, operational expectations, and compliance needs.
+4. Save the final document at `agent-output/freshconnect/01-requirements.md`.
 
-## Your Challenge
+## Key Decisions
 
-Use the `requirements` agent to capture comprehensive infrastructure requirements.
+- What level of downtime can FreshConnect accept before orders, partners, or brand
+  trust are affected?
+- What data loss window is acceptable if a failure happens during peak ordering?
+- Which users need different authentication or access controls: internal staff,
+  restaurant partners, and consumers?
+- What must stay in EU regions from day one, and what can wait for a later phase?
 
-**Prompt Engineering Focus:**
+## Deliverables
 
-- How do you frame the business context for the agent?
-- What information is critical vs nice-to-have?
-- How much detail should you provide upfront?
-
-**Guiding Questions:**
-
-**SLA & Reliability:**
-
-- What availability does the business need? (99%? 99.9%? 99.99%?)
-- What's the cost difference between these tiers?
-- What does "acceptable downtime" mean for a food delivery platform?
-- How long can they be offline before it impacts business?
-- How much data loss is acceptable? (RTO/RPO considerations)
-
-**Authentication & Security:**
-
-- Who are the users? (Internal staff? Restaurants? Consumers?)
-- Should everyone use the same auth method?
-- What about social login for consumers?
-- How do you secure API access?
-
-**Network & Compliance:**
-
-- Does GDPR require specific Azure regions?
-- Are public endpoints acceptable for MVP?
-- What data must stay in EU?
-- What security controls are mandatory?
-
-**Monitoring & Operations:**
-
-- How will the ops team know if something breaks?
-- What metrics matter most for this business?
-- How long should logs be retained?
-
-**Backup & Recovery:**
-
-- What data is critical?
-- How often should backups occur?
-- Who manages backup retention?
-
-## Crafting Your Prompt
-
-**Example approach** (not prescriptive — adapt based on what you discover):
-
-```
-I need to plan Azure infrastructure for [project name] - [brief description].
-
-Business Context:
-[What does the business do? Who are the users? What's the scale?]
-
-Constraints:
-[Budget, timeline, compliance, team skills]
-
-Key Questions:
-[What am I uncertain about? Where do I need the agent's expertise?]
-```
-
-**Iterative Approach:**
-
-1. Start with high-level context
-2. Let the agent ask clarifying questions
-3. Refine your understanding through conversation
-4. Don't expect perfection on first prompt
-
-## Expected Conversation Flow
-
-The `requirements` agent will likely ask questions like:
-
-- "What's your target SLA?"
-- "What's your RTO/RPO tolerance?"
-- "What authentication methods do you need?"
-
-**Your job**: Answer based on business needs, not just technical preferences.
-
-**Before prompting the agent, ask yourself:**
-
-- What would the business stakeholder say?
-- What does the MVP actually require vs nice-to-have?
-- Where can we simplify for launch and enhance later?
-
-## Verification
-
-Your requirements document should capture:
-
-- ✅ Project overview (name, purpose, timeline, budget)
-- ✅ Functional requirements (what capabilities are needed?)
-- ✅ Non-functional requirements (SLA, performance, scalability)
-- ✅ Compliance requirements (GDPR, data residency)
-- ✅ Operational requirements (monitoring, backup, support)
+- `agent-output/freshconnect/01-requirements.md`
+- Project overview with business purpose, timeline, and budget.
+- Functional requirements for the platform capabilities that must exist at MVP.
+- Non-functional requirements covering SLA, performance, scalability, RTO, and RPO.
+- Compliance and operational expectations, including GDPR, monitoring, backup, and
+  support assumptions.
 
 ## Success Criteria
 
-| Criterion                       | Points |
-| ------------------------------- | ------ |
-| Document exists at correct path | 4      |
-| Project context complete        | 4      |
-| Functional requirements listed  | 4      |
-| NFRs specified (SLA, RTO, RPO)  | 4      |
-| Compliance identified           | 4      |
-| **Total**                       | **20** |
+| Focus | What good looks like | Evidence |
+| --- | --- | --- |
+| Business context | The document reflects the real FreshConnect constraints instead of generic cloud goals | Purpose, users, scale, budget, and launch timing are stated clearly |
+| Functional scope | The MVP capabilities are concrete enough for architecture decisions | Required capabilities are listed without mixing in phase-2 ideas |
+| Operational targets | Reliability and recovery expectations are explicit | SLA, RTO, RPO, and support expectations are documented |
+| Compliance and cost | Non-negotiable boundaries are visible early | EU residency, GDPR impact, and budget guardrails appear in the final doc |
 
-## Coaching Tips
+## Watch Out
 
-💡 **Start broad, refine through conversation** — Don't try to have all answers upfront
-
-💡 **Business drives technical** — When uncertain, ask "What does the business need?"
-
-💡 **Agent collaboration** — The `requirements` agent suggests defaults when you're unsure
+- Do not let the agent fill the page with generic requirements that are not tied to
+  FreshConnect.
+- Do not skip budget or operational assumptions just because the business brief feels
+  incomplete.
+- Do not turn unresolved questions into fake certainty; mark them as assumptions if
+  needed.
+- Do not optimize for technical preference over business need.
 
 ## Artifact Handoff
 
 | Item | Value |
-|---|---|
+| --- | --- |
 | **Input from** | Scenario brief ([Workshop Prep](../../getting-started/workshop-prep/)) |
 | **Your output** | `agent-output/freshconnect/01-requirements.md` |
+| **Next challenge uses** | C2 reads this file to choose services, assess trade-offs, and build the architecture diagram |
 
-💡 **MVP mindset** — Perfect is the enemy of shipped. What's essential for launch?
+## Next Step
 
-💡 **Document unknowns** — "TBD" is valid. Capture what you need to research.
-
-## Reflection Questions
-
-After completing this challenge:
-
-- How did your initial prompt affect the quality of the agent's response?
-- What questions caught you off-guard?
-- What would you do differently next time?
-- Did you frame requirements from business perspective or technical preference?
+Challenge 2 uses this requirements document as its source of truth. If a later design
+choice is hard to defend, the first place to check is whether C1 captured the right
+business constraint.

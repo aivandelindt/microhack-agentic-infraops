@@ -12,6 +12,39 @@ sidebar:
 
 If you're stuck on an error rather than a design question, go to [Troubleshooting](../../reference/troubleshooting/) first. The Quick Diagnosis table at the top will route you to the right fix.
 
+## Prompt Pattern
+
+Use this shared structure before you ask any challenge agent for help:
+
+```text
+Goal:
+[What artifact or decision you need right now]
+
+Context:
+[FreshConnect business facts, constraints, and prior artifact path]
+
+Decisions I need to make:
+- [decision 1]
+- [decision 2]
+
+Return:
+[format, artifact name, and evidence you need back]
+```
+
+This keeps prompts short while still giving the agent enough context to produce
+usable workshop artifacts.
+
+## WAF Decision Prompts
+
+Use these when you need sharper architecture trade-offs in Challenges 2-4 or a better
+defense in Challenge 8:
+
+- **Reliability:** What fails first, and how quickly does the business need to recover?
+- **Security:** What data or access path creates the highest risk if we simplify too far?
+- **Cost:** What does this SKU or feature buy us that a cheaper option does not?
+- **Performance:** Where will peak-season load actually land: app tier, database, storage, or network?
+- **Operations:** Can the current team run this service without creating a hidden support burden?
+
 ## Understanding Agent Output Templates
 
 <details>
@@ -65,6 +98,8 @@ This is intentional — infrastructure documentation needs consistency!
 
 ## Architecture Hints
 
+### Service Selection
+
 <details>
 <summary>💡 Service Selection (click to reveal)</summary>
 
@@ -103,6 +138,8 @@ Small team needs managed services."
 What requirements drive your service selection?
 
 </details>
+
+### Cost Optimization
 
 <details>
 <summary>💰 Cost Optimization (click to reveal)</summary>
@@ -151,6 +188,8 @@ Consider these categories for your €500/month budget:
 Where is most of your budget going? Does that align with business priorities?
 
 </details>
+
+### Security & Compliance
 
 <details>
 <summary>🔒 Security & Compliance (click to reveal)</summary>
@@ -209,6 +248,8 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 Ask yourself: What attack does each setting prevent?
 
 </details>
+
+### Governance Policy Errors
 
 <details>
 <summary>🔒 Governance Policy Errors (click to reveal)</summary>
@@ -308,6 +349,8 @@ var tags = {
 
 </details>
 
+### Multi-Region DR
+
 <details>
 <summary>🌍 Multi-Region DR (Challenge 4)</summary>
 
@@ -351,6 +394,8 @@ Create ADR documenting decision."
 it's about identifying what _must_ survive and what recovery time the business can accept.
 
 </details>
+
+### Load Testing
 
 <details>
 <summary>🔥 Load Testing (Challenge 5)</summary>
@@ -412,6 +457,8 @@ After running k6, ask:
 
 </details>
 
+### Documentation
+
 <details>
 <summary>📚 Documentation (Challenge 6)</summary>
 
@@ -470,6 +517,8 @@ Which documents provide the most value for FreshConnect's specific needs?
 - Security and compliance documentation
 
 </details>
+
+### Diagnostics
 
 <details>
 <summary>🔍 Diagnostics (Challenge 7)</summary>
@@ -610,6 +659,17 @@ Why check database DTU before App Service CPU? What's the reasoning?
 - "Generate [document type] for [audience] covering [scenarios]"
 
 💡 Good documentation answers questions before they're asked.
+
+## Paper Exercise Fallback
+
+If deployment is blocked in Challenge 3 or 4, the fallback is not a free pass. Keep the
+same artifact contract and make the design evidence explicit.
+
+- State what you were trying to deploy.
+- Capture the exact blocker.
+- Show what you would change next.
+- Update the ADR or diagram to reflect the intended end state.
+- Avoid language that implies the change was actually deployed when it was not.
 
 ---
 

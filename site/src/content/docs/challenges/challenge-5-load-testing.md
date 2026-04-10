@@ -15,208 +15,105 @@ next:
   label: 'C6: Documentation'
 ---
 
-
 :::note[Challenge Info]
-⏱️ **30 min** · 🏆 **5 pts** · 📄 05-load-test-results.md
+⏱️ **30 min** · 🏆 **5 pts** · 🤖 `design` (optional report support) · 📄 `agent-output/freshconnect/05-load-test-results.md`
 
 :::
 
-## The Business Context
+## Objective
 
-Nordic Fresh Foods expects 500 concurrent users during peak seasons (summer and December holidays).
-Before going live, they need confidence that the infrastructure can handle this load with acceptable performance.
+- **Do now:** Validate that the revised FreshConnect platform can handle realistic peak load.
+- **Input:** Deployed endpoint from C3/C4, or a documented fallback plan if deployment is blocked.
+- **Output:** `agent-output/freshconnect/05-load-test-results.md`.
+- **Required to move on:** Test scenario, targets, observed results, and a recommendation.
+- **Decisions now:** Which endpoint matters most, how to ramp to 500 users, what counts as pass or fail, and what to change next if results miss target.
+- **Next:** C6 uses the results to create audience-specific operational documents.
 
-## Your Challenge
+This challenge is about decision-quality, not just running a tool. The report should
+tell the next reader what you tested, what happened, and what it means for launch risk.
 
-Validate that your deployed infrastructure meets these performance targets:
+## The Business Challenge
 
-| Metric                  | Target     | Business Rationale                           |
-| ----------------------- | ---------- | -------------------------------------------- |
-| **Concurrent Users**    | 500        | Peak holiday season traffic                  |
-| **Response Time (P95)** | ≤2 seconds | User experience / cart abandonment threshold |
-| **Error Rate**          | ≤1%        | Acceptable failure rate for MVP              |
-| **Sustained Duration**  | 5 minutes  | Verify no degradation under sustained load   |
+Nordic Fresh Foods expects peak-season demand of about 500 concurrent users during the
+summer and holiday rush. Before go-live, the team needs evidence that the platform can
+stay responsive enough to protect conversion and customer trust.
 
-## Option 1: k6 Load Testing (Recommended)
+| Metric | Target | Why it matters |
+| --- | --- | --- |
+| Concurrent users | 500 | Represents expected peak demand |
+| P95 response time | `<= 2 seconds` | Slow pages drive abandonment |
+| Error rate | `< 1%` | Frequent failures undermine trust |
+| Sustained duration | 5 minutes | Short spikes do not prove steady performance |
 
-k6 is pre-installed in your Dev Container for quick load testing.
+## Your Tasks
 
-### Create Your Test Script
+1. Pick the endpoint or user journey that best represents real customer traffic.
+2. Run a load test with `k6` as the default path; use Azure Load Testing only if your
+   team already has time and confidence.
+3. Compare the results to the target thresholds and decide whether the bottleneck is
+   acceptable, fixable now, or a recommendation for phase 2.
+4. Save a concise report at `agent-output/freshconnect/05-load-test-results.md`.
 
-**Consider these questions**:
+## Key Decisions
 
-- What endpoint should you test? (Homepage? API? Both?)
-- How should you ramp up? (0→500 gradually or immediate spike?)
-- What constitutes a "passed" test?
-- What metrics matter most for this business?
+- Which endpoint gives the most honest picture of real user experience: homepage, API,
+  or another critical flow?
+- If results fail, is the likely bottleneck compute, data, networking, or poor test design?
+- What scale or tuning change would you recommend first, and what is the likely cost impact?
+- If you have no deployed endpoint, what is the minimum credible fallback test plan you
+  can still document for later execution?
 
-**Basic Test Structure** (expand based on your needs):
+## Deliverables
 
-```javascript
-import http from 'k6/http';
-import { check, sleep } from 'k6';
+- `agent-output/freshconnect/05-load-test-results.md`
+- Test configuration: endpoint, stages or concurrency shape, duration, and thresholds.
+- Results summary with pass or fail against the stated targets.
+- Short interpretation of the main bottleneck, headroom, or risk.
+- Recommendation for what to do next if performance misses target.
 
-export const options = {
-  stages: [
-    { duration: '?', target: ? },   // How should you ramp up?
-    { duration: '?', target: ? },   // How long to sustain peak?
-    { duration: '?', target: ? },   // How to ramp down?
-  ],
-  thresholds: {
-    http_req_duration: ['p(95)<2000'],  // Why P95? Why not P99?
-    http_req_failed: ['rate<0.01'],     // Why 1%? What if it's 2%?
-  },
-};
+## Success Criteria
 
-export default function () {
-  const res = http.get('https://YOUR-APP-URL');  // What URL?
-  check(res, {
-    'status is 200': (r) => r.status === 200,
-    'response time < 2s': (r) => r.timings.duration < 2000,
-  });
-  sleep(1);  // Why sleep? What does this simulate?
-}
-```
+| Focus | What good looks like | Evidence |
+| --- | --- | --- |
+| Realistic test design | The scenario reflects a meaningful workload instead of a trivial ping | Endpoint, thresholds, and duration are documented clearly |
+| Results capture | The team records enough data to support a decision | Summary includes P95, error rate, concurrency, and pass/fail status |
+| Interpretation | The report explains what the numbers mean | Likely bottleneck or headroom is described in plain language |
+| Recommendation | The next action is clear | Report states keep, tune, scale, or defer with rationale |
 
-### Run the Test
+## Tips / Hints
+
+<details>
+<summary>Quick test pattern</summary>
+
+`k6` is the fastest default path. A minimal run looks like this:
 
 ```bash
 k6 run load-test.js
 ```
 
-**Watch for**:
+Keep the report focused on signal, not raw terminal output. Use
+[Hints & Tips](../../guides/hints-and-tips/#load-testing) for deeper test ideas and
+[Troubleshooting](../../reference/troubleshooting/) if the endpoint is unavailable.
 
-- Does P95 stay under 2 seconds?
-- Does error rate stay under 1%?
-- Are there any anomalies during ramp-up?
+</details>
 
-## Option 2: Azure Load Testing (If you have more time)
+## Watch Out
 
-```bash
-az load create \
-  --name lt-freshconnect \
-  --resource-group rg-freshconnect-dev-swc \
-  --location swedencentral
-```
-
-Then upload your test script through the Azure Portal.
-
-## Generating Your Load Test Report
-
-After running your tests, use the **`design` agent** to create a professional test results document.
-
-### Prompt Template for the `design` Agent
-
-**Why use the `design` agent?**
-
-- It structures raw data into professional documentation
-- It extracts key insights from test output
-- It follows documentation standards
-- It saves you time formatting
-
-**Suggested Prompt**:
-
-```
-Create a load test results document for the FreshConnect infrastructure.
-
-Test Output:
-[paste your k6 summary here]
-
-Requirements:
-- Document name: 05-load-test-results.md
-- Include: test configuration, results summary, pass/fail status
-- Add: observations about performance patterns
-- Recommend: any optimizations needed for production
-- Format: professional technical documentation
-
-Context:
-- Target: 500 concurrent users
-- P95 threshold: 2 seconds
-- Error rate threshold: 1%
-- Business criticality: MVP launch depends on these results
-```
-
-**This demonstrates**:
-
-1. How to structure prompts for documentation tasks
-2. How to provide context for better agent output
-3. How to specify format and content requirements
-
-## Interpreting Your Results
-
-### ✅ If Tests Pass
-
-**Questions to consider**:
-
-- What was the actual P95? How much headroom do you have?
-- Were there any performance degradation patterns?
-- What happens at 600 users? 1000 users?
-- Should you recommend auto-scaling to the client?
-
-### ❌ If Tests Fail
-
-**Diagnostic questions**:
-
-| Symptom               | Possible Causes                  | Where to Investigate             |
-| --------------------- | -------------------------------- | -------------------------------- |
-| High P95 (>2s)        | Under-provisioned compute        | App Service SKU, SQL DTUs        |
-| Error rate >1%        | Connection limits, timeouts      | SQL connection pool, App timeout |
-| Timeouts              | Cold start, initialization delay | App Service "Always On" setting  |
-| Degradation over time | Memory leak, resource exhaustion | Application Insights metrics     |
-
-**How to improve**:
-
-- What would you change in your IaC templates?
-- How would you prompt the `bicep-code` agent to scale up?
-- What's the cost impact of scaling?
-
-## Success Criteria
-
-| Criterion                                  | Points |
-| ------------------------------------------ | ------ |
-| Load test executed with realistic scenario | 2      |
-| Results documented (using `design` agent)  | 2      |
-| Performance interpreted correctly          | 1      |
-| **Total**                                  | **5**  |
-
-## Coaching Questions
-
-**Before running tests**:
-
-- Q: "What endpoint should I test?"
-- A: What represents the critical user journey? Homepage? API? Checkout flow?
-
-**After seeing results**:
-
-- Q: "My P95 is 2.5 seconds. Is that a failure?"
-- A: What did the business say was acceptable? What's the user impact? What's the cost to fix it?
-
-**For the documentation**:
-
-- Q: "Should I include all the k6 output?"
-- A: What information helps the client make decisions? What's noise vs signal?
-
-## Time Management
-
-💡 **5 minutes**: Design your load test script
-💡 **5 minutes**: Run load test and observe metrics in real time
-💡 **5 minutes**: Analyze results and identify patterns
-💡 **10 minutes**: Use `design` agent to generate professional documentation
-💡 **5 minutes**: Iterate on failures or explore Azure Load Testing (if time permits)
-
-## Escalation
-
-If your load test fails or you cannot reach your deployed endpoint, see [Troubleshooting](../../reference/troubleshooting/). If your Challenge 3 deployment failed and you have no running endpoint, document your _intended_ test plan and expected targets instead.
+- A health endpoint alone is usually too shallow to represent customer experience.
+- A failing test without interpretation is not useful evidence.
+- Do not paste pages of raw output into the report without summarizing it.
+- If no deployment exists, clearly label the fallback as an intended test plan rather
+  than a completed execution.
 
 ## Artifact Handoff
 
 | Item | Value |
-|---|---|
-| **Input from** | Deployed infrastructure (Challenge 3/4), endpoint URL |
+| --- | --- |
+| **Input from** | Deployed endpoint and platform design from C3/C4, or documented fallback plan |
 | **Your output** | `agent-output/freshconnect/05-load-test-results.md` |
+| **Next challenge uses** | C6 uses the results and recommendations to produce audience-specific documentation |
 
-:::note
+## Next Step
 
-Final scoring uses the criteria in the scoring rubric, which is the single source of truth for all point values. Scoring rubric available from your facilitator.
-
-:::
+Challenge 6 turns your technical evidence into operational documents. A good load-test
+report gives the documentation step concrete numbers, risks, and actions to explain.

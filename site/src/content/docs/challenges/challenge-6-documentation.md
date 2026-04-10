@@ -15,167 +15,112 @@ next:
   label: 'C7: Diagnostics'
 ---
 
-
 :::note[Challenge Info]
-⏱️ **15 min** · 🏆 **5 pts** · 🤖 design · 📄 07-ab-operations-guide.md (min 2 docs)
+⏱️ **15 min** · 🏆 **5 pts** · 🤖 `design` · 📄 `07-ab-operations-guide.md` + 1 additional doc
 
 :::
 
-## The Business Context
+## Objective
 
-Your infrastructure is deployed. FreshConnect is running in production. Now the hard questions begin:
+- **Do now:** Produce two audience-specific documents from the artifacts you already created.
+- **Input:** All prior artifacts, especially the architecture diagram, ADR, load-test results, and deployment evidence.
+- **Output:** `agent-output/freshconnect/07-ab-operations-guide.md` plus at least one additional document.
+- **Required to move on:** One operations guide and one more document that answers a real stakeholder question.
+- **Decisions now:** Audience, document type, level of detail, and which evidence matters enough to include inline.
+- **Next:** C7 compresses this broader documentation into a one-page diagnostics card.
 
-- **Operations Team**: "How do I troubleshoot when something breaks at 2 AM?"
-- **Compliance Team**: "Can you document our disaster recovery procedures for the audit?"
-- **New Developer** (3 months from now): "Where do I even start understanding this system?"
-- **Finance Team**: "What are we actually spending money on each month?"
+This challenge is high-leverage because it turns workshop output into something another
+person could actually use after the event.
 
-Professional infrastructure requires professional documentation. The infrastructure works today, but will your team
-understand it tomorrow?
+## The Business Challenge
 
-## Your Challenge
+FreshConnect now has running or at least well-defined infrastructure, and different
+stakeholders want different answers. Operations needs usable runbooks, compliance wants
+documented DR intent, new team members need system orientation, and finance wants cost
+clarity. Your documents should solve those problems directly rather than restating the
+workshop story.
 
-Use the `design` agent to generate operational documentation that answers real business questions.
+## Your Tasks
 
-### Consider These Scenarios
+1. Pick the two highest-value audiences for FreshConnect right now.
+2. Generate `agent-output/freshconnect/07-ab-operations-guide.md` for the operations
+   audience.
+3. Generate one additional document that closes a different gap such as architecture,
+   DR, cost, deployment, or security.
+4. Review the output and trim it into something actionable before you save it.
 
-**Scenario 1: The On-Call Engineer**
-It's 2 AM. Azure Monitor shows alerts. Database connections are timing out. The on-call engineer has never seen this
-codebase before. What document would help them the most?
+| If the biggest gap is... | Produce... |
+| --- | --- |
+| On-call support | Operations guide or troubleshooting runbook |
+| Audit readiness | DR or security documentation |
+| Cost visibility | Cost estimate and optimization guide |
+| New team onboarding | Architecture or deployment guide |
 
-**Scenario 2: The Compliance Audit**
-ISO 27001 auditor asks: "Show me your disaster recovery procedures." You have Bicep templates, but do you have
-documented runbooks?
+## Key Decisions
 
-**Scenario 3: The Cost Review**
-CFO asks: "Why did our Azure bill increase 30% last month?" Do you have architecture diagrams showing what services
-cost what?
+- Which audience is most likely to fail without documentation if you stop now?
+- Which document should be procedural, and which should be explanatory?
+- Which prior artifacts should be embedded directly instead of referenced indirectly?
+- How much detail is enough to be useful without recreating an entire handbook?
 
-**Scenario 4: The New Team Member**
-Junior developer joins the team. They need to understand the system before they can contribute. What's the "README for
-operations"?
+## Deliverables
 
-### Guiding Questions
-
-Before you prompt the `design` agent, ask yourself:
-
-1. **Audience**: Who will read this documentation?
-   - Operations team (troubleshooting focus)?
-   - Developers (architecture understanding)?
-   - Management (cost and business value)?
-   - Compliance (procedures and controls)?
-
-2. **Format**: What format serves the audience best?
-   - Step-by-step runbook for incident response?
-   - Architecture overview with diagrams?
-   - Cost breakdown with optimization recommendations?
-   - Disaster recovery procedures with RTO/RPO metrics?
-
-3. **Value**: What business question does this answer?
-   - "How do I fix it?" (Operational)
-   - "How does it work?" (Educational)
-   - "What does it cost?" (Financial)
-   - "Is it compliant?" (Regulatory)
-
-4. **Context**: What information does the `design` agent need?
-   - Project name and purpose?
-   - Target audience and their expertise level?
-   - Specific focus area (operations, cost, DR, architecture)?
-   - Output format preference (markdown, diagrams, tables)?
-
-### Required Deliverables
-
-Generate **at least 2** of the following documentation artifacts:
-
-- [ ] **Operations Runbook**: How to operate, monitor, and troubleshoot FreshConnect
-- [ ] **Architecture Documentation**: System overview, component relationships, data flows
-- [ ] **Cost Estimate & Optimization Guide**: Current costs, projections, optimization opportunities
-- [ ] **Disaster Recovery Plan**: Backup procedures, RTO/RPO metrics, recovery steps
-- [ ] **Deployment Guide**: How to deploy updates, rollback procedures, environment management
-- [ ] **Security Documentation**: Security controls, compliance mapping, audit procedures
-
-💡 **Coaching Tip**: The best documentation answers questions before they're asked. What would you want to know if you
-inherited this system?
-
-## Example Prompt Approaches (Choose Your Own Path)
-
-### Approach A: Specific Audience Focus
-
-```
-I need operational documentation for FreshConnect, targeted at [audience].
-
-Context:
-- Deployed infrastructure in swedencentral
-- Using [list key services: App Service, SQL Database, etc.]
-- [Specific business requirements or constraints]
-
-Please generate [specific document type] that helps [audience] accomplish [goal].
-```
-
-### Approach B: Compliance-Driven
-
-```
-Generate disaster recovery documentation for FreshConnect to support ISO 27001 compliance.
-
-Requirements:
-- Document RTO: 4 hours, RPO: 1 hour
-- Backup procedures for SQL Database and Storage
-- Recovery procedures and verification steps
-- Responsibilities and escalation paths
-
-Output as a formal DR runbook.
-```
-
-### Approach C: Cost Transparency
-
-```
-Create cost documentation for FreshConnect infrastructure.
-
-Include:
-- Current architecture with service costs
-- Monthly cost projections
-- Optimization recommendations
-- Cost vs performance trade-offs
-
-Audience: Engineering team and finance stakeholders
-```
-
-💡 **Remember**: You're not limited to these approaches. Craft a prompt that addresses YOUR team's most urgent
-documentation needs.
+- `agent-output/freshconnect/07-ab-operations-guide.md`
+- At least one additional document covering architecture, cost, DR, deployment, or
+  security.
+- Each document states its audience and purpose clearly.
+- Each document includes concrete steps, evidence, or diagrams rather than only
+  narrative summary.
 
 ## Success Criteria
 
-| Criterion                                      | Points |
-| ---------------------------------------------- | ------ |
-| At least 2 documentation artifacts generated   | 2      |
-| Documentation addresses specific business need | 1      |
-| Appropriate format for target audience         | 1      |
-| Content is actionable (not just descriptive)   | 1      |
-| **Total**                                      | **5**  |
+| Focus | What good looks like | Evidence |
+| --- | --- | --- |
+| Audience fit | Each document solves a real stakeholder problem | Audience and purpose are stated clearly in the artifact |
+| Operational usefulness | The required operations guide is actionable | Steps, checks, commands, or escalation guidance are included |
+| Architecture or business context | The second document adds a different kind of value | It explains architecture, DR, cost, deployment, or security using prior artifacts |
+| Clarity | The documents are easy to scan under time pressure | Headings, tables, bullets, or diagrams make the content usable |
 
-## Reflection Questions
+## Tips / Hints
 
-After generating documentation:
+<details>
+<summary>Compact documentation prompt</summary>
 
-- **Completeness**: Could someone unfamiliar with the project use this documentation to operate/understand the system?
-- **Business Alignment**: Does this documentation solve a real problem your organization faces?
-- **Maintenance**: How would you keep this documentation up-to-date as infrastructure evolves?
-- **Gaps**: What documentation is still missing? What would you create if you had another 20 minutes?
+```text
+Generate [document type] for [audience] using these FreshConnect artifacts:
+- [artifact path 1]
+- [artifact path 2]
 
-## Time Management Tips
+The document must answer:
+- [business question 1]
+- [business question 2]
 
-- **0-3 min**: Decide what documentation provides most business value for FreshConnect
-- **3-7 min**: Craft a detailed prompt for the `design` agent with necessary context
-- **7-13 min**: Review generated documentation, request refinements or additional sections
-- **13-15 min**: Save artifacts and identify gaps for future documentation
+Return markdown with headings, short tables or lists, and explicit next actions.
+```
 
-## Escalation
+Use [Hints & Tips](../../guides/hints-and-tips/#documentation) if you need more prompt
+ideas, and keep the output tight enough that another team could use it without coaching.
 
-If the `design` agent produces incomplete or overly verbose output, try breaking your prompt into smaller, more specific requests. See [Troubleshooting → Copilot Agents](../../reference/troubleshooting/#copilot-agents) for agent-specific fixes.
+</details>
+
+## Watch Out
+
+- Two documents for the same audience usually means you skipped a more valuable gap.
+- Do not let the `design` agent generate generic Azure background that does not help
+  FreshConnect.
+- The required operations guide still needs concrete steps, not just architecture prose.
+- Keep the docs grounded in the artifacts you actually produced, especially if some
+  earlier work remained on paper.
 
 ## Artifact Handoff
 
 | Item | Value |
-|---|---|
+| --- | --- |
 | **Input from** | All prior artifacts (requirements, architecture, IaC templates, ADR, load test results) |
 | **Your output** | `agent-output/freshconnect/07-ab-operations-guide.md` and at least one additional doc |
+| **Next challenge uses** | C7 distills this broader documentation into a one-page diagnostic quick card |
+
+## Next Step
+
+Challenge 7 compresses your operations knowledge into a card someone could use during an
+incident. The better your docs are here, the easier that final compression becomes.

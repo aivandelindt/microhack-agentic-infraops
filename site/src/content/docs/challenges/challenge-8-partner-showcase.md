@@ -12,363 +12,103 @@ prev:
   label: 'C7: Diagnostics'
 ---
 
-
 :::note[Challenge Info]
-⏱️ **60 min** · 🏆 **10 pts** · 📄 Presentation (facilitator-scored)
+⏱️ **60 min** · 🏆 **10 pts** · 🤖 optional: `design` · 📄 Live presentation using all prior artifacts
 
 :::
 
-## Overview
-
-This is your moment to shine! Each team will present their FreshConnect solution to a stakeholder
-panel (played by another team) while coaches observe and provide feedback.
-
-**This challenge simulates a real technical presentation and peer review** — the kind you'll
-experience when proposing Azure solutions to decision-makers, whether they are internal
-stakeholders, customers, or leadership.
-
-## The Setup
-
-```mermaid
-%%{init: {'theme':'neutral'}}%%
-graph TB
-    subgraph Room[Presentation Room]
-        P[👥 Presenting Team<br/>Team A]
-        C[👥 Stakeholder Team<br/>Team B<br/>Asks Tough Questions]
-        F[🎯 Coaches<br/>Observing & Evaluating]
-        O[👀 Other Teams<br/>Learning & Taking Notes]
-
-        P -->|Presents Solution| C
-        C -->|Challenges With Questions| P
-        F -.->|Observes| P
-        F -.->|Observes| C
-        O -.->|Learns From| P
-        O -.->|Learns From| C
-    end
-
-    style P fill:#0078d4,color:#fff
-    style C fill:#107c10,color:#fff
-    style F fill:#d83b01,color:#fff
-    style O fill:#5c2d91,color:#fff
-```
-
-<details>
-<summary>Text alternative: Presentation setup</summary>
-
-- **Presenting Team**: Presents their solution to the Stakeholder Team
-- **Stakeholder Team**: Asks tough questions to challenge the presenting team
-- **Coaches**: Observe and evaluate both teams
-- **Other Teams**: Learn from the presentation and Q&A
-
-</details>
-
-## Role Assignments
-
-The coach will pair teams in a round-robin:
-
-| Presenting Team | Stakeholder Team |
-| --------------- | ---------------- |
-| Team 1          | Team 2           |
-| Team 2          | Team 3           |
-| Team 3          | Team 4           |
-| Team 4          | Team 1           |
-
-> For larger cohorts, extend the rotation (e.g., Team 5 → Team 6 → Team 1). When you're the stakeholder team, your job is to ask tough but fair questions!
-
----
-
-## Presentation Format
-
-**Time per team**: ~14 minutes
-
-| Segment            | Duration | Content                           |
-| ------------------ | -------- | --------------------------------- |
-| Solution Pitch     | 4 min    | Present your solution             |
-| Stakeholder Q&A    | 2 min    | Stakeholder team asks questions   |
-| Coach Feedback     | 2 min    | Brief facilitator comments        |
-| Transition         | 30 sec   | Switch presenters                 |
-| Buffer             | ~5 min   | Overrun margin and audience notes |
-
----
-
-## Presentation Schedule
-
-| Time  | Activity                  |
-| ----- | ------------------------- |
-| 14:50 | Intro & pairings          |
-| 14:52 | Team 1 presents (~14 min) |
-| 15:06 | Team 2 presents (~14 min) |
-| 15:20 | Team 3 presents (~14 min) |
-| 15:34 | Team 4 presents (~14 min) |
-| 15:48 | Closing remarks           |
-| 15:50 | Wrap-up begins            |
-
----
-
-## What to Present
-
-Your presentation should cover **three key areas**:
-
-### 1. Architecture Overview (2 min)
-
-- What services did you choose and why?
-- How does the solution meet the business requirements?
-- Show your architecture diagram
-
-### 2. Technical Decisions (2 min)
-
-- Key design decisions (WAF pillars addressed)
-- Security & compliance approach
-- Scalability and reliability patterns
-- How you handled the DR curveball
-
-### 3. Business Value (1 min)
-
-- Cost breakdown and optimization
-- How the solution enables Nordic Fresh Foods' growth
-- What would you do in Phase 2?
-
----
-
-## Presentation Template
-
-Use this structure to prepare your presentation (create slides or use markdown):
-
-```markdown
-# FreshConnect Azure Solution
-
-## [Your Team Name]
-
----
-
-## Slide 1: The Challenge
-
-- Nordic Fresh Foods needs a modern platform
-- Key requirements: [list 3-4 key requirements]
-- Constraints: Budget €700/month, GDPR, 3-month timeline
-
----
-
-## Slide 2: Our Solution
-
-[Insert your architecture diagram]
-
-**Core Services:**
-
-- Web Tier: [service]
-- API Tier: [service]
-- Database: [service]
-- Storage: [service]
-
----
-
-## Slide 3: Why These Choices?
-
-| Service     | Why We Chose It                 |
-| ----------- | ------------------------------- |
-| [Service 1] | [Reason - cost, features, etc.] |
-| [Service 2] | [Reason]                        |
-| [Service 3] | [Reason]                        |
-
----
-
-## Slide 4: Security & Compliance
-
-- ✅ GDPR: [how you addressed it]
-- ✅ Authentication: [approach]
-- ✅ Secrets: [Key Vault usage]
-- ✅ Network: [security measures]
-
----
-
-## Slide 5: Reliability & DR
-
-**Before Curveball:**
-
-- RTO: 4 hours | RPO: 1 hour
-- Single region: swedencentral
-
-**After Curveball:**
-
-- RTO: 1 hour | RPO: 15 minutes
-- Multi-region: swedencentral + germanywestcentral
-- [How you implemented DR]
-
----
-
-## Slide 6: Cost Breakdown
-
-| Service     | Monthly Cost |
-| ----------- | ------------ |
-| [Service 1] | €XX          |
-| [Service 2] | €XX          |
-| [Service 3] | €XX          |
-| **Total**   | **€XXX**     |
-
-_Within €700/month budget: ✅_
-
----
-
-## Slide 7: What We Learned
-
-- Biggest challenge: [what was hard]
-- Biggest win: [what worked well]
-- If we had more time: [Phase 2 ideas]
-
----
-
-## Slide 8: Questions?
-
-Thank you for your time!
-
-**Team Members:**
-
-- [Name 1] - [Role]
-- [Name 2] - [Role]
-- [Name 3] - [Role]
-```
-
----
-
-## Stakeholder Role: Question Bank
-
-**If you're the stakeholder team**, use these questions to challenge the presenting team.
-Pick 2-3 questions that are relevant to their presentation.
-
-### Architecture Questions
-
-| Question                                                 | What You're Testing                   |
-| -------------------------------------------------------- | ------------------------------------- |
-| "Why did you choose [Service A] over [Service B]?"       | Can they justify technical decisions? |
-| "How does this scale when we triple our order volume?"   | Did they think about peak season?     |
-| "What happens if the primary region goes down?"          | Do they understand DR?                |
-| "We might expand to Norway next year. How hard is that?" | Is the architecture extensible?       |
-
-### Security Questions
-
-| Question                                      | What You're Testing     |
-| --------------------------------------------- | ----------------------- |
-| "How do you protect our customer data?"       | GDPR awareness          |
-| "Where are our API keys stored?"              | Secrets management      |
-| "Can your developers access production data?" | Access control thinking |
-| "What if someone tries to attack our API?"    | Security posture        |
-
-### Cost Questions
-
-| Question                                           | What You're Testing            |
-| -------------------------------------------------- | ------------------------------ |
-| "This looks expensive. Can we cut costs anywhere?" | Cost optimization awareness    |
-| "What happens to the bill during peak season?"     | Understanding of scaling costs |
-| "Are there any hidden costs we should know about?" | Transparency                   |
-| "What if we need to add more features later?"      | Future cost implications       |
-
-### Operational Questions
-
-| Question                                          | What You're Testing   |
-| ------------------------------------------------- | --------------------- |
-| "How do we know if something breaks?"             | Monitoring strategy   |
-| "Who gets alerted at 3 AM if the site goes down?" | Operational readiness |
-| "How do we deploy updates without downtime?"      | Deployment strategy   |
-| "What's your backup and restore process?"         | Data protection       |
-
-### Curveball-Specific Questions
-
-| Question                                                 | What You're Testing         |
-| -------------------------------------------------------- | --------------------------- |
-| "How did you adapt when the DR requirement came in?"     | Agility and problem-solving |
-| "Is the DR solution tested or just designed?"            | Practical vs. theoretical   |
-| "What would you do differently if you could start over?" | Learning and reflection     |
-
----
-
-## Tips for Presenters
-
-✅ **DO:**
-
-- Be confident — you built something real!
-- Admit what you didn't finish (honesty wins respect)
-- Explain trade-offs, not just decisions
-- Use your artifacts (diagrams, IaC templates, cost estimates)
-- Thank the stakeholder team for their questions
-
-❌ **DON'T:**
-
-- Read from slides word-for-word
-- Get defensive about questions
-- Blame tools or time constraints
-- Oversell features you didn't implement
-- Go over time (the coach will cut you off!)
-
----
-
-## Tips for Questioners (Stakeholder Role)
-
-✅ **DO:**
-
-- Ask genuine questions (you might learn something!)
-- Challenge assumptions respectfully
-- Focus on business outcomes, not just tech
-- Pick questions relevant to their presentation
-
-❌ **DON'T:**
-
-- Be hostile or try to "catch" them
-- Ask questions just to show off
-- Interrupt the presentation
-- Ask about things clearly out of scope
-
----
-
-## Coach Feedback Focus
-
-Coaches will provide brief feedback on:
-
-| Area                | What We'll Comment On                                     |
-| ------------------- | --------------------------------------------------------- |
-| **Clarity**         | Was the solution easy to understand?                      |
-| **Justification**   | Were decisions well-reasoned?                             |
-| **WAF Alignment**   | Did they address reliability, security, cost, operations? |
-| **Professionalism** | How would this land with a real stakeholder?              |
-
----
+## Objective
+
+- **Do now:** Build and deliver a stakeholder-ready story from the artifacts you created in C1-C7.
+- **Input:** Requirements, architecture assessment, diagram, IaC evidence, ADR, load-test report, documentation, and diagnostics card.
+- **Output:** A live presentation and Q&A backed by your actual artifacts.
+- **Required to finish:** Explain the solution, justify the trade-offs, show evidence, and handle questions credibly.
+- **Decisions now:** Which artifacts tell the clearest story, which trade-offs you must defend, who presents what, and how honest you will be about gaps.
+- **Next:** Workshop wrap-up, facilitator scoring, and shared reflection across teams.
+
+This challenge is the capstone. The goal is not to look perfect. The goal is to prove
+that your team can explain what it built, why it made those choices, and how the
+solution would operate in the real world.
+
+## The Business Challenge
+
+You are presenting to a stakeholder panel that wants confidence, not just technical
+detail. They need to understand why your solution fits FreshConnect, how you handled
+cost, security, reliability, and the DR curveball, and whether your team can answer
+hard questions without hiding trade-offs.
+
+## Your Tasks
+
+1. Build a short story around problem, solution, evidence, and next steps.
+2. Assign presenters so the team can explain architecture, delivery evidence, and
+   business trade-offs without overlap.
+3. Show the artifacts that matter most: architecture diagram, key decisions, delivery
+   evidence, DR response, and operational readiness.
+4. Prepare to answer two or three fair stakeholder questions with direct, evidence-based answers.
+5. When you are the stakeholder team, ask questions that test business fit and decision quality.
+
+## Key Decisions
+
+- Which three artifacts best prove that your solution is real, not just aspirational?
+- Which trade-offs must you defend clearly: cost, security, reliability, or delivery risk?
+- What unfinished work should you acknowledge openly rather than trying to gloss over?
+- How will you connect technical choices back to FreshConnect's business goals?
+
+## Deliverables
+
+- Live showcase or slide deck built from your existing artifacts.
+- Architecture diagram that matches your final design.
+- Evidence for implementation and DR, whether deployed or documented on paper.
+- Load-test, documentation, and diagnostics highlights that show operational maturity.
+- Clear speaking roles and a prepared answer path for stakeholder questions.
 
 ## Success Criteria
 
-This challenge is worth **10 points** and focuses on professional skills:
+| Focus | What good looks like | Evidence |
+| --- | --- | --- |
+| Technical clarity | The team explains the solution without losing the audience | Architecture, delivery path, and key services are described clearly |
+| Stakeholder handling | Questions are answered directly and credibly | Responses use actual artifacts, constraints, and trade-offs |
+| Solution justification | Major decisions are defensible | Cost, security, reliability, and DR choices are backed by evidence |
+| Team coordination | The team presents as one group instead of isolated speakers | Roles are clear and handoffs feel intentional |
 
-| Skill                       | Points | What You're Practicing                |
-| --------------------------- | ------ | ------------------------------------- |
-| **Technical Communication** | 3      | Explaining complex solutions simply   |
-| **Stakeholder Engagement**  | 2      | Handling questions under pressure     |
-| **Solution Justification**  | 2      | Defending architectural decisions     |
-| **Team Collaboration**      | 2      | Presenting as a unified team          |
-| **Active Listening**        | 1      | Learning from other teams' approaches |
-| **Total**                   | **10** |                                       |
+## Tips / Hints
 
----
+<details>
+<summary>Lean presentation outline and question prompts</summary>
 
-## After All Presentations
+Use a five-part structure:
 
-Once all teams have presented:
+1. The business challenge and key constraints.
+2. The architecture and why you chose it.
+3. What happened in implementation and DR.
+4. What the evidence says about operations, load, and documentation.
+5. What you would do next with more time.
 
-1. **Coach shares observations** — common patterns, creative solutions
-2. **Open discussion** — what did teams learn from each other?
-3. **Celebrate!** — everyone built real Azure infrastructure today
+Useful stakeholder questions:
 
----
+- Why this service choice over a simpler or cheaper alternative?
+- What happens if the primary region fails?
+- Where does GDPR or security risk show up in the design?
+- What would you improve first after MVP?
 
-## Preparation Checklist
+</details>
 
-Before presentations begin, ensure you have:
+## Watch Out
 
-- [ ] Architecture diagram ready to show
-- [ ] Key talking points agreed within team
-- [ ] One person designated as primary presenter
-- [ ] Others ready to answer detailed questions
-- [ ] Cost breakdown visible
-- [ ] 2-3 questions ready (for when you're the customer)
+- Do not turn the presentation into a walkthrough of every artifact you created.
+- Do not hide gaps; explain them and show how you would address them.
+- Do not let the DR change, load testing, or diagnostics disappear from the story.
+- Stakeholder questions should be tough but relevant, not performative.
 
----
+## Artifact Handoff
 
-> **Remember**: The best presentations aren't about being perfect — they're about showing
-> what you learned and how you solved real problems. Good luck! 🚀
+| Item | Value |
+| --- | --- |
+| **Input from** | All prior artifacts from C1-C7 |
+| **Your output** | Live presentation and Q&A using your diagram, decisions, evidence, and operational artifacts |
+| **Next step** | Workshop wrap-up, facilitator scoring, and shared reflection across teams |
+
+## Next Step
+
+This is the final challenge. Use it to show not only what you built, but how your team
+made decisions under constraints and what evidence supports those decisions.

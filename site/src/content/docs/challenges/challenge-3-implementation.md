@@ -15,322 +15,121 @@ next:
   label: 'C4: DR Curveball'
 ---
 
-
 :::note[Challenge Info]
-⏱️ **45 min** · 🏆 **25 pts** · 🤖 bicep-plan/bicep-code or terraform agents, deploy · 📄 IaC templates + deploy script
+⏱️ **45 min** · 🏆 **25 pts** · 🤖 `bicep-plan`/`bicep-code` or `terraform-plan`/`terraform-code`, `deploy`
+📄 IaC folder, `04-implementation-plan.md`, deployment evidence, workflow diagram
 
 :::
 
-## Choose Your IaC Language
+## Objective
 
-Your team must choose **one** Infrastructure-as-Code language for this challenge:
+- **Do now:** Choose one IaC path, generate templates, validate them, and attempt deployment.
+- **Input:** `02-architecture-assessment.md` and your architecture diagram.
+- **Output:** IaC templates, `agent-output/freshconnect/04-implementation-plan.md`, deployment evidence, and a Mermaid workflow diagram.
+- **Required to move on:** One working IaC path, validation results, deployment attempt, and the workflow explanation.
+- **Decisions now:** Bicep vs Terraform, module boundaries, governance handling, and what evidence to keep.
+- **Next:** C4 branches from your actual deployment outcome and extends the same platform for HA/DR.
 
-| Option | Language | Agents | Output Directory |
-|---|---|---|---|
-| **A** | Bicep | `bicep-plan`, `bicep-code`, `deploy` | `infra/bicep/freshconnect/` |
-| **B** | Terraform | `terraform-plan`, `terraform-code`, `deploy` | `infra/terraform/freshconnect/` |
-
-:::tip
-
-Choose the language your team is most comfortable with — or the one you want to learn. Both paths earn equal points. If your accelerator repo includes Terraform agents, use those. Otherwise, use Agent mode with Copilot to generate Terraform directly.
-
-:::
-
-## Prerequisite: Azure Policy Deployment (Recommended)
-
-If your facilitator has deployed Azure Policies for the event, your IaC templates will need to
-comply with governance constraints (required tags, HTTPS-only, TLS 1.2, etc.).
-See the [Governance Scripts](../../reference/governance-scripts/) reference for details.
-
-:::note
-
-**Policy propagation timing**: Azure Policies take 5–15 minutes to become effective after deployment. If your deployment succeeds but you expected a policy denial, the policy may not have propagated yet. Ask your facilitator to verify with `Get-GovernanceStatus.ps1 -MicrohackOnly`. Even if policies are delayed, include the required tags and security settings in your templates — they are part of the success criteria.
-
-:::
+This is the most execution-sensitive step in the sequence. Keep the work moving by
+choosing one path, validating often, and recording what actually happened.
 
 ## The Business Challenge
 
-Nordic Fresh Foods needs production-ready infrastructure code that:
+Nordic Fresh Foods now needs production-ready infrastructure code that can be deployed
+consistently, respects governance and security controls, and stays maintainable for a
+small DevOps function. A design that looks good on paper but cannot be validated or
+deployed is not enough.
 
-- Can be deployed repeatedly and consistently
-- Meets Azure governance and security requirements
-- Is maintainable by their small DevOps team
-- Follows infrastructure-as-code best practices
+## Your Tasks
 
-Your task: Generate IaC templates, **deploy them to Azure**, and **demonstrate you understand
-the agent workflow** by explaining it.
+1. **Plan the implementation (~10 min).** Use `bicep-plan` or `terraform-plan` to
+   turn the architecture assessment into a phased implementation plan and save it as
+   `agent-output/freshconnect/04-implementation-plan.md`.
+2. **Generate the IaC (~15 min).** Use the matching code agent to create a modular
+   folder structure, tags, naming approach, and security settings for your chosen path.
+3. **Validate and deploy (~15 min).** Run the required validation and preview step,
+   then attempt the deployment. If deployment fails, capture the exact blocker and the
+   fix you would make next.
+4. **Explain the workflow (~5 min).** Create a Mermaid flowchart showing how agents,
+   validation, preview, deployment, and feedback loops fit together.
 
-## Your Challenge
+| Path | Planning agent | Code agent | Output folder |
+| --- | --- | --- | --- |
+| Bicep | `bicep-plan` | `bicep-code` | `infra/bicep/freshconnect/` |
+| Terraform | `terraform-plan` | `terraform-code` | `infra/terraform/freshconnect/` |
 
-### Part A: Implementation Planning (~10 min)
+| Path | Validate | Preview | Deploy |
+| --- | --- | --- | --- |
+| Bicep | `bicep build main.bicep` and `bicep lint main.bicep` | `az deployment group what-if ...` | `az deployment group create ...` |
+| Terraform | `terraform init` and `terraform validate` | `terraform plan -out=tfplan` | `terraform apply tfplan` |
 
-**Your Task**: Use the planning agent to create an implementation strategy.
+## Key Decisions
 
-- **Bicep path**: Use the `bicep-plan` agent
-- **Terraform path**: Use the `terraform-plan` agent (or Agent mode)
+- Which IaC language gives your team the best chance of producing maintainable,
+  reviewable code inside the workshop timebox?
+- Which resources or concerns deserve separate modules, and which can stay simple in
+  the first version?
+- Which governance and security requirements must be built into the templates before
+  you even try deployment?
+- What evidence best proves that the templates are real, validated, and understood by
+  the team?
 
-**Guiding Questions**:
+## Deliverables
 
-- What information does the agent need from your architecture assessment?
-- How should you structure your prompt to get a phased implementation plan?
-- What governance constraints might affect your deployment?
-
-**Prompt Engineering Tip**: The agent works best when you provide context about your
-architecture decisions, not just a file reference.
-
-**Expected Output**: `agent-output/freshconnect/04-implementation-plan.md`
-
----
-
-### Part B: Code Generation (~15 min)
-
-**Your Task**: Use the code generation agent to produce Infrastructure as Code.
-
-**Consider**:
-
-- How do you describe what you need to the agent?
-- What module structure makes sense for this workload?
-- How will you handle resource naming to avoid conflicts?
-
-#### Bicep Path
-
-**Agent**: `bicep-code`
-
-**The Agent Will Generate**:
-
-```
-infra/bicep/freshconnect/
-├── main.bicep              # Orchestrator
-├── main.bicepparam         # Parameters
-├── deploy.ps1              # Deployment script
-└── modules/                # Modular Bicep files
-```
-
-**Validation Steps**:
-
-```bash
-cd infra/bicep/freshconnect
-bicep build main.bicep      # What does this check?
-bicep lint main.bicep       # What does this validate?
-```
-
-#### Terraform Path
-
-**Agent**: `terraform-code` (or Agent mode with Copilot)
-
-**The Agent Will Generate**:
-
-```
-infra/terraform/freshconnect/
-├── main.tf                 # Root module
-├── variables.tf            # Input variables
-├── outputs.tf              # Output values
-├── providers.tf            # Provider configuration
-├── deploy.ps1              # Deployment script
-└── modules/                # Reusable modules
-```
-
-**Validation Steps**:
-
-```bash
-cd infra/terraform/freshconnect
-terraform init              # Initialize providers
-terraform validate          # Check configuration syntax
-terraform plan              # Preview what will be created
-```
-
-**Questions to Explore**:
-
-- What happens during validation? What errors would stop you?
-- What does linting check for? Are all warnings critical?
-- How do Azure Policy constraints affect your deployment?
-
----
-
-### Part C: Deployment (~15 min) ⭐ REQUIRED
-
-**Your Task**: Use the `deploy` agent to deploy your infrastructure to Azure.
-
-#### Bicep Deployment
-
-**Before Deploying**:
-
-```powershell
-# Preview what will be created (What-If)
-az deployment group what-if \
-  --resource-group rg-freshconnect-dev-swc \
-  --template-file main.bicep \
-  --parameters main.bicepparam
-```
-
-**Deploy Your Infrastructure**:
-
-```powershell
-az deployment group create \
-  --resource-group rg-freshconnect-dev-swc \
-  --template-file main.bicep \
-  --parameters main.bicepparam
-```
-
-#### Terraform Deployment
-
-**Before Deploying**:
-
-```bash
-# Preview what will be created
-terraform plan -out=tfplan
-```
-
-**Deploy Your Infrastructure**:
-
-```bash
-terraform apply tfplan
-```
-
-**If Deployment Fails**:
-
-- Read the error message carefully — what does it tell you?
-- Is it a naming conflict? A policy violation? A missing parameter?
-- How would you prompt the agent to fix the issue?
-
----
-
-### Part D: Understanding the Workflow (~5 min) ⭐ REQUIRED
-
-**Critical Deliverable**: Create a Mermaid flowchart that explains the agent-driven deployment workflow.
-
-## What Happens Next: Preparing for Challenge 4
-
-Challenge 4 (DR Curveball) builds directly on your Challenge 3 deployment. Your path through Challenge 4 depends on your deployment outcome:
-
-| Challenge 3 Outcome | Challenge 4 Path |
-|---|---|
-| **Deployment succeeded** | Extend your deployed infrastructure with multi-region DR (full path) |
-| **Partial deployment** (some resources created) | Extend what deployed; document what you would change for failed resources in your ADR |
-| **Deployment failed** (no resources created) | Pivot to the **paper exercise**: design the DR architecture on paper (ADR + diagram) without deploying |
-
-:::note
-
-**If your deployment failed**: You still complete Challenge 4. Design the DR architecture as an ADR and diagram, explaining what you _would_ deploy and why. This preserves the learning objective. No pre-built reference deployment is provided.
-
-:::
-
-**Output from this challenge that feeds Challenge 4:**
-
-- Your IaC templates (or design documents if deployment failed)
 - `agent-output/freshconnect/04-implementation-plan.md`
-- Your Mermaid deployment workflow diagram
+- IaC folder at `infra/bicep/freshconnect/` or `infra/terraform/freshconnect/`
+- Validation evidence such as build, lint, validate, or plan output.
+- Deployment evidence, or a written note capturing the blocker and next fix.
+- Mermaid workflow diagram covering generation, validation, deployment, errors, and
+  iteration.
 
-Your flowchart must show:
+## Success Criteria
 
-1. How the agent generates templates
-2. What happens during validation
-3. What linting checks for
-4. How the `deploy` agent attempts deployment
-5. Common errors and how agents adjust
-6. The feedback loop when issues are discovered
+| Focus | What good looks like | Evidence |
+| --- | --- | --- |
+| Implementation strategy | The team has a clear path from architecture to deployable resources | `04-implementation-plan.md` reflects sequence, dependencies, and assumptions |
+| Maintainable IaC | Templates are structured for readability and reuse | The IaC folder has sensible files, modules, parameters, and naming strategy |
+| Validation and governance | The team checks quality before deployment and handles policy constraints intentionally | Validation output exists and required tags or security settings are included |
+| Delivery understanding | The team can explain what happened and why | Deployment evidence and workflow diagram show the real path, including failures if any |
 
-**Why This Matters**: In your Team Showcase, you'll need to explain this workflow to
-demonstrate you understand the process, not just executed commands.
+## Tips / Hints
 
-**Save your flowchart** in your presentation materials - you'll need it for Challenge 8.
+<details>
+<summary>Common implementation blockers</summary>
 
-**Example Structure** (expand this based on your experience):
+Use [Quick Reference Card](../../guides/quick-reference-card/#naming-conventions) for
+shared naming rules, [Quick Reference Card](../../guides/quick-reference-card/#security-checklist)
+for the security baseline, and
+[Hints & Tips](../../guides/hints-and-tips/#governance-policy-errors)
+for common policy denials.
 
-```mermaid
-graph TD
-    A[Agent generates IaC templates] --> B[Validation]
-    B --> C{Syntax Errors?}
-    C -->|Yes| D[What types of errors?]
-    C -->|No| E[Linting / Plan]
-    E --> F[...]
+If you hit a deployment blocker, record three things before you ask the agent to help:
 
-    %% Complete this based on what you observe
-```
+1. The exact error message.
+2. Which resource or module caused it.
+3. Whether the failure happened at validation, preview, or deployment time.
 
-## Key Concepts to Understand
+</details>
 
-### Resource Naming Patterns
+## Watch Out
 
-**Question**: Why do some resources fail to deploy with "name already in use" errors?
-
-**Explore**:
-
-- How do you generate unique names for globally-unique resources?
-- What's the pattern for Key Vault names? (Hint: 24 char limit)
-- What's the pattern for Storage Account names? (Hint: special rules)
-
-### Required Tags
-
-**Question**: Why do deployments fail with "RequestDisallowedByPolicy" errors about missing tags?
-
-**Explore**:
-
-- What tags are required by your subscription's Azure Policies?
-- Where in your IaC should tags be defined?
-- How do you pass tags to modules?
-
-### Security Baseline
-
-**Question**: What security settings cause policy violations if missing?
-
-**Research**:
-
-- Storage accounts: What HTTPS/TLS settings are required?
-- SQL: What authentication mode is enforced?
-- App Services: What SSL/TLS requirements exist?
+- Validation success is not the same as deployment success.
+- Azure Policy propagation can lag; still include the required tags and security
+  settings even if you are not denied immediately.
+- Global names can fail late, so keep your naming strategy explicit.
+- Do not skip the workflow diagram; later challenges use it as proof that you
+  understand the delivery path.
 
 ## Artifact Handoff
 
 | Item | Value |
-|---|---|
-| **Input from** | `agent-output/freshconnect/02-architecture-assessment.md` (Challenge 2) |
-| **Your output** | IaC templates + modules, `agent-output/freshconnect/04-implementation-plan.md`, Mermaid workflow diagram |
-
-## Success Criteria
-
-| Criterion                                  | Points |
-| ------------------------------------------ | ------ |
-| Implementation plan created                | 5      |
-| IaC templates generated                    | 5      |
-| Templates compile without errors           | 3      |
-| **Infrastructure deployed successfully**   | 7      |
-| **Workflow diagram created and explained** | 5      |
-| **Total**                                  | **25** |
-
-## Coaching Questions
-
-When you encounter issues, ask yourself:
-
-**Naming Conflicts**:
-
-- Q: "My Key Vault deployment failed with 'name already exists'. What now?"
-- Consider: How do globally-unique names work in Azure? What makes a good naming strategy?
-
-**Policy Violations**:
-
-- Q: "Why does my deployment fail with 'RequestDisallowedByPolicy'?"
-- Consider: What does the error message tell you? How do you discover policy requirements?
-
-**Agent Behavior**:
-
-- Q: "The agent made changes I didn't expect. Why?"
-- Consider: What context did you provide? What constraints does the agent know about?
-
-**Validation vs Deployment**:
-
-- Q: "My templates validate clean but deployment fails. Why?"
-- Consider: What's the difference between syntax validation and runtime deployment?
+| --- | --- |
+| **Input from** | `agent-output/freshconnect/02-architecture-assessment.md`, architecture diagram |
+| **Your output** | IaC folder, `agent-output/freshconnect/04-implementation-plan.md`, deployment evidence, workflow diagram |
+| **Next challenge uses** | C4 branches from your deployment outcome and extends the same design with HA/DR changes |
 
 ## Next Step
 
-After your infrastructure is deployed and you've created your workflow diagram:
-
-⏸️ **Wait for Challenge 4** - The coach will announce a business change at 13:30 that will test your agility!
-
-Use any extra time to:
-
-- Verify deployed resources in Azure Portal
-- Explore alternative architectures
-- Practice explaining your workflow diagram
-- Prepare for the DR curveball
+Challenge 4 uses your actual deployment outcome, not the ideal one. If deployment
+succeeded, you will extend the platform; if it partially worked or failed, you will use
+that evidence to justify the DR path you propose next.

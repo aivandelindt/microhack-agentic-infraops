@@ -129,14 +129,49 @@ az group list --query "[?starts_with(name, 'rg-freshconnect')]" -o table
 
 | Challenge | Input Artifact | Output File/Artifact | Next Action |
 | --------- | -------------- | --------------------------------------------------- | ----------- |
-| 1         | Scenario brief | `agent-output/{team}/01-requirements.md`            | C2: Architecture |
-| 2         | C1 requirements | `agent-output/{team}/02-architecture-assessment.md` | C3: Bicep |
-| 3         | C2 architecture | IaC templates + modules                         | C4: DR Curveball |
-| 4         | C3 IaC (or design docs) | Updated IaC with DR + ADR document      | C5: Load Test |
-| 5         | Deployed infra | `agent-output/{team}/05-load-test-results.md`       | C6: Docs |
-| 6         | All prior artifacts | `agent-output/{team}/07-ab-*.md` (documentation) | C7: Diagnostics |
-| 7         | Deployed infra | `agent-output/{team}/07-diagnostics-quick-card.md`  | C8: Showcase |
-| 8         | All artifacts | Presentation (slides or markdown)                   | Wrap-up |
+| 1         | Scenario brief | `agent-output/freshconnect/01-requirements.md` | C2: Architecture |
+| 2         | `01-requirements.md` | `agent-output/freshconnect/02-architecture-assessment.md`, `agent-output/freshconnect/03-des-architecture-diagram.md` | C3: Implementation |
+| 3         | C2 assessment + diagram | `agent-output/freshconnect/04-implementation-plan.md`, `infra/bicep/freshconnect/` or `infra/terraform/freshconnect/`, workflow diagram | C4: DR Curveball |
+| 4         | C3 IaC + deployment outcome | `agent-output/freshconnect/04-adr-ha-dr-strategy.md`, updated diagram, updated IaC or paper design | C5: Load Test |
+| 5         | Deployed endpoint or fallback plan | `agent-output/freshconnect/05-load-test-results.md` | C6: Documentation |
+| 6         | All prior artifacts | `agent-output/freshconnect/07-ab-operations-guide.md` + 1 additional doc | C7: Diagnostics |
+| 7         | Platform knowledge + docs | `agent-output/freshconnect/07-diagnostics-quick-card.md` | C8: Showcase |
+| 8         | All prior artifacts | Live presentation and Q&A | Wrap-up |
+
+## Artifact Handoff Contract
+
+Every challenge uses the same handoff rule:
+
+- Check the required input artifact before you start.
+- Save the new artifact at the expected path.
+- Name assumptions and gaps clearly if you could not complete a deploy step.
+- Make the next challenge easier, not harder, by leaving usable evidence behind.
+
+## Prompt Recipe
+
+Use this short recipe when a challenge page tells you to prompt an agent:
+
+```text
+Goal: [artifact or decision]
+Context: [FreshConnect facts + prior artifact path]
+Decisions now: [2-4 key trade-offs]
+Return: [file name, format, and evidence required]
+```
+
+## Mermaid & ADR Conventions
+
+- Mermaid diagrams should show the services, data flow, boundaries, and failure or
+  handoff path that matters for the challenge.
+- Workflow diagrams should show decisions and feedback loops, not just a straight line.
+- ADRs should always cover `Context`, `Decision`, `Consequences`, and `Alternatives`.
+- Keep diagrams readable enough to present in Challenge 8 without rework.
+
+## Paper Exercise Rules
+
+- Use the paper path only when deployment is genuinely blocked.
+- Keep the same output artifact names where possible.
+- Record the blocker, intended change, and expected outcome.
+- Do not present design intent as deployed evidence.
 
 ---
 
