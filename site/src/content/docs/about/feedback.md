@@ -13,7 +13,6 @@ This form is a markdown template. For live events, convert it to
 [Microsoft Forms](https://forms.office.com) or print it as a handout.
 Checkbox items (☐) are for pen-and-paper or digital-form use.
 
-
 :::
 
 ## Event Details

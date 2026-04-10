@@ -17,7 +17,6 @@ If you're stuck on an error rather than a design question, go to [Troubleshootin
 <details>
 <summary>📄 How Agent Outputs Work (click to reveal)</summary>
 
-
 ### Templatized Agent Outputs
 
 The agents in this microhack use **templates** to generate consistent, structured documentation.
@@ -62,15 +61,12 @@ Take a moment to browse `.github/skills/azure-artifacts/templates/` to understan
 💡 **Key insight**: GenAI with templates is more predictable than "pure" generation.
 This is intentional — infrastructure documentation needs consistency!
 
-
-
 </details>
 
 ## Architecture Hints
 
 <details>
 <summary>💡 Service Selection (click to reveal)</summary>
-
 
 Before asking the `architect` agent, consider these questions:
 
@@ -106,13 +102,10 @@ Small team needs managed services."
 💡 **Coaching tip**: Services aren't "recommended" — they're _chosen_ based on requirements.
 What requirements drive your service selection?
 
-
-
 </details>
 
 <details>
 <summary>💰 Cost Optimization (click to reveal)</summary>
-
 
 **Guiding Questions:**
 
@@ -157,13 +150,10 @@ Consider these categories for your €500/month budget:
 
 Where is most of your budget going? Does that align with business priorities?
 
-
-
 </details>
 
 <details>
 <summary>🔒 Security & Compliance (click to reveal)</summary>
-
 
 **Discovery Questions:**
 
@@ -218,13 +208,10 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 
 Ask yourself: What attack does each setting prevent?
 
-
-
 </details>
 
 <details>
 <summary>🔒 Governance Policy Errors (click to reveal)</summary>
-
 
 **Common Policy Errors & Fixes:**
 
@@ -282,13 +269,10 @@ resource webApp 'Microsoft.Web/sites@2023-01-01' = {
 }
 ```
 
-
-
 </details>
 
 <details>
 <summary>🏗️ Bicep Patterns (click to reveal)</summary>
-
 
 **UniqueString Pattern:**
 
@@ -322,13 +306,10 @@ var tags = {
 }
 ```
 
-
-
 </details>
 
 <details>
 <summary>🌍 Multi-Region DR (Challenge 4)</summary>
-
 
 **Discovery Questions:**
 
@@ -369,13 +350,10 @@ Create ADR documenting decision."
 💡 **Coaching tip**: DR isn't about copying everything twice —
 it's about identifying what _must_ survive and what recovery time the business can accept.
 
-
-
 </details>
 
 <details>
 <summary>🔥 Load Testing (Challenge 5)</summary>
-
 
 **Understanding Load Testing:**
 
@@ -432,13 +410,10 @@ After running k6, ask:
 
 💡 **Coaching tip**: Load testing isn't pass/fail — it's discovering your system's limits so you can make informed decisions.
 
-
-
 </details>
 
 <details>
 <summary>📚 Documentation (Challenge 6)</summary>
-
 
 **The Documentation Question:**
 
@@ -494,13 +469,10 @@ Which documents provide the most value for FreshConnect's specific needs?
 - Deployment guide with rollback steps
 - Security and compliance documentation
 
-
-
 </details>
 
 <details>
 <summary>🔍 Diagnostics (Challenge 7)</summary>
-
 
 **The 2 AM Question:**
 
@@ -573,8 +545,6 @@ Why check database DTU before App Service CPU? What's the reasoning?
    → Check: Managed identity permissions
    → Check: Network security groups / firewall rules
 ```
-
-
 
 </details>
 

@@ -14,18 +14,34 @@ import AgentChat from "../../components/AgentChat.astro";
       <span>APEX</span>
       <span>MicroHack</span>
     </h1>
+    <p class="landing-hero__expansion">
+      Agentic Platform Engineering eXperience for Azure
+    </p>
     <p class="landing-hero__tagline">
-      Master IaC-driven infrastructure delivery using platform engineering
-      practices — from requirements to deployment, in one day.
+      A one-day team challenge where you use GitHub Copilot to design, validate,
+      and present Azure infrastructure from requirements through deployment.
+    </p>
+    <p class="landing-hero__purpose">
+      You will work in your own repository created from the template repo, while
+      this docs repo stays your guide for setup, scenario context, and challenge
+      flow.
     </p>
 
     <div class="landing-hero__actions">
-      <a class="sl-link-button primary not-content" href="getting-started/">
-        Get Started
+      <a class="sl-link-button primary not-content" href="getting-started/setup/">
+        Open Setup Guide
       </a>
       <a class="sl-link-button minimal not-content" href="challenges/">
         View Challenges
       </a>
+    </div>
+
+    <div class="landing-hero__teaser">
+      <div>
+        <strong>What you need:</strong> a paid GitHub Copilot plan, one Azure
+        subscription per team, and a working Dev Container before the event starts.
+      </div>
+      <a href="getting-started/setup/">Check the full Setup Guide</a>
     </div>
 
   </div>
@@ -75,7 +91,7 @@ import AgentChat from "../../components/AgentChat.astro";
     <CardGrid>
       <LinkCard
         title="Getting Started"
-        description="Set up your environment, check prerequisites, and learn the scenario."
+        description="Start with the participant overview, then move into setup and workshop prep."
         href="getting-started/"
       />
       <LinkCard

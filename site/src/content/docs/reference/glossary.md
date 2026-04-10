@@ -17,6 +17,7 @@ Key terms and definitions for APEX.
 
 | Concept | Canonical term | Do not use |
 |---|---|---|
+| APEX expansion | **Agentic Platform Engineering eXperience for Azure** | alternative expansions, reworded acronym definitions |
 | The event | **MicroHack** or **microhack** | hackathon, workshop (except in general descriptions) |
 | Event organiser | **Facilitator** | coach, instructor, proctor |
 | Event participant | **Participant** | attendee, student, user (in workshop context) |

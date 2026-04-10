@@ -1,9 +1,8 @@
 ---
 title: Workshop Prep & Scenario
-description: Business scenario details, team roles, and preparation checklist for
-  Nordic Fresh Foods
+description: Scenario brief, mission, journey, and team roles for Nordic Fresh Foods
 sidebar:
-  order: 2
+   order: 3
 ---
 
 > **Read before the microhack** | Scenario brief and team role cards

@@ -2,7 +2,7 @@
 title: Learning Resources
 description: Curated getting started guides for VS Code and GitHub Copilot
 sidebar:
-  order: 3
+  order: 4
 ---
 
 A curated collection of guides to help you get up to speed with the key tools used in this workshop.

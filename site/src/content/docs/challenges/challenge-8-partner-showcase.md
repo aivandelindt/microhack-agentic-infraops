@@ -18,7 +18,6 @@ prev:
 
 :::
 
-
 ## Overview
 
 This is your moment to shine! Each team will present their FreshConnect solution to a stakeholder
@@ -56,12 +55,10 @@ graph TB
 <details>
 <summary>Text alternative: Presentation setup</summary>
 
-
 - **Presenting Team**: Presents their solution to the Stakeholder Team
 - **Stakeholder Team**: Asks tough questions to challenge the presenting team
 - **Coaches**: Observe and evaluate both teams
 - **Other Teams**: Learn from the presentation and Q&A
-
 
 </details>
 

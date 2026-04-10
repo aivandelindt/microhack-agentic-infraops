@@ -34,7 +34,7 @@ get the fully configured environment. See [Getting Started](../../getting-starte
 GitHub Copilot is an AI coding assistant built into VS Code. This project uses Copilot to
 accelerate platform engineering practices — from requirements capture to IaC generation. It requires a
 **Copilot Pro**, **Copilot Business**, **Copilot Pro+**, or **Copilot Enterprise** license (verified during
-[pre-event setup](../../getting-started/setup/#github-with-copilot-pro-business-pro-or-enterprise)).
+[pre-event setup](../../getting-started/setup/#github-copilot-plan).
 
 Copilot works in three main modes, each suited to different tasks:
 
@@ -81,7 +81,6 @@ the primary mode for this microhack.**
 Use **Agent mode** for most challenges. It can invoke custom agents, read templates,
 run Azure CLI commands, and generate documentation — all in a single conversation.
 
-
 :::
 
 ---
@@ -91,7 +90,6 @@ run Azure CLI commands, and generate documentation — all in a single conversat
 :::caution
 
 AI agents may echo terminal output, including secrets. Follow these rules to avoid accidental leakage.
-
 
 :::
 

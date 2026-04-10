@@ -21,7 +21,6 @@ next:
 
 :::
 
-
 ## Objective
 
 Use the `requirements` agent to capture comprehensive Azure infrastructure requirements for the FreshConnect platform.

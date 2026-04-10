@@ -21,7 +21,6 @@ next:
 
 :::
 
-
 ## ⚡ The Announcement
 
 > **COACH READS AT 13:30:**

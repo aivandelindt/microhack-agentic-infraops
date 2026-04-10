@@ -1,48 +1,72 @@
 ---
 title: Getting Started
-description: Set up your environment and learn the workshop scenario
+description: Start here for setup, workshop prep, and the participant journey
 sidebar:
-  order: 0
-  hidden: true
+  order: 1
 ---
 
-Choose your entry point based on where you are in the workshop journey:
+APEX MicroHack is a one-day team exercise where you use GitHub Copilot to move from
+business requirements to an Azure platform design, deployment plan, and final showcase.
 
-## Before the Event
+Start here if you are preparing for the event or running the workshop on your own time.
+Your hands-on work happens in a repository created from the template repo. This docs repo
+is the guide for setup, scenario context, and challenge navigation.
+
+## What You Will Do
+
+- Get your environment ready before the event starts.
+- Read the Nordic Fresh Foods scenario and assign team roles.
+- Work through the challenges in order using GitHub Copilot and your Dev Container.
+
+## What You Need
+
+- A paid GitHub Copilot plan.
+- One Azure subscription per team with the required access and quota in `swedencentral`.
+- A working Dev Container and a repository created from the template repo.
+
+## Start Here
+
+1. [Setup Guide](setup/) for the canonical pre-event checklist, tooling, quota, costs, and cleanup.
+2. [Workshop Prep](workshop-prep/) for the scenario brief, mission, and team roles.
+
+:::note
+
+Self-guided learners should follow the same flow. Complete the setup work first, then read
+Workshop Prep before starting [Challenge 1](../challenges/challenge-1-requirements/).
+
+:::
+
+## Quick Navigation
+
+### Before the Event
 
 | Task | Where |
 |---|---|
-| Verify you can participate | [Readiness Gate](setup/#readiness-gate) |
-| Install tools and configure environment | [Environment Setup](setup/#prerequisites) |
+| Check true blockers | [Participation Gate](setup/#participation-gate) |
+| Install tools and confirm access | [Prerequisites](setup/#prerequisites) |
 | Create your working repository | [Setup Steps](setup/#setup-steps) |
-| Read the business scenario | [Workshop Prep](workshop-prep/) |
+| Read the scenario and roles | [Workshop Prep](workshop-prep/) |
 
-## First 10 Minutes on Event Day
+### First 10 Minutes on Event Day
 
 | Task | Where |
 |---|---|
-| Confirm Dev Container is running | [Setup Guide](setup/#dev-container) |
-| Authenticate to Azure | [Setup Steps](setup/#setup-steps) |
-| Verify custom agents are visible | [Readiness Gate](setup/#readiness-gate) item 6 |
-| Start Challenge 1 | [Challenge 1: Requirements](../challenges/challenge-1-requirements/) |
+| Confirm the container is running | [Dev Container](setup/#dev-container) |
+| Check Azure sign-in and agents | [Ready-to-Start Check](setup/#ready-to-start-check) |
+| Start the first challenge | [Challenge 1: Requirements](../challenges/challenge-1-requirements/) |
 
-## During the Workshop
+### During the Workshop
 
 | Need | Where |
 |---|---|
 | Challenge instructions | [Challenges](../challenges/index/) |
 | Agent and prompting help | [Copilot Guide](../guides/copilot-guide/) |
-| Quick command reference | [Quick Reference Card](../guides/quick-reference-card/) |
-| Something broke | [Troubleshooting](../reference/troubleshooting/) |
+| Quick commands | [Quick Reference Card](../guides/quick-reference-card/) |
+| Troubleshooting help | [Troubleshooting](../reference/troubleshooting/) |
 
-## After the Event
+### After the Event
 
 | Task | Where |
 |---|---|
-| Clean up Azure resources | [Post-Event Cleanup](setup/#post-event-cleanup) |
-| Provide feedback | [Feedback](../about/feedback/) |
-
-**Detailed guides:**
-
-- **[Environment Setup](setup/)** — Dev container, Azure CLI, quota checks, readiness gate, and first-run verification
-- **[Workshop Prep](workshop-prep/)** — Business scenario briefing and team role cards
+| Clean up Azure resources | [Cleanup](setup/#cleanup) |
+| Share feedback | [Feedback](../about/feedback/) |

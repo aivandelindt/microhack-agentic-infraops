@@ -21,7 +21,6 @@ next:
 
 :::
 
-
 ## The Business Context
 
 Nordic Fresh Foods expects 500 concurrent users during peak seasons (summer and December holidays).

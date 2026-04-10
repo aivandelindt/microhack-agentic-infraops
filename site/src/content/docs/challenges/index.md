@@ -49,11 +49,9 @@ graph LR
 <details>
 <summary>Text alternative: Challenge flow</summary>
 
-
 C1 Requirements → C2 Architecture → C3 IaC Implementation → ⚡ CURVEBALL ⚡ → C4 DR → C5 Load Test → C6 Docs → C7 Diagnose → C8 Showcase
 
 Challenge 4 is announced as a surprise midway through the event.
-
 
 </details>
 

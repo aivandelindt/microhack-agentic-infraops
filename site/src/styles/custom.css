@@ -314,10 +314,28 @@ body:has(.landing-hero) footer {
 .landing-hero__tagline {
   margin: 1.35rem 0 0;
   max-width: 29rem;
-  color: #bac9da;
-  font-size: clamp(0.96rem, 1.35vw, 1.06rem);
-  line-height: 1.72;
+  color: #e3edf9;
+  font-size: clamp(1.02rem, 1.45vw, 1.14rem);
+  font-weight: 600;
+  line-height: 1.68;
   text-wrap: balance;
+}
+
+.landing-hero__expansion {
+  margin: 1rem 0 0;
+  color: #8fcfff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.landing-hero__purpose {
+  margin: 1rem 0 0;
+  max-width: 31rem;
+  color: #c6d6e8;
+  font-size: 0.98rem;
+  line-height: 1.72;
 }
 
 .landing-hero__actions {
@@ -325,7 +343,35 @@ body:has(.landing-hero) footer {
   gap: 0.65rem;
   flex-wrap: wrap;
   align-self: flex-start;
-  margin-top: 2.4rem;
+  margin-top: 2rem;
+}
+
+.landing-hero__teaser {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.2rem;
+  padding: 0.95rem 1rem;
+  max-width: 31rem;
+  border: 1px solid rgba(143, 207, 255, 0.18);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #d7e4f3;
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.landing-hero__teaser strong {
+  color: #f0f6fc;
+}
+
+.landing-hero__teaser a {
+  width: fit-content;
+  color: #8fcfff;
+  font-weight: 700;
+}
+
+.landing-hero__teaser a:hover {
+  color: #cbe9ff;
 }
 
 .landing-hero__actions a {
@@ -759,6 +805,11 @@ a {
 
   .landing-hero__actions a {
     width: 100%;
+    flex: 1 1 11rem;
+  }
+
+  .landing-hero__teaser {
+    max-width: none;
   }
 
   .demo-window,

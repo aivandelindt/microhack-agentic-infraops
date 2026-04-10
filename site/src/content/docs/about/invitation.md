@@ -1,69 +1,44 @@
 ---
 title: Workshop Invitation
-description: Event invitation details — what to expect, what to bring, and how to
-  prepare
+description: Short event invitation for participants and stakeholders
 sidebar:
   order: 2
 ---
 
-
-**Master IaC-driven Azure infrastructure delivery using platform engineering practices — accelerated by GitHub Copilot**
-
----
-
-## What Is This?
-
-A **1-day hands-on hackathon** where teams apply platform engineering
-practices — accelerated by GitHub Copilot — to design, build, and present
-Azure infrastructure.
-
-**The scenario**: You are helping _Nordic Fresh Foods_, a growing
-farm-to-table delivery company, modernize its platform before peak
-season.
+APEX MicroHack is a one-day team event where participants use GitHub Copilot to design,
+validate, and present Azure infrastructure under realistic delivery pressure.
 
 ---
 
-## What You'll Do
+## What the Event Is
 
-- Capture requirements and turn them into an Azure architecture
-- Generate IaC templates and supporting documentation with GitHub Copilot
-- Respond to a surprise disaster recovery requirement
-- Test, review, and present your solution as a team
+A one-day hands-on microhack focused on platform engineering for Azure. Teams work through
+the Nordic Fresh Foods scenario from requirements to deployment planning and final showcase.
 
----
+## Who It Is For
 
-## Who It's For
-
-- **Infrastructure specialists** managing Azure environments, **Platform engineers** building standardised delivery paths, **IT architects** designing Well-Architected solutions
-- **Ops teams** adopting AI-assisted platform engineering
-- **Prerequisites**: Basic Azure portal familiarity. No IaC experience required!
+- Infrastructure and platform engineers working with Azure.
+- Architects and operations teams adopting GitHub Copilot in delivery workflows.
+- Technical participants who can work in a team setting and follow guided challenge prompts.
 
 ---
 
-## What You'll Need
+## What to Bring
 
-- Laptop with VS Code, GitHub Copilot license (Pro, Business, Pro+, or Enterprise), Azure subscription with Owner access (required for Azure Policy)
-- A repository created from the
-  [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
-- Curiosity and a willingness to experiment
-
-Workshop site: <https://jonathan-vella.github.io/microhack-agentic-infraops/>
-
-Setup guide: <https://jonathan-vella.github.io/microhack-agentic-infraops/getting-started/setup/>
+- A laptop that can run VS Code and a Dev Container.
+- A paid GitHub Copilot plan.
+- One Azure subscription for your team.
+- A repository created from the [template repo](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator).
 
 ---
 
 ## Event Details
 
-|                  |                                                           |
-| ---------------- | --------------------------------------------------------- |
-| **Duration**     | 1 day (including breaks)                                  |
-| **Format**       | Team-based hackathon (4-5 per team)                       |
-| **Skill Level**  | Intermediate to Advanced                                  |
-| **Deliverables** | Working Azure infrastructure + architecture documentation |
+| Item | Details |
+|---|---|
+| Duration | 1 day |
+| Format | Team-based microhack |
+| Team size | 4-5 people |
+| Deliverable | Azure infrastructure plan, implementation approach, and showcase |
 
----
-
-Powered by GitHub Copilot custom agents, Azure Well-Architected
-Framework, and Azure Verified Modules.
-
+Use [Getting Started](../getting-started/) for the actual onboarding flow, setup checklist, and workshop prep.

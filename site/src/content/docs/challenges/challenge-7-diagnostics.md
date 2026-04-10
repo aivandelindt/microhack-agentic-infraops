@@ -21,7 +21,6 @@ next:
 
 :::
 
-
 ## The 2 AM Scenario
 
 **INCIDENT ALERT** 🚨

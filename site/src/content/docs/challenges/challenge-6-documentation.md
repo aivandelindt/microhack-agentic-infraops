@@ -21,7 +21,6 @@ next:
 
 :::
 
-
 ## The Business Context
 
 Your infrastructure is deployed. FreshConnect is running in production. Now the hard questions begin:

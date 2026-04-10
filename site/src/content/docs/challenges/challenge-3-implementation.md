@@ -21,7 +21,6 @@ next:
 
 :::
 
-
 ## Choose Your IaC Language
 
 Your team must choose **one** Infrastructure-as-Code language for this challenge:

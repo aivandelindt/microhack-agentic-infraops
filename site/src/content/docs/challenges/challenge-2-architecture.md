@@ -21,7 +21,6 @@ next:
 
 :::
 
-
 ## The Architecture Challenge
 
 You have requirements — now translate them into an Azure architecture that's reliable,
@@ -174,19 +173,16 @@ After completing this challenge:
 <details>
 <summary>📊 Reliability Checklist</summary>
 
-
 - [ ] SLA target defined and achievable
 - [ ] RTO/RPO documented
 - [ ] Backup strategy defined
 - [ ] Failure modes identified
 - [ ] Health monitoring configured
 
-
 </details>
 
 <details>
 <summary>🔒 Security Checklist</summary>
-
 
 - [ ] Authentication method defined
 - [ ] TLS 1.2 minimum
@@ -194,18 +190,15 @@ After completing this challenge:
 - [ ] Network security considered
 - [ ] Managed identities preferred
 
-
 </details>
 
 <details>
 <summary>💰 Cost Checklist</summary>
 
-
 - [ ] Within budget
 - [ ] Right-sized SKUs
 - [ ] Consumption vs. provisioned evaluated
 - [ ] Dev/Test vs. Production considered
-
 
 </details>
 
