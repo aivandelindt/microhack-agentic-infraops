@@ -64,16 +64,94 @@ paper exercise and carrying that design evidence into later challenges.
 
 ## Challenge Chain
 
-| Challenge | Duration | Points | Input | Output | What the next step consumes |
-| --- | --- | --- | --- | --- | --- |
-| [C1 Requirements](challenge-1-requirements/) | 30 min | 20 | Scenario brief | `agent-output/freshconnect/01-requirements.md` | C2 uses the agreed business, operational, and compliance requirements |
-| [C2 Architecture](challenge-2-architecture/) | 30 min | 25 | `01-requirements.md` | `02-architecture-assessment.md`, `03-des-architecture-diagram.md` | C3 uses the chosen services, constraints, and architecture diagram |
-| [C3 Implementation](challenge-3-implementation/) | 45 min | 25 | Architecture assessment and diagram | IaC folder, `04-implementation-plan.md`, workflow diagram, deployment evidence | C4 uses your templates, deployment outcome, and explanation of how the platform is delivered |
-| [C4 DR Curveball](challenge-4-dr-curveball/) | 45 min | 10 | C3 templates and deployment outcome | `04-adr-ha-dr-strategy.md`, updated diagram, updated IaC or paper design | C5 uses the revised platform or, if blocked, your documented intended target |
-| [C5 Load Testing](challenge-5-load-testing/) | 30 min | 5 | Deployed endpoint or documented fallback plan | `05-load-test-results.md` | C6 uses the measured results and recommendations |
-| [C6 Documentation](challenge-6-documentation/) | 15 min | 5 | All prior artifacts | `07-ab-operations-guide.md` plus at least one additional doc | C7 distills the broader docs into a one-page triage aid |
-| [C7 Diagnostics](challenge-7-diagnostics/) | 5 min | 5 | Platform knowledge, docs, and architecture | `07-diagnostics-quick-card.md` | C8 uses the diagnostics card as evidence of operational maturity |
-| [C8 Team Showcase](challenge-8-partner-showcase/) | 60 min | 10 | All artifacts from C1-C7 | Live presentation and Q&A | Workshop wrap-up |
+<div class="challenge-chain-table-wrap">
+  <table class="challenge-chain-table">
+    <colgroup>
+      <col style="width: 18%" />
+      <col style="width: 8%" />
+      <col style="width: 6%" />
+      <col style="width: 18%" />
+      <col style="width: 22%" />
+      <col style="width: 28%" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Challenge</th>
+        <th>Duration</th>
+        <th>Points</th>
+        <th>Input</th>
+        <th>Output</th>
+        <th>What the next step consumes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="challenge-1-requirements/">C1 Requirements</a></td>
+        <td>30 min</td>
+        <td>20</td>
+        <td>Scenario brief</td>
+        <td><code>agent-output/freshconnect/01-requirements.md</code></td>
+        <td>C2 uses the agreed business, operational, and compliance requirements</td>
+      </tr>
+      <tr>
+        <td><a href="challenge-2-architecture/">C2 Architecture</a></td>
+        <td>30 min</td>
+        <td>25</td>
+        <td><code>01-requirements.md</code></td>
+        <td><code>02-architecture-assessment.md</code>, <code>03-des-architecture-diagram.md</code></td>
+        <td>C3 uses the chosen services, constraints, and architecture diagram</td>
+      </tr>
+      <tr>
+        <td><a href="challenge-3-implementation/">C3 Implementation</a></td>
+        <td>45 min</td>
+        <td>25</td>
+        <td>Architecture assessment and diagram</td>
+        <td>IaC folder, <code>04-implementation-plan.md</code>, workflow diagram, deployment evidence</td>
+        <td>C4 uses your templates, deployment outcome, and explanation of how the platform is delivered</td>
+      </tr>
+      <tr>
+        <td><a href="challenge-4-dr-curveball/">C4 DR Curveball</a></td>
+        <td>45 min</td>
+        <td>10</td>
+        <td>C3 templates and deployment outcome</td>
+        <td><code>04-adr-ha-dr-strategy.md</code>, updated diagram, updated IaC or paper design</td>
+        <td>C5 uses the revised platform or, if blocked, your documented intended target</td>
+      </tr>
+      <tr>
+        <td><a href="challenge-5-load-testing/">C5 Load Testing</a></td>
+        <td>30 min</td>
+        <td>5</td>
+        <td>Deployed endpoint or documented fallback plan</td>
+        <td><code>05-load-test-results.md</code></td>
+        <td>C6 uses the measured results and recommendations</td>
+      </tr>
+      <tr>
+        <td><a href="challenge-6-documentation/">C6 Documentation</a></td>
+        <td>15 min</td>
+        <td>5</td>
+        <td>All prior artifacts</td>
+        <td><code>07-ab-operations-guide.md</code> plus at least one additional doc</td>
+        <td>C7 distills the broader docs into a one-page triage aid</td>
+      </tr>
+      <tr>
+        <td><a href="challenge-7-diagnostics/">C7 Diagnostics</a></td>
+        <td>5 min</td>
+        <td>5</td>
+        <td>Platform knowledge, docs, and architecture</td>
+        <td><code>07-diagnostics-quick-card.md</code></td>
+        <td>C8 uses the diagnostics card as evidence of operational maturity</td>
+      </tr>
+      <tr>
+        <td><a href="challenge-8-partner-showcase/">C8 Team Showcase</a></td>
+        <td>60 min</td>
+        <td>10</td>
+        <td>All artifacts from C1-C7</td>
+        <td>Live presentation and Q&amp;A</td>
+        <td>Workshop wrap-up</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 **Total:** 105 base points + up to 25 bonus points
 
