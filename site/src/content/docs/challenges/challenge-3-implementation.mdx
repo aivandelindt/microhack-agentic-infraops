@@ -1,6 +1,7 @@
 ---
-title: 'C3: IaC Implementation'
-description: Generate infrastructure-as-code templates (Bicep or Terraform), deploy
+title: "C3: IaC Implementation"
+description:
+  Generate infrastructure-as-code templates (Bicep or Terraform), deploy
   to Azure, and demonstrate understanding of the agent-driven deployment workflow.
 sidebar:
   order: 3
@@ -9,11 +10,57 @@ sidebar:
     variant: success
 prev:
   link: ../challenge-2-architecture/
-  label: 'C2: Architecture'
+  label: "C2: Architecture"
 next:
   link: ../challenge-4-dr-curveball/
-  label: 'C4: DR Curveball'
+  label: "C4: DR Curveball"
 ---
+
+import ExpandableTable from "../../../components/ExpandableTable.astro";
+
+export const implementationRouteHeaders = [
+  "Path",
+  "Planning agent",
+  "Code agent",
+  "Output folder",
+];
+
+export const implementationRouteRows = [
+  [
+    "Bicep",
+    "<code>bicep-plan</code>",
+    "<code>bicep-code</code>",
+    "<code>infra/bicep/freshconnect/</code>",
+  ],
+  [
+    "Terraform",
+    "<code>terraform-plan</code>",
+    "<code>terraform-code</code>",
+    "<code>infra/terraform/freshconnect/</code>",
+  ],
+];
+
+export const implementationCommandHeaders = [
+  "Path",
+  "Validate",
+  "Preview",
+  "Deploy",
+];
+
+export const implementationCommandRows = [
+  [
+    "Bicep",
+    "<code>bicep build main.bicep</code> and <code>bicep lint main.bicep</code>",
+    "<code>az deployment group what-if ...</code>",
+    "<code>az deployment group create ...</code>",
+  ],
+  [
+    "Terraform",
+    "<code>terraform init</code> and <code>terraform validate</code>",
+    "<code>terraform plan -out=tfplan</code>",
+    "<code>terraform apply tfplan</code>",
+  ],
+];
 
 :::note[Challenge Info]
 ⏱️ **45 min** · 🏆 **25 pts** · 🤖 `bicep-plan`/`bicep-code` or `terraform-plan`/`terraform-code`, `deploy`
@@ -53,15 +100,25 @@ deployed is not enough.
 4. **Explain the workflow (~5 min).** Create a Mermaid flowchart showing how agents,
    validation, preview, deployment, and feedback loops fit together.
 
-| Path | Planning agent | Code agent | Output folder |
-| --- | --- | --- | --- |
-| Bicep | `bicep-plan` | `bicep-code` | `infra/bicep/freshconnect/` |
-| Terraform | `terraform-plan` | `terraform-code` | `infra/terraform/freshconnect/` |
+<ExpandableTable
+  title="IaC Agent Routes"
+  eyebrow="Challenge 3"
+  headers={implementationRouteHeaders}
+  rows={implementationRouteRows}
+  columnWidths={["14%", "18%", "18%", "50%"]}
+  minWidth="44rem"
+  expandedMinWidth="56rem"
+/>
 
-| Path | Validate | Preview | Deploy |
-| --- | --- | --- | --- |
-| Bicep | `bicep build main.bicep` and `bicep lint main.bicep` | `az deployment group what-if ...` | `az deployment group create ...` |
-| Terraform | `terraform init` and `terraform validate` | `terraform plan -out=tfplan` | `terraform apply tfplan` |
+<ExpandableTable
+  title="IaC Validation And Deployment Commands"
+  eyebrow="Challenge 3"
+  headers={implementationCommandHeaders}
+  rows={implementationCommandRows}
+  columnWidths={["12%", "31%", "27%", "30%"]}
+  minWidth="60rem"
+  expandedMinWidth="72rem"
+/>
 
 ## Key Decisions
 
@@ -85,12 +142,12 @@ deployed is not enough.
 
 ## Success Criteria
 
-| Focus | What good looks like | Evidence |
-| --- | --- | --- |
-| Implementation strategy | The team has a clear path from architecture to deployable resources | `04-implementation-plan.md` reflects sequence, dependencies, and assumptions |
-| Maintainable IaC | Templates are structured for readability and reuse | The IaC folder has sensible files, modules, parameters, and naming strategy |
-| Validation and governance | The team checks quality before deployment and handles policy constraints intentionally | Validation output exists and required tags or security settings are included |
-| Delivery understanding | The team can explain what happened and why | Deployment evidence and workflow diagram show the real path, including failures if any |
+| Focus                     | What good looks like                                                                   | Evidence                                                                               |
+| ------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Implementation strategy   | The team has a clear path from architecture to deployable resources                    | `04-implementation-plan.md` reflects sequence, dependencies, and assumptions           |
+| Maintainable IaC          | Templates are structured for readability and reuse                                     | The IaC folder has sensible files, modules, parameters, and naming strategy            |
+| Validation and governance | The team checks quality before deployment and handles policy constraints intentionally | Validation output exists and required tags or security settings are included           |
+| Delivery understanding    | The team can explain what happened and why                                             | Deployment evidence and workflow diagram show the real path, including failures if any |
 
 ## Tips / Hints
 
@@ -122,11 +179,11 @@ If you hit a deployment blocker, record three things before you ask the agent to
 
 ## Artifact Handoff
 
-| Item | Value |
-| --- | --- |
-| **Input from** | `agent-output/freshconnect/02-architecture-assessment.md`, architecture diagram |
-| **Your output** | IaC folder, `agent-output/freshconnect/04-implementation-plan.md`, deployment evidence, workflow diagram |
-| **Next challenge uses** | C4 branches from your deployment outcome and extends the same design with HA/DR changes |
+| Item                    | Value                                                                                                    |
+| ----------------------- | -------------------------------------------------------------------------------------------------------- |
+| **Input from**          | `agent-output/freshconnect/02-architecture-assessment.md`, architecture diagram                          |
+| **Your output**         | IaC folder, `agent-output/freshconnect/04-implementation-plan.md`, deployment evidence, workflow diagram |
+| **Next challenge uses** | C4 branches from your deployment outcome and extends the same design with HA/DR changes                  |
 
 ## Next Step
 

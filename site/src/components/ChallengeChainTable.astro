@@ -307,8 +307,10 @@ const renderCellParts = (parts: string | string[]) =>
     );
     --expandable-border: rgba(124, 135, 160, 0.28);
     --expandable-text: #f0f6fc;
-    --expandable-muted: #c7d2df;
+    --expandable-muted: #d7e0ea;
     --expandable-heading: #8fcfff;
+    --expandable-code-surface: rgba(240, 246, 252, 0.08);
+    --expandable-code-border: rgba(143, 207, 255, 0.18);
     margin-block: 1rem;
   }
 
@@ -420,7 +422,18 @@ const renderCellParts = (parts: string | string[]) =>
   }
 
   .expandable-table__dialog th {
-    color: #0d1117;
+    color: var(--expandable-text);
+    background: rgba(240, 246, 252, 0.1);
+  }
+
+  .expandable-table__dialog td {
+    color: var(--expandable-muted);
+  }
+
+  .expandable-table__dialog .challenge-chain-table code {
+    color: var(--expandable-text);
+    background: var(--expandable-code-surface);
+    border: 1px solid var(--expandable-code-border);
   }
 
   .expandable-table__dialog-body {
