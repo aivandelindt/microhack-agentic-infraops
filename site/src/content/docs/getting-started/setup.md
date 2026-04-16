@@ -207,6 +207,12 @@ Complete all steps below before event day. Steps 1 and 2 pull and build the Dev 
 <details>
 <summary>1. Create your working repository</summary>
 
+:::tip
+
+**New to GitHub or WSL?** Follow the [Beginner Setup (Windows)](beginner-setup/) walkthrough for a step-by-step guide with screenshots. The instructions below are the CLI-based path.
+
+:::
+
 1. Go to the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
 2. Click **Use this template** → **Create a new repository**
 3. Clone your new repository and open it in VS Code:

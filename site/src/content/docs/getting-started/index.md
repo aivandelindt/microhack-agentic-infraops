@@ -26,6 +26,7 @@ is the guide for setup, scenario context, and challenge navigation.
 
 ## Start Here
 
+0. *(Windows beginners)* [Beginner Setup (Windows)](beginner-setup/) for a screenshot walkthrough of installing tools and cloning the repo.
 1. [Setup Guide](setup/) for the canonical pre-event checklist, tooling, quota, costs, and cleanup.
 2. [Workshop Prep](workshop-prep/) for the scenario brief, mission, and team roles.
 
@@ -42,6 +43,7 @@ Workshop Prep before starting [Challenge 1](../challenges/challenge-1-requiremen
 
 | Task | Where |
 |---|---|
+| Beginner Windows setup with screenshots | [Beginner Setup (Windows)](beginner-setup/) |
 | Check true blockers | [Participation Gate](setup/#participation-gate) |
 | Install tools and confirm access | [Prerequisites](setup/#prerequisites) |
 | Create your working repository | [Setup Steps](setup/#setup-steps) |

@@ -2,7 +2,7 @@
 title: Workshop Prep & Scenario
 description: Scenario brief, mission, journey, and team roles for Nordic Fresh Foods
 sidebar:
-   order: 3
+   order: 4
 ---
 
 > **Read before the microhack** | Scenario brief and team role cards
