@@ -7,11 +7,11 @@ sidebar:
 
 <!-- markdownlint-disable MD033 -->
 
-This page walks you through setting up your machine from scratch on **Windows 11** using GitHub Desktop and WSL. If you already have Git, Docker, and VS Code working, skip straight to the [Setup Guide](setup/) for the canonical pre-event checklist.
+This page walks you through setting up your machine from scratch on **Windows 11** using GitHub Desktop and WSL. If you already have Git, Docker, and VS Code working, skip straight to the [Setup Guide](../setup/) for the canonical pre-event checklist.
 
 :::note
 
-**macOS / Linux users** — this walkthrough is Windows-specific. Follow the cross-platform instructions in the [Setup Guide](setup/) instead.
+**macOS / Linux users** — this walkthrough is Windows-specific. Follow the cross-platform instructions in the [Setup Guide](../setup/) instead.
 
 :::
 
@@ -124,7 +124,7 @@ VS Code will open the project. Because the folder is inside WSL, VS Code should 
 
 ## Step 7 — Continue to the Dev Container
 
-Your code is now cloned into WSL and open in VS Code. From here, follow the [Setup Guide — Setup Steps](setup/#setup-steps) starting at **step 2** to:
+Your code is now cloned into WSL and open in VS Code. From here, follow the [Setup Guide — Setup Steps](../setup/#setup-steps) starting at **step 2** to:
 
 - Pull and build the Dev Container
 - Sign in to Azure
@@ -141,4 +141,4 @@ Do not skip the Dev Container step. All challenge work during the workshop happe
 
 ## What to do next
 
-Once the Dev Container is running and you have completed the [Setup Guide](setup/) checks, head to [Workshop Prep](workshop-prep/) to read the scenario brief and team roles before event day.
+Once the Dev Container is running and you have completed the [Setup Guide](../setup/) checks, head to [Workshop Prep](../workshop-prep/) to read the scenario brief and team roles before event day.

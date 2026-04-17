@@ -61,7 +61,7 @@ Workshop Prep before starting [Challenge 1](../challenges/challenge-1-requiremen
 
 | Need | Where |
 |---|---|
-| Challenge instructions | [Challenges](../challenges/index/) |
+| Challenge instructions | [Challenges](../challenges/) |
 | Agent and prompting help | [Copilot Guide](../guides/copilot-guide/) |
 | Quick commands | [Quick Reference Card](../guides/quick-reference-card/) |
 | Troubleshooting help | [Troubleshooting](../reference/troubleshooting/) |

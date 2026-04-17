@@ -324,7 +324,7 @@ You (prompt)
         └─→ Generates Artifacts (agent-output/{project}/*.md)
 ```
 
-### Workflow Through the Microhack
+### Workflow Through the MicroHack
 
 ```text
 Challenge 1 → 02-Requirements → 01-requirements.md

@@ -9,7 +9,7 @@
 | Repository | Purpose | Who uses it |
 |---|---|---|
 | **This repo** (`microhack-agentic-infraops`) | Workshop docs, facilitator guides, scoring rubric, governance scripts | Facilitators, content maintainers |
-| **[Template repo](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)** (`azure-agentic-infraops-accelerator`) | Starting point for participant work — contains agents, skills, dev container, and Bicep scaffold | Participants ("Use this template" → create your own) |
+| **[Template repo](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)** (`azure-agentic-infraops-accelerator`) | Starting point for participant work — contains agents, skills, dev container, and Bicep + Terraform scaffolds | Participants ("Use this template" → create your own) |
 
 APEX stands for **Agentic Platform Engineering eXperience for Azure**. Teams use GitHub Copilot to move from requirements through Azure platform design, implementation planning, and delivery.
 
@@ -52,4 +52,4 @@ scripts/                # Governance PowerShell scripts
 
 ## License
 
-This project is provided for educational and workshop use. See the repository for license details.
+This project is released under the [MIT License](LICENSE).

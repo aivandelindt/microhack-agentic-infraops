@@ -11,6 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "lint:md": "markdownlint-cli2",
+    "lint:prose": "vale --minAlertLevel=error src/content ../facilitator ../README.md ../AGENTS.md",
     "astro": "astro"
   },
   "dependencies": {

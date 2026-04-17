@@ -1,0 +1,37 @@
+name: Bug report
+description: Report a problem in the docs site, facilitator guide, or governance scripts.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Participants working inside the template repo should file bugs against
+        [azure-agentic-infraops-accelerator](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator) instead.
+  - type: input
+    id: location
+    attributes:
+      label: Where is the problem?
+      description: "URL on the docs site, or path to a file in this repo."
+      placeholder: "https://jonathan-vella.github.io/microhack-agentic-infraops/... or facilitator/scoring-rubric.md"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+      description: Describe the issue. Include screenshots or copy-pasted text where useful.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Browser, facilitator vs. participant, event date, etc.
+    validations:
+      required: false

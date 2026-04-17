@@ -116,7 +116,7 @@ Design and deploy the Azure infrastructure for the **FreshConnect MVP** (Minimum
 | **CFO**        | Cost optimization, ROI           |
 | **Operations** | Reliability, easy maintenance    |
 
-### The Microhack Journey
+### The MicroHack Journey
 
 8 challenges across a 1-day hackathon:
 

@@ -41,4 +41,4 @@ the Nordic Fresh Foods scenario from requirements to deployment planning and fin
 | Team size | 4-5 people |
 | Deliverable | Azure infrastructure plan, implementation approach, and showcase |
 
-Use [Getting Started](../getting-started/) for the actual onboarding flow, setup checklist, and workshop prep.
+Use [Getting Started](../../getting-started/) for the actual onboarding flow, setup checklist, and workshop prep.

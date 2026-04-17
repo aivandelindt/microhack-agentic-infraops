@@ -209,7 +209,7 @@ Complete all steps below before event day. Steps 1 and 2 pull and build the Dev 
 
 :::tip
 
-**New to GitHub or WSL?** Follow the [Beginner Setup (Windows)](beginner-setup/) walkthrough for a step-by-step guide with screenshots. The instructions below are the CLI-based path.
+**New to GitHub or WSL?** Follow the [Beginner Setup (Windows)](../beginner-setup/) walkthrough for a step-by-step guide with screenshots. The instructions below are the CLI-based path.
 
 :::
 
@@ -459,7 +459,7 @@ Cleanup steps:
 
 2. Ask your facilitator to remove governance policies from the team subscription.
   If you are running the workshop as a facilitator or self-guided owner, use the
-  [Governance Scripts](../reference/governance-scripts/) reference in this docs repo.
+  [Governance Scripts](../../reference/governance-scripts/) reference in this docs repo.
 
 3. Verify cleanup is complete:
 

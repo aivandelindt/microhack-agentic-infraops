@@ -1,0 +1,25 @@
+name: Content improvement
+description: Suggest a clarification, new section, or fix in the workshop content.
+labels: [content]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page or file
+      placeholder: "site/src/content/docs/challenges/challenge-3-implementation.mdx"
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggestion
+      description: What should change, and why?
+    validations:
+      required: true
+  - type: textarea
+    id: audience
+    attributes:
+      label: Audience
+      description: Participants, facilitators, both?
+    validations:
+      required: false
